@@ -43,18 +43,29 @@
             align-items: center;
         }
 
-        .logo {
-            font-size: 28px;
-            font-weight: 700;
-            letter-spacing: 1px;
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-img {
+            height: 50px;
+            width: auto;
             animation: fadeIn 1s ease-out;
         }
 
-        .logo span {
+        .logo-text {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .logo-text span {
             color: #ffffff;
         }
 
-        .logo .highlight {
+        .logo-text .highlight {
             background-color: #ffffff;
             color: #1a1a1a;
             padding: 2px 8px;
@@ -232,23 +243,48 @@
 
         .room-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
             margin-top: 40px;
         }
 
         .room-card {
             background-color: #ffffff;
             border-radius: 8px;
-            padding: 25px;
+            overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             transition: all 0.3s ease;
-            border-left: 4px solid #1a1a1a;
+            border: 1px solid #f0f0f0;
         }
 
         .room-card:hover {
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .room-image {
+            height: 180px;
+            width: 100%;
+            background-color: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .room-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .room-card:hover .room-image img {
+            transform: scale(1.1);
+        }
+
+        .room-content {
+            padding: 25px;
         }
 
         .room-card h4 {
@@ -382,6 +418,27 @@
             transform: translateY(-2px);
         }
 
+        .social-links {
+            display: flex;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .social-link {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 8px 15px;
+            border: 1px solid #ffffff;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background-color: #ffffff;
+            color: #1a1a1a;
+            transform: translateY(-2px);
+        }
+
         .copyright {
             margin-top: 20px;
             color: #aaa;
@@ -448,14 +505,22 @@
             .flow-step {
                 min-width: 100%;
             }
+            
+            .room-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
     <header>
         <div class="container header-content">
-            <div class="logo wiggle">
-                <span class="highlight">KACHOO</span> OFFICE
+            <div class="logo-container wiggle">
+                <!-- GANTI LOGO: logo-thekachoo.png -->
+                <img src="logo-thekachoo.png" alt="Kachoo Logo" class="logo-img">
+                <div class="logo-text">
+                    <span class="highlight">KACHOO</span> OFFICE
+                </div>
             </div>
             <nav>
                 <ul>
@@ -475,7 +540,7 @@
     <section class="hero">
         <div class="container">
             <div class="hero-image">
-                <!-- Replace with actual image: kantorkachoo.png -->
+                <!-- GAMBAR KANTOR: kantorkachoo.png -->
                 <img src="kantorkachoo.png" alt="Kachoo Office Building">
             </div>
             <h1 id="hero-title">Kachoo Coordination Hub</h1>
@@ -563,36 +628,84 @@
             
             <div class="room-grid">
                 <div class="room-card wiggle">
-                    <h4 id="room1-title">Main Lobby</h4>
-                    <p id="room1-text">A welcoming space with reception desk and waiting chairs for visitors and creators.</p>
+                    <div class="room-image">
+                        <!-- GAMBAR RUANGAN 1: lobby.png -->
+                        <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Main Lobby" id="room1-img">
+                    </div>
+                    <div class="room-content">
+                        <h4 id="room1-title">Main Lobby</h4>
+                        <p id="room1-text">A welcoming space with reception desk and waiting chairs for visitors and creators.</p>
+                    </div>
                 </div>
                 <div class="room-card wiggle">
-                    <h4 id="room2-title">Public Relations</h4>
-                    <p id="room2-text">The first room where initial contacts and public interactions are managed.</p>
+                    <div class="room-image">
+                        <!-- GAMBAR RUANGAN 2: public-relations.png -->
+                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Public Relations" id="room2-img">
+                    </div>
+                    <div class="room-content">
+                        <h4 id="room2-title">Public Relations</h4>
+                        <p id="room2-text">The first room where initial contacts and public interactions are managed.</p>
+                    </div>
                 </div>
                 <div class="room-card wiggle">
-                    <h4 id="room3-title">Editorial Office</h4>
-                    <p id="room3-text">Coordinates manuscripts and books scheduled for publication on Kafkapages.</p>
+                    <div class="room-image">
+                        <!-- GAMBAR RUANGAN 3: editorial-office.png -->
+                        <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Editorial Office" id="room3-img">
+                    </div>
+                    <div class="room-content">
+                        <h4 id="room3-title">Editorial Office</h4>
+                        <p id="room3-text">Coordinates manuscripts and books scheduled for publication on Kafkapages.</p>
+                    </div>
                 </div>
                 <div class="room-card wiggle">
-                    <h4 id="room4-title">Kazine Division</h4>
-                    <p id="room4-text">Dedicated space for managing Kazine magazine publications and content.</p>
+                    <div class="room-image">
+                        <!-- GAMBAR RUANGAN 4: kazine-division.png -->
+                        <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Kazine Division" id="room4-img">
+                    </div>
+                    <div class="room-content">
+                        <h4 id="room4-title">Kazine Division</h4>
+                        <p id="room4-text">Dedicated space for managing Kazine magazine publications and content.</p>
+                    </div>
                 </div>
                 <div class="room-card wiggle">
-                    <h4 id="room5-title">Kaboom Press Room</h4>
-                    <p id="room5-text">Media and press coordination hub for Kaboom publications and announcements.</p>
+                    <div class="room-image">
+                        <!-- GAMBAR RUANGAN 5: kaboom-press.png -->
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Kaboom Press Room" id="room5-img">
+                    </div>
+                    <div class="room-content">
+                        <h4 id="room5-title">Kaboom Press Room</h4>
+                        <p id="room5-text">Media and press coordination hub for Kaboom publications and announcements.</p>
+                    </div>
                 </div>
                 <div class="room-card wiggle">
-                    <h4 id="room6-title">Dining Area</h4>
-                    <p id="room6-text">Large central space for lunch breaks and coffee breaks for all employees.</p>
+                    <div class="room-image">
+                        <!-- GAMBAR RUANGAN 6: dining-area.png -->
+                        <img src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Dining Area" id="room6-img">
+                    </div>
+                    <div class="room-content">
+                        <h4 id="room6-title">Dining Area</h4>
+                        <p id="room6-text">Large central space for lunch breaks and coffee breaks for all employees.</p>
+                    </div>
                 </div>
                 <div class="room-card wiggle">
-                    <h4 id="room7-title">Restrooms</h4>
-                    <p id="room7-text">Separate facilities for male and female employees and visitors.</p>
+                    <div class="room-image">
+                        <!-- GAMBAR RUANGAN 7: restrooms.png -->
+                        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Restrooms" id="room7-img">
+                    </div>
+                    <div class="room-content">
+                        <h4 id="room7-title">Restrooms</h4>
+                        <p id="room7-text">Separate facilities for male and female employees and visitors.</p>
+                    </div>
                 </div>
                 <div class="room-card wiggle">
-                    <h4 id="room8-title">Back Garden</h4>
-                    <p id="room8-text">A small outdoor area for relaxation and smoking, with open airflow to dissipate smoke.</p>
+                    <div class="room-image">
+                        <!-- GAMBAR RUANGAN 8: back-garden.png -->
+                        <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Back Garden" id="room8-img">
+                    </div>
+                    <div class="room-content">
+                        <h4 id="room8-title">Back Garden</h4>
+                        <p id="room8-text">A small outdoor area for relaxation and smoking, with open airflow to dissipate smoke.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -618,11 +731,15 @@
                     <a href="#facilities">Facilities</a>
                     <a href="#contact">Contact</a>
                 </div>
+                <div class="social-links">
+                    <a href="mailto:ohkachoo@gmail.com" class="social-link">ohkachoo@gmail.com</a>
+                    <a href="https://twitter.com/thekachoo" target="_blank" class="social-link">@thekachoo</a>
+                </div>
                 <div class="office-address" style="background-color: #333; border-left-color: #fff; margin: 20px 0;">
                     <strong id="footer-address-title">Address:</strong> <span id="footer-address">Jenderal Sudirman Avenue, Lots 61–62, South Jakarta 12930, Indonesia</span>
                 </div>
                 <div class="copyright" id="copyright-text">
-                    &copy; 2023 Kachoo Coordination Hub. All manuscripts begin their journey here.
+                    &copy; 2026 Kachoo Coordination Hub. All manuscripts begin their journey here.
                 </div>
             </div>
         </div>
@@ -675,7 +792,7 @@
                 kafkaButton: "Visit Kafka Company Production Office",
                 footerAddressTitle: "Address:",
                 footerAddress: "Jenderal Sudirman Avenue, Lots 61–62, South Jakarta 12930, Indonesia",
-                copyrightText: "© 2023 Kachoo Coordination Hub. All manuscripts begin their journey here."
+                copyrightText: "© 2026 Kachoo Coordination Hub. All manuscripts begin their journey here."
             },
             id: {
                 heroTitle: "Hub Koordinasi Kachoo",
@@ -721,7 +838,7 @@
                 kafkaButton: "Kunjungi Kantor Produksi Kafka Company",
                 footerAddressTitle: "Alamat:",
                 footerAddress: "Jalan Jenderal Sudirman, Lots 61–62, Jakarta Selatan 12930, Indonesia",
-                copyrightText: "© 2023 Hub Koordinasi Kachoo. Semua naskah memulai perjalanannya di sini."
+                copyrightText: "© 2026 Hub Koordinasi Kachoo. Semua naskah memulai perjalanannya di sini."
             }
         };
 
@@ -755,6 +872,26 @@
         // Initialize with English
         switchLanguage('en');
         
+        // Fix untuk memastikan tombol bahasa berfungsi
+        document.addEventListener('DOMContentLoaded', function() {
+            // Pastikan semua event listener bekerja
+            const enBtn = document.getElementById('en-btn');
+            const idBtn = document.getElementById('id-btn');
+            
+            if (enBtn && idBtn) {
+                enBtn.addEventListener('click', function() {
+                    switchLanguage('en');
+                });
+                
+                idBtn.addEventListener('click', function() {
+                    switchLanguage('id');
+                });
+            }
+            
+            // Test: console log untuk debugging
+            console.log("Halaman dimuat. Tombol bahasa siap digunakan.");
+        });
+        
         // Add hover effects to cards
         document.querySelectorAll('.info-card, .room-card, .flow-step').forEach(card => {
             card.addEventListener('mouseenter', function() {
@@ -767,4 +904,4 @@
         });
     </script>
 </body>
-</html>
+                    </html>
