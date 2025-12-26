@@ -105,34 +105,6 @@
             width: 100%;
         }
 
-        .language-switcher {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .lang-btn {
-            background: none;
-            border: 1px solid #ffffff;
-            color: #ffffff;
-            padding: 8px 15px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .lang-btn:hover {
-            background-color: #ffffff;
-            color: #1a1a1a;
-            transform: translateY(-2px);
-        }
-
-        .lang-btn.active {
-            background-color: #ffffff;
-            color: #1a1a1a;
-        }
-
         .hero {
             padding: 60px 0 40px;
             background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%);
@@ -243,7 +215,7 @@
 
         .room-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
             margin-top: 40px;
         }
@@ -263,7 +235,7 @@
         }
 
         .room-image {
-            height: 180px;
+            height: 200px;
             width: 100%;
             background-color: #f5f5f5;
             display: flex;
@@ -509,6 +481,10 @@
             .room-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .section {
+                padding: 50px 0;
+            }
         }
     </style>
 </head>
@@ -516,10 +492,9 @@
     <header>
         <div class="container header-content">
             <div class="logo-container wiggle">
-                <!-- GANTI LOGO: logo-thekachoo.png -->
                 <img src="logo-thekachoo.png" alt="Kachoo Logo" class="logo-img">
                 <div class="logo-text">
-                    <span class="highlight">KACHOO</span> OFFICE
+                    <span class="highlight">KACHOO</span>
                 </div>
             </div>
             <nav>
@@ -530,24 +505,19 @@
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
-            <div class="language-switcher">
-                <button class="lang-btn active" id="en-btn">EN</button>
-                <button class="lang-btn" id="id-btn">ID</button>
-            </div>
         </div>
     </header>
 
     <section class="hero">
         <div class="container">
             <div class="hero-image">
-                <!-- GAMBAR KANTOR: kantorkachoo.png -->
                 <img src="kantorkachoo.png" alt="Kachoo Office Building">
             </div>
-            <h1 id="hero-title">Kachoo Coordination Hub</h1>
-            <p id="hero-text">
-                Welcome to the Kachoo Coordination Office – the entry point for all manuscripts, products, news, and journals before they're published. This is where creativity begins its journey to becoming something tangible.
+            <h1>Kachoo Branch Office</h1>
+            <p>
+                Welcome to the Kachoo Office! The entry point for all manuscripts, products, news, and journals before they're published. This is where creativity begins its journey to becoming something tangible.
             </p>
-            <div class="office-address" id="address-text">
+            <div class="office-address">
                 <strong>Address:</strong> Jenderal Sudirman Avenue, Lots 61–62, South Jakarta 12930, Indonesia
             </div>
         </div>
@@ -555,23 +525,23 @@
 
     <section class="section" id="about">
         <div class="container">
-            <h2 class="section-title" id="about-title">About This Office</h2>
+            <h2 class="section-title">About This Office</h2>
             <div class="section-content">
                 <div class="info-card wiggle">
-                    <h3 id="role-title">Our Role</h3>
-                    <p id="role-text">
+                    <h3>Our Role</h3>
+                    <p>
                         This office serves as the coordination and registration hub for all Kachoo publications. Every manuscript, news piece, and journal that will be published under the Kachoo brand starts its journey here. Once processed, materials are sent to our main production facility.
                     </p>
                 </div>
                 <div class="info-card wiggle">
-                    <h3 id="design-title">Building Design</h3>
-                    <p id="design-text">
+                    <h3>Building Design</h3>
+                    <p>
                         The building features a brown color scheme with bright gray accents. Upon arrival, you'll notice a small front garden and a spacious parking area on the side of the building. The design balances professionalism with creative energy.
                     </p>
                 </div>
                 <div class="info-card wiggle">
-                    <h3 id="specialty-title">Specialized Coordination</h3>
-                    <p id="specialty-text">
+                    <h3>Specialized Coordination</h3>
+                    <p>
                         Unlike our main production office, this location focuses solely on initial review, coordination, and registration. We handle the first steps of the publishing process, ensuring everything is organized before heading to production.
                     </p>
                 </div>
@@ -581,8 +551,8 @@
 
     <section class="process-flow" id="process">
         <div class="container">
-            <h2 class="section-title" id="process-title">How It Works</h2>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto 40px; color: #666;" id="process-intro">
+            <h2 class="section-title">How It Works</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 40px; color: #666;">
                 Every piece of content goes through a streamlined process at our coordination hub before reaching production.
             </p>
             
@@ -590,29 +560,29 @@
                 <div class="flow-step wiggle">
                     <div class="step-number">1</div>
                     <div class="step-content">
-                        <h4 id="step1-title">Submission</h4>
-                        <p id="step1-text">Authors and creators submit their manuscripts, articles, or journals to our office.</p>
+                        <h4>Submission</h4>
+                        <p>Authors and creators submit their manuscripts, articles, or journals to our office.</p>
                     </div>
                 </div>
                 <div class="flow-step wiggle">
                     <div class="step-number">2</div>
                     <div class="step-content">
-                        <h4 id="step2-title">Initial Review</h4>
-                        <p id="step2-text">Our team conducts the first review and categorization of all materials.</p>
+                        <h4>Initial Review</h4>
+                        <p>Our team conducts the first review and categorization of all materials.</p>
                     </div>
                 </div>
                 <div class="flow-step wiggle">
                     <div class="step-number">3</div>
                     <div class="step-content">
-                        <h4 id="step3-title">Coordination</h4>
-                        <p id="step3-text">Materials are assigned to appropriate departments and scheduled for production.</p>
+                        <h4>Coordination</h4>
+                        <p>Materials are assigned to appropriate departments and scheduled for production.</p>
                     </div>
                 </div>
                 <div class="flow-step wiggle">
                     <div class="step-number">4</div>
                     <div class="step-content">
-                        <h4 id="step4-title">Transfer</h4>
-                        <p id="step4-text">Organized materials are sent to our main production facility for publishing.</p>
+                        <h4>Transfer</h4>
+                        <p>Organized materials are sent to our main production facility for publishing.</p>
                     </div>
                 </div>
             </div>
@@ -621,90 +591,73 @@
 
     <section class="section" id="facilities">
         <div class="container">
-            <h2 class="section-title" id="facilities-title">Office Facilities</h2>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto 40px; color: #666;" id="facilities-intro">
+            <h2 class="section-title">Office Facilities</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 40px; color: #666;">
                 Our coordination hub is designed to support every step of the initial publishing process. Here's what you'll find inside:
             </p>
             
             <div class="room-grid">
                 <div class="room-card wiggle">
                     <div class="room-image">
-                        <!-- GAMBAR RUANGAN 1: lobby.png -->
-                        <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Main Lobby" id="room1-img">
+                        <img src="lobby.jpg" alt="Main Lobby">
                     </div>
                     <div class="room-content">
-                        <h4 id="room1-title">Main Lobby</h4>
-                        <p id="room1-text">A welcoming space with reception desk and waiting chairs for visitors and creators.</p>
+                        <h4>Main Lobby</h4>
+                        <p>A welcoming space with reception desk and waiting chairs for visitors and creators.</p>
                     </div>
                 </div>
                 <div class="room-card wiggle">
                     <div class="room-image">
-                        <!-- GAMBAR RUANGAN 2: public-relations.png -->
-                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Public Relations" id="room2-img">
+                        <img src="public-relations.jpg" alt="Public Relations">
                     </div>
                     <div class="room-content">
-                        <h4 id="room2-title">Public Relations</h4>
-                        <p id="room2-text">The first room where initial contacts and public interactions are managed.</p>
+                        <h4>Public Relations</h4>
+                        <p>The first room where initial contacts and public interactions are managed.</p>
                     </div>
                 </div>
                 <div class="room-card wiggle">
                     <div class="room-image">
-                        <!-- GAMBAR RUANGAN 3: editorial-office.png -->
-                        <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Editorial Office" id="room3-img">
+                        <img src="editorial-office.jpg" alt="Editorial Office">
                     </div>
                     <div class="room-content">
-                        <h4 id="room3-title">Editorial Office</h4>
-                        <p id="room3-text">Coordinates manuscripts and books scheduled for publication on Kafkapages.</p>
+                        <h4>Editorial Office</h4>
+                        <p>Coordinates manuscripts and books scheduled for publication on Kafkapages.</p>
                     </div>
                 </div>
                 <div class="room-card wiggle">
                     <div class="room-image">
-                        <!-- GAMBAR RUANGAN 4: kazine-division.png -->
-                        <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Kazine Division" id="room4-img">
+                        <img src="kazine-division.jpg" alt="Kazine Division">
                     </div>
                     <div class="room-content">
-                        <h4 id="room4-title">Kazine Division</h4>
-                        <p id="room4-text">Dedicated space for managing Kazine magazine publications and content.</p>
+                        <h4>Kazine Division</h4>
+                        <p>Dedicated space for managing Kazine magazine publications and content.</p>
                     </div>
                 </div>
                 <div class="room-card wiggle">
                     <div class="room-image">
-                        <!-- GAMBAR RUANGAN 5: kaboom-press.png -->
-                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Kaboom Press Room" id="room5-img">
+                        <img src="kaboom-press.jpg" alt="Kaboom Press Room">
                     </div>
                     <div class="room-content">
-                        <h4 id="room5-title">Kaboom Press Room</h4>
-                        <p id="room5-text">Media and press coordination hub for Kaboom publications and announcements.</p>
+                        <h4>Kaboom Press Room</h4>
+                        <p>Media and press coordination hub for Kaboom publications and announcements.</p>
                     </div>
                 </div>
                 <div class="room-card wiggle">
                     <div class="room-image">
-                        <!-- GAMBAR RUANGAN 6: dining-area.png -->
-                        <img src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Dining Area" id="room6-img">
+                        <img src="dining-area.jpg" alt="Dining Area">
                     </div>
                     <div class="room-content">
-                        <h4 id="room6-title">Dining Area</h4>
-                        <p id="room6-text">Large central space for lunch breaks and coffee breaks for all employees.</p>
+                        <h4>Dining Area</h4>
+                        <p>Large central space for lunch breaks and coffee breaks for all employees.</p>
                     </div>
                 </div>
                 <div class="room-card wiggle">
                     <div class="room-image">
-                        <!-- GAMBAR RUANGAN 7: restrooms.png -->
-                        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Restrooms" id="room7-img">
+                        <img src="restrooms.jpg" alt="Restrooms">
                     </div>
                     <div class="room-content">
-                        <h4 id="room7-title">Restrooms</h4>
-                        <p id="room7-text">Separate facilities for male and female employees and visitors.</p>
-                    </div>
-                </div>
-                <div class="room-card wiggle">
-                    <div class="room-image">
-                        <!-- GAMBAR RUANGAN 8: back-garden.png -->
-                        <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Back Garden" id="room8-img">
-                    </div>
-                    <div class="room-content">
-                        <h4 id="room8-title">Back Garden</h4>
-                        <p id="room8-text">A small outdoor area for relaxation and smoking, with open airflow to dissipate smoke.</p>
+                        <h4>Restrooms</h4>
+                        <p>Separate facilities for male and female employees and visitors.</p>
                     </div>
                 </div>
             </div>
@@ -713,18 +666,18 @@
 
     <section class="section" style="padding: 60px 0; text-align: center;">
         <div class="container">
-            <h2 class="section-title" id="production-title">Ready for Production?</h2>
-            <p id="production-text" style="max-width: 700px; margin: 0 auto 30px; color: #666;">
+            <h2 class="section-title">Ready for Production?</h2>
+            <p style="max-width: 700px; margin: 0 auto 30px; color: #666;">
                 Once materials are coordinated here, they move to our main production facility for the final publishing process.
             </p>
-            <a href="#" class="kafka-button wiggle" id="kafka-button">Visit Kafka Company Production Office</a>
+            <a href="#" class="kafka-button wiggle">Visit Kafka Company Production Office</a>
         </div>
     </section>
 
     <footer id="contact">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-logo">KACHOO COORDINATION OFFICE</div>
+                <div class="footer-logo">KACHOO OFFICE</div>
                 <div class="footer-links">
                     <a href="#about">About</a>
                     <a href="#process">Process</a>
@@ -736,9 +689,9 @@
                     <a href="https://twitter.com/thekachoo" target="_blank" class="social-link">@thekachoo</a>
                 </div>
                 <div class="office-address" style="background-color: #333; border-left-color: #fff; margin: 20px 0;">
-                    <strong id="footer-address-title">Address:</strong> <span id="footer-address">Jenderal Sudirman Avenue, Lots 61–62, South Jakarta 12930, Indonesia</span>
+                    <strong>Address:</strong> Jenderal Sudirman Avenue, Lots 61–62, South Jakarta 12930, Indonesia
                 </div>
-                <div class="copyright" id="copyright-text">
+                <div class="copyright">
                     &copy; 2026 Kachoo Coordination Hub. All manuscripts begin their journey here.
                 </div>
             </div>
@@ -746,162 +699,34 @@
     </footer>
 
     <script>
-        // Language content objects
-        const content = {
-            en: {
-                heroTitle: "Kachoo Coordination Hub",
-                heroText: "Welcome to the Kachoo Coordination Office – the entry point for all manuscripts, products, news, and journals before they're published. This is where creativity begins its journey to becoming something tangible.",
-                addressText: "Address: Jenderal Sudirman Avenue, Lots 61–62, South Jakarta 12930, Indonesia",
-                aboutTitle: "About This Office",
-                roleTitle: "Our Role",
-                roleText: "This office serves as the coordination and registration hub for all Kachoo publications. Every manuscript, news piece, and journal that will be published under the Kachoo brand starts its journey here. Once processed, materials are sent to our main production facility.",
-                designTitle: "Building Design",
-                designText: "The building features a brown color scheme with bright gray accents. Upon arrival, you'll notice a small front garden and a spacious parking area on the side of the building. The design balances professionalism with creative energy.",
-                specialtyTitle: "Specialized Coordination",
-                specialtyText: "Unlike our main production office, this location focuses solely on initial review, coordination, and registration. We handle the first steps of the publishing process, ensuring everything is organized before heading to production.",
-                processTitle: "How It Works",
-                processIntro: "Every piece of content goes through a streamlined process at our coordination hub before reaching production.",
-                step1Title: "Submission",
-                step1Text: "Authors and creators submit their manuscripts, articles, or journals to our office.",
-                step2Title: "Initial Review",
-                step2Text: "Our team conducts the first review and categorization of all materials.",
-                step3Title: "Coordination",
-                step3Text: "Materials are assigned to appropriate departments and scheduled for production.",
-                step4Title: "Transfer",
-                step4Text: "Organized materials are sent to our main production facility for publishing.",
-                facilitiesTitle: "Office Facilities",
-                facilitiesIntro: "Our coordination hub is designed to support every step of the initial publishing process. Here's what you'll find inside:",
-                room1Title: "Main Lobby",
-                room1Text: "A welcoming space with reception desk and waiting chairs for visitors and creators.",
-                room2Title: "Public Relations",
-                room2Text: "The first room where initial contacts and public interactions are managed.",
-                room3Title: "Editorial Office",
-                room3Text: "Coordinates manuscripts and books scheduled for publication on Kafkapages.",
-                room4Title: "Kazine Division",
-                room4Text: "Dedicated space for managing Kazine magazine publications and content.",
-                room5Title: "Kaboom Press Room",
-                room5Text: "Media and press coordination hub for Kaboom publications and announcements.",
-                room6Title: "Dining Area",
-                room6Text: "Large central space for lunch breaks and coffee breaks for all employees.",
-                room7Title: "Restrooms",
-                room7Text: "Separate facilities for male and female employees and visitors.",
-                room8Title: "Back Garden",
-                room8Text: "A small outdoor area for relaxation and smoking, with open airflow to dissipate smoke.",
-                productionTitle: "Ready for Production?",
-                productionText: "Once materials are coordinated here, they move to our main production facility for the final publishing process.",
-                kafkaButton: "Visit Kafka Company Production Office",
-                footerAddressTitle: "Address:",
-                footerAddress: "Jenderal Sudirman Avenue, Lots 61–62, South Jakarta 12930, Indonesia",
-                copyrightText: "© 2026 Kachoo Coordination Hub. All manuscripts begin their journey here."
-            },
-            id: {
-                heroTitle: "Hub Koordinasi Kachoo",
-                heroText: "Selamat datang di Kantor Koordinasi Kachoo – pintu masuk untuk semua naskah, produk, berita, dan jurnal sebelum diterbitkan. Di sinilah kreativitas memulai perjalanannya menjadi sesuatu yang nyata.",
-                addressText: "Alamat: Jalan Jenderal Sudirman, Lots 61–62, Jakarta Selatan 12930, Indonesia",
-                aboutTitle: "Tentang Kantor Ini",
-                roleTitle: "Peran Kami",
-                roleText: "Kantor ini berfungsi sebagai hub koordinasi dan pendaftaran untuk semua publikasi Kachoo. Setiap naskah, berita, dan jurnal yang akan diterbitkan di bawah merek Kachoo memulai perjalanannya di sini. Setelah diproses, materi dikirim ke fasilitas produksi utama kami.",
-                designTitle: "Desain Bangunan",
-                designText: "Bangunan ini memiliki skema warna coklat dengan aksen abu-abu cerah. Saat tiba, Anda akan melihat taman depan kecil dan area parkir luas di samping bangunan. Desainnya menyeimbangkan profesionalisme dengan energi kreatif.",
-                specialtyTitle: "Koordinasi Khusus",
-                specialtyText: "Berbeda dengan kantor produksi utama kami, lokasi ini hanya berfokus pada tinjauan awal, koordinasi, dan pendaftaran. Kami menangani langkah-langkah pertama proses penerbitan, memastikan semuanya terorganisir sebelum menuju produksi.",
-                processTitle: "Cara Kerjanya",
-                processIntro: "Setiap konten melewati proses yang terstruktur di hub koordinasi kami sebelum mencapai produksi.",
-                step1Title: "Pengajuan",
-                step1Text: "Penulis dan kreator mengirimkan naskah, artikel, atau jurnal mereka ke kantor kami.",
-                step2Title: "Tinjauan Awal",
-                step2Text: "Tim kami melakukan tinjauan pertama dan kategorisasi semua materi.",
-                step3Title: "Koordinasi",
-                step3Text: "Materi ditugaskan ke departemen yang sesuai dan dijadwalkan untuk produksi.",
-                step4Title: "Transfer",
-                step4Text: "Materi yang terorganisir dikirim ke fasilitas produksi utama kami untuk diterbitkan.",
-                facilitiesTitle: "Fasilitas Kantor",
-                facilitiesIntro: "Hub koordinasi kami dirancang untuk mendukung setiap langkah awal proses penerbitan. Inilah yang akan Anda temukan di dalam:",
-                room1Title: "Lobi Utama",
-                room1Text: "Ruang penerimaan yang nyaman dengan meja resepsionis dan kursi tunggu untuk pengunjung dan kreator.",
-                room2Title: "Hubungan Masyarakat",
-                room2Text: "Ruang pertama tempat kontak awal dan interaksi publik dikelola.",
-                room3Title: "Kantor Editorial",
-                room3Text: "Mengoordinasikan naskah dan buku yang dijadwalkan untuk publikasi di Kafkapages.",
-                room4Title: "Divisi Kazine",
-                room4Text: "Ruang khusus untuk mengelola publikasi dan konten majalah Kazine.",
-                room5Title: "Ruang Pers Kaboom",
-                room5Text: "Hub media dan pers untuk publikasi dan pengumuman Kaboom.",
-                room6Title: "Area Makan",
-                room6Text: "Ruang tengah besar untuk istirahat makan siang dan coffee break semua karyawan.",
-                room7Title: "Toilet",
-                room7Text: "Fasilitas terpisah untuk karyawan dan pengunjung laki-laki dan perempuan.",
-                room8Title: "Taman Belakang",
-                room8Text: "Area luar ruangan kecil untuk bersantai dan merokok, dengan aliran udara terbuka untuk menghilangkan asap.",
-                productionTitle: "Siap untuk Produksi?",
-                productionText: "Setelah materi dikoordinasikan di sini, mereka pindah ke fasilitas produksi utama kami untuk proses penerbitan akhir.",
-                kafkaButton: "Kunjungi Kantor Produksi Kafka Company",
-                footerAddressTitle: "Alamat:",
-                footerAddress: "Jalan Jenderal Sudirman, Lots 61–62, Jakarta Selatan 12930, Indonesia",
-                copyrightText: "© 2026 Hub Koordinasi Kachoo. Semua naskah memulai perjalanannya di sini."
-            }
-        };
-
-        // Language switching functionality
-        document.getElementById('en-btn').addEventListener('click', () => switchLanguage('en'));
-        document.getElementById('id-btn').addEventListener('click', () => switchLanguage('id'));
-
-        function switchLanguage(lang) {
-            // Update button states
-            document.getElementById('en-btn').classList.toggle('active', lang === 'en');
-            document.getElementById('id-btn').classList.toggle('active', lang === 'id');
-            
-            // Update all text elements
-            for (const key in content[lang]) {
-                const element = document.getElementById(key);
-                if (element) {
-                    element.textContent = content[lang][key];
-                }
-            }
-            
-            // Add animation effect to cards
-            const cards = document.querySelectorAll('.info-card, .room-card, .flow-step');
-            cards.forEach(card => {
-                card.style.transform = 'translateY(0) scale(1.05)';
-                setTimeout(() => {
-                    card.style.transform = 'translateY(0) scale(1)';
-                }, 300);
-            });
-        }
-
-        // Initialize with English
-        switchLanguage('en');
-        
-        // Fix untuk memastikan tombol bahasa berfungsi
-        document.addEventListener('DOMContentLoaded', function() {
-            // Pastikan semua event listener bekerja
-            const enBtn = document.getElementById('en-btn');
-            const idBtn = document.getElementById('id-btn');
-            
-            if (enBtn && idBtn) {
-                enBtn.addEventListener('click', function() {
-                    switchLanguage('en');
-                });
-                
-                idBtn.addEventListener('click', function() {
-                    switchLanguage('id');
-                });
-            }
-            
-            // Test: console log untuk debugging
-            console.log("Halaman dimuat. Tombol bahasa siap digunakan.");
-        });
-        
         // Add hover effects to cards
         document.querySelectorAll('.info-card, .room-card, .flow-step').forEach(card => {
             card.addEventListener('mouseenter', function() {
-                this.style.transform = this.style.transform.replace('scale(1)', 'scale(1.02)');
+                this.style.transform = 'translateY(-10px) scale(1.02)';
             });
             
             card.addEventListener('mouseleave', function() {
-                this.style.transform = this.style.transform.replace('scale(1.02)', 'scale(1)');
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
     </script>
 </body>
-                    </html>
+                </html>
