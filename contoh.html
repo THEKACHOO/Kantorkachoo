@@ -179,6 +179,9 @@
             color: var(--primary-black);
             font-weight: 600;
             transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
 
         .mobile-menu-link:hover {
@@ -319,15 +322,16 @@
             box-shadow: var(--hover-shadow);
         }
 
-        .platform-icon {
-            font-size: 64px;
+        .platform-logo {
+            height: 80px;
+            width: auto;
             margin-bottom: 24px;
-            display: inline-block;
+            object-fit: contain;
             transition: var(--transition);
         }
 
-        .platform-button:hover .platform-icon {
-            transform: rotate(10deg) scale(1.1);
+        .platform-button:hover .platform-logo {
+            transform: scale(1.1);
         }
 
         .platform-title {
@@ -436,15 +440,37 @@
             line-height: 1.7;
         }
 
-        .step-highlight {
+        .step-link {
             display: inline-block;
-            padding: 4px 12px;
+            padding: 8px 16px;
             background: var(--accent-gray);
             border-radius: 20px;
             font-size: 14px;
             font-weight: 600;
             margin-top: 16px;
             color: var(--primary-black);
+            text-decoration: none;
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .step-link:hover {
+            background: var(--primary-black);
+            color: var(--primary-white);
+            transform: translateY(-2px);
+        }
+
+        .twitter-link {
+            color: #1DA1F2;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border-bottom: 1px dashed #1DA1F2;
+        }
+
+        .twitter-link:hover {
+            color: #0c85d0;
+            border-bottom-color: #0c85d0;
         }
 
         /* FAQ Form Section */
@@ -556,12 +582,41 @@
             align-items: center;
             justify-content: center;
             gap: 12px;
+            margin-bottom: 20px;
         }
 
         .submit-button:hover {
             background: #333333;
             transform: translateY(-2px);
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+        }
+
+        .qna-link {
+            display: block;
+            width: 100%;
+            padding: 20px;
+            background: var(--accent-gray);
+            color: var(--primary-black);
+            border: 2px solid var(--accent-gray);
+            border-radius: var(--border-radius);
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .qna-link:hover {
+            background: transparent;
+            border-color: var(--primary-black);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
         }
 
         /* Message States */
@@ -707,6 +762,10 @@
             .footer-content {
                 gap: 32px;
             }
+
+            .platform-logo {
+                height: 60px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -725,6 +784,10 @@
 
             .footer-content {
                 grid-template-columns: 1fr;
+            }
+
+            .platform-logo {
+                height: 50px;
             }
         }
 
@@ -785,31 +848,31 @@
             </li>
             <li class="mobile-menu-item">
                 <a href="https://thekachoo.github.io/Home/kafkapages.html" class="mobile-menu-link" target="_blank" onclick="closeMobileMenu()">
-                    <i class="fas fa-file-alt" style="margin-right: 12px;"></i>
+                    <i class="fas fa-book" style="margin-right: 12px;"></i>
                     Kafkapages
                 </a>
             </li>
             <li class="mobile-menu-item">
                 <a href="https://thekachoo.github.io/Home/kazine.html" class="mobile-menu-link" target="_blank" onclick="closeMobileMenu()">
-                    <i class="fas fa-book" style="margin-right: 12px;"></i>
+                    <i class="fas fa-tshirt" style="margin-right: 12px;"></i>
                     Kazine Collection
                 </a>
             </li>
             <li class="mobile-menu-item">
                 <a href="https://thekachoo.github.io/Home/kaboom.html" class="mobile-menu-link" target="_blank" onclick="closeMobileMenu()">
-                    <i class="fas fa-bolt" style="margin-right: 12px;"></i>
+                    <i class="fas fa-camera" style="margin-right: 12px;"></i>
                     Kaboom
                 </a>
             </li>
             <li class="mobile-menu-item">
                 <a href="https://thekachoo.github.io/Home/kazinevol1.html" class="mobile-menu-link" target="_blank" onclick="closeMobileMenu()">
-                    <i class="fas fa-star" style="margin-right: 12px;"></i>
-                    KAZINE VOLUME 1
+                    <i class="fas fa-newspaper" style="margin-right: 12px;"></i>
+                    Kazine Vol 1
                 </a>
             </li>
             <li class="mobile-menu-item">
                 <a href="#projects" class="mobile-menu-link" onclick="closeMobileMenu()">
-                    <i class="fas fa-tasks" style="margin-right: 12px;"></i>
+                    <i class="fas fa-calendar-alt" style="margin-right: 12px;"></i>
                     Project Management
                 </a>
             </li>
@@ -825,7 +888,7 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container hero-content">
-            <div class="hero-tag">THE NEXT BIG THING IN DIGITAL MEDIA</div>
+            <div class="hero-tag">Welcome to Kachoo Official Website</div>
             <h1>WE TURN IDEAS INTO ATTENTION</h1>
             <p class="hero-subtitle">
                 We are a digital-first media and news publication built to shape conversations in a fast-moving world.
@@ -841,21 +904,21 @@
             
             <div class="platform-grid">
                 <a href="https://thekachoo.github.io/Home/kafkapages.html" class="platform-button" target="_blank">
-                    <div class="platform-icon">📄</div>
+                    <img src="kafkapages-logo.png" alt="Kafkapages Logo" class="platform-logo">
                     <h3 class="platform-title">Kafkapages</h3>
                     <p class="platform-description">Advanced document platform with AI-powered editing and collaboration tools for modern teams.</p>
                     <span class="platform-cta">CHECK THIS OUT <i class="fas fa-arrow-right"></i></span>
                 </a>
                 
                 <a href="https://thekachoo.github.io/Home/kazine.html" class="platform-button" target="_blank">
-                    <div class="platform-icon">👗</div>
+                    <img src="kazine-logo.png" alt="Kazine Logo" class="platform-logo">
                     <h3 class="platform-title">Kazine</h3>
                     <p class="platform-description">Digital fashion & lifestyle magazine pushing boundaries in creative publishing.</p>
                     <span class="platform-cta">EXPLORE FASHION <i class="fas fa-arrow-right"></i></span>
                 </a>
                 
                 <a href="https://thekachoo.github.io/Home/kaboom.html" class="platform-button" target="_blank">
-                    <div class="platform-icon">💥</div>
+                    <img src="kaboom-logo.png" alt="Kaboom Logo" class="platform-logo">
                     <h3 class="platform-title">KABOOM</h3>
                     <p class="platform-description">Real-time news platform delivering curated content and breaking stories.</p>
                     <span class="platform-cta">READ MORE <i class="fas fa-arrow-right"></i></span>
@@ -875,21 +938,25 @@
                     <div class="step-number">1</div>
                     <h3 class="step-title">Prepare Your Proposal</h3>
                     <p class="step-description">Prepare your proposal or half-finished manuscript before submitting to Kachoo. Publication proposal guidelines are available in the main menu under <strong>Guidelines</strong>.</p>
-                    <div class="step-highlight">Check Guidelines First</div>
+                    <a href="#guidelines" class="step-link">Check Guidelines Here</a>
                 </div>
                 
                 <div class="publish-step">
                     <div class="step-number">2</div>
                     <h3 class="step-title">Submit Your Work</h3>
-                    <p class="step-description">Send your proposal via email or direct message to <strong>@HAIKACHOO</strong> on X app. Make sure your submission follows our guidelines for faster processing.</p>
-                    <div class="step-highlight">Email or DM @HAIKACHOO</div>
+                    <p class="step-description">Send your proposal via email or direct message to <a href="https://twitter.com/HaiKachoo" target="_blank" class="twitter-link">@HAIKACHOO</a> on X app. Make sure your submission follows our guidelines for faster processing.</p>
+                    <div style="padding: 8px 16px; background: var(--accent-gray); border-radius: 20px; font-size: 14px; font-weight: 600; margin-top: 16px; color: var(--primary-black);">
+                        Email or DM <a href="https://twitter.com/HaiKachoo" target="_blank" class="twitter-link">@HAIKACHOO</a>
+                    </div>
                 </div>
                 
                 <div class="publish-step">
                     <div class="step-number">3</div>
                     <h3 class="step-title">Get Response</h3>
                     <p class="step-description">We will respond to your submission within maximum <strong>2×24 hours</strong>. Our team will review your proposal and provide feedback or next steps.</p>
-                    <div class="step-highlight">Max 48 Hours Response</div>
+                    <div style="padding: 8px 16px; background: var(--accent-gray); border-radius: 20px; font-size: 14px; font-weight: 600; margin-top: 16px; color: var(--primary-black);">
+                        Max 48 Hours Response
+                    </div>
                 </div>
             </div>
         </div>
@@ -924,6 +991,10 @@
                         <i class="fas fa-paper-plane"></i> Submit Question & Rating
                     </button>
                     
+                    <a href="#qna" class="qna-link">
+                        <i class="fas fa-question-circle"></i> Check Your Questions & Answers Here
+                    </a>
+                    
                     <div id="formMessage" class="form-message"></div>
                 </form>
             </div>
@@ -952,17 +1023,17 @@
                 <div class="footer-section">
                     <h3>Platforms</h3>
                     <ul class="footer-links">
-                        <li><i class="fab fa-twitter" style="color: rgba(255,255,255,0.7);"></i>
+                        <li><i class="fas fa-book" style="color: rgba(255,255,255,0.7);"></i>
                             <a href="https://thekachoo.github.io/Home/kafkapages.html" target="_blank">Kafkapages</a>
                         </li>
-                        <li><i class="fab fa-twitter" style="color: rgba(255,255,255,0.7);"></i>
+                        <li><i class="fas fa-tshirt" style="color: rgba(255,255,255,0.7);"></i>
                             <a href="https://thekachoo.github.io/Home/kazine.html" target="_blank">Kazine Collection</a>
                         </li>
-                        <li><i class="fab fa-twitter" style="color: rgba(255,255,255,0.7);"></i>
+                        <li><i class="fas fa-camera" style="color: rgba(255,255,255,0.7);"></i>
                             <a href="https://thekachoo.github.io/Home/kaboom.html" target="_blank">Kaboom</a>
                         </li>
-                        <li><i class="fab fa-twitter" style="color: rgba(255,255,255,0.7);"></i>
-                            <a href="https://thekachoo.github.io/Home/kazinevol1.html" target="_blank">KAZINE VOLUME 1</a>
+                        <li><i class="fas fa-newspaper" style="color: rgba(255,255,255,0.7);"></i>
+                            <a href="https://thekachoo.github.io/Home/kazinevol1.html" target="_blank">Kazine Vol 1</a>
                         </li>
                     </ul>
                 </div>
@@ -997,7 +1068,7 @@
             </div>
             
             <div class="copyright">
-                &copy; 2026 KACHOO Digital Media Hub. All rights reserved.
+                &copy; 2026 KACHOO. All rights reserved.
             </div>
         </div>
     </footer>
