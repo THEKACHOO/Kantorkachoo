@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Kachoo</title>
+    <title>Project Management Dashboard</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
@@ -176,8 +176,6 @@
             border: 1px solid var(--gray-200);
             animation: slideInRight 1s ease-out;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            max-height: 620px;
-            overflow-y: auto;
         }
 
         .calendar-container:hover {
@@ -190,11 +188,6 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 25px;
-            position: sticky;
-            top: 0;
-            background-color: var(--pure-white);
-            z-index: 10;
-            padding: 10px 0;
         }
 
         .calendar-header h2 {
@@ -224,19 +217,6 @@
             background-color: var(--gray-200);
         }
 
-        .calendar-month {
-            margin-bottom: 35px;
-        }
-
-        .calendar-month h3 {
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 15px;
-            color: var(--gray-800);
-            padding-bottom: 8px;
-            border-bottom: 1px solid var(--gray-200);
-        }
-
         .calendar {
             width: 100%;
         }
@@ -256,16 +236,15 @@
         }
 
         .calendar-days div {
-            height: 45px;
+            height: 50px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 500;
-            border-radius: 8px;
+            border-radius: 10px;
             transition: all 0.2s ease;
             position: relative;
             cursor: pointer;
-            font-size: 15px;
         }
 
         .calendar-days div:hover {
@@ -282,6 +261,8 @@
             position: relative;
             color: var(--gray-800);
             font-weight: 600;
+            background-color: var(--gray-100);
+            border: 1px solid var(--gray-300);
         }
 
         .event-day::after {
@@ -313,10 +294,6 @@
             border-radius: 12px;
             border-left: 4px solid var(--pure-black);
             animation: fadeIn 0.8s ease-out;
-            position: sticky;
-            bottom: 0;
-            background-color: var(--pure-white);
-            border-top: 1px solid var(--gray-200);
         }
 
         .event-details h3 {
@@ -486,10 +463,6 @@
                 grid-template-columns: 1fr;
                 gap: 25px;
             }
-            
-            .calendar-container {
-                max-height: 500px;
-            }
         }
 
         @media (max-width: 768px) {
@@ -557,17 +530,28 @@
         <!-- Calendar Section -->
         <section class="calendar-container">
             <div class="calendar-header">
-                <h2>2026 Calendar</h2>
+                <h2 id="currentMonthYear">February 2026</h2>
                 <div class="calendar-nav">
-                    <button id="scrollTopBtn"><i class="fas fa-arrow-up"></i></button>
-                    <button id="scrollBottomBtn"><i class="fas fa-arrow-down"></i></button>
+                    <button id="prevMonth"><i class="fas fa-chevron-left"></i></button>
+                    <button id="nextMonth"><i class="fas fa-chevron-right"></i></button>
                 </div>
             </div>
-            <div id="yearCalendar">
-                <!-- Calendar months will be generated with JavaScript -->
+            <div class="calendar">
+                <div class="calendar-weekdays">
+                    <div>Sun</div>
+                    <div>Mon</div>
+                    <div>Tue</div>
+                    <div>Wed</div>
+                    <div>Thu</div>
+                    <div>Fri</div>
+                    <div>Sat</div>
+                </div>
+                <div class="calendar-days" id="calendarDays">
+                    <!-- Calendar days will be generated with JavaScript -->
+                </div>
             </div>
             <div class="event-details">
-                <h3><i class="far fa-calendar-check"></i> Upcoming Event: January 13, 2026</h3>
+                <h3><i class="far fa-calendar-check"></i> Upcoming Event: February 14, 2026</h3>
                 <p><strong>Kazine Vol 1 Issue 2 (Coming Soon)</strong> - Publication release for the second issue of Kazine magazine.</p>
             </div>
         </section>
@@ -605,9 +589,9 @@
         // Chart Configuration
         const ctx = document.getElementById('progressChart').getContext('2d');
         
-        // Generate chart data - line only until January 2026
+        // Generate chart data - line only until January 2026 with 80%
         const months = ['Nov 2025', 'Dec 2025', 'Jan 2026', 'Feb 2026', 'Mar 2026'];
-        const progressData = [45, 62, 78, null, null]; // Data for Nov, Dec, Jan only
+        const progressData = [45, 62, 80, null, null]; // Data for Nov, Dec, Jan (80%) only
         
         const progressChart = new Chart(ctx, {
             type: 'line',
@@ -701,7 +685,7 @@
         const animateChart = () => {
             if (progress < 100) {
                 progress += 1;
-                progressChart.data.datasets[0].data[2] = Math.min(78, progress);
+                progressChart.data.datasets[0].data[2] = Math.min(80, progress);
                 progressChart.update();
                 setTimeout(animateChart, 20);
             }
@@ -710,93 +694,76 @@
         // Start animation after a delay
         setTimeout(animateChart, 1000);
         
-        // Generate full year calendar 2026
-        const yearCalendar = document.getElementById('yearCalendar');
+        // Calendar Generation - Single Month with Navigation
+        const calendarDays = document.getElementById('calendarDays');
+        const currentMonthYear = document.getElementById('currentMonthYear');
+        let currentMonth = 1; // February (0 = January, 1 = February, etc.)
+        let currentYear = 2026;
+        
         const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 
                            'July', 'August', 'September', 'October', 'November', 'December'];
         
-        function generateYearCalendar(year) {
-            yearCalendar.innerHTML = '';
+        function generateCalendar(month, year) {
+            calendarDays.innerHTML = '';
+            currentMonthYear.textContent = `${monthNames[month]} ${year}`;
             
-            for (let month = 0; month < 12; month++) {
-                const monthContainer = document.createElement('div');
-                monthContainer.className = 'calendar-month';
+            // Get first day of month
+            const firstDay = new Date(year, month, 1);
+            // Get last day of month
+            const lastDay = new Date(year, month + 1, 0);
+            // Get number of days in month
+            const daysInMonth = lastDay.getDate();
+            // Get day of week for first day (0 = Sunday, 1 = Monday, etc.)
+            const startingDay = firstDay.getDay();
+            
+            // Add empty cells for days before first day of month
+            for (let i = 0; i < startingDay; i++) {
+                const emptyDay = document.createElement('div');
+                emptyDay.classList.add('empty-day');
+                calendarDays.appendChild(emptyDay);
+            }
+            
+            // Add cells for each day of the month
+            for (let day = 1; day <= daysInMonth; day++) {
+                const dayElement = document.createElement('div');
+                dayElement.textContent = day;
                 
-                const monthTitle = document.createElement('h3');
-                monthTitle.textContent = `${monthNames[month]} ${year}`;
-                monthContainer.appendChild(monthTitle);
-                
-                const calendar = document.createElement('div');
-                calendar.className = 'calendar';
-                
-                // Weekdays header
-                const weekdays = document.createElement('div');
-                weekdays.className = 'calendar-weekdays';
-                const weekdayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-                
-                weekdayNames.forEach(day => {
-                    const dayElement = document.createElement('div');
-                    dayElement.textContent = day;
-                    weekdays.appendChild(dayElement);
-                });
-                
-                calendar.appendChild(weekdays);
-                
-                // Days grid
-                const daysGrid = document.createElement('div');
-                daysGrid.className = 'calendar-days';
-                
-                // Get first day of month
-                const firstDay = new Date(year, month, 1);
-                // Get last day of month
-                const lastDay = new Date(year, month + 1, 0);
-                // Get number of days in month
-                const daysInMonth = lastDay.getDate();
-                // Get day of week for first day (0 = Sunday, 1 = Monday, etc.)
-                const startingDay = firstDay.getDay();
-                
-                // Add empty cells for days before first day of month
-                for (let i = 0; i < startingDay; i++) {
-                    const emptyDay = document.createElement('div');
-                    emptyDay.classList.add('empty-day');
-                    daysGrid.appendChild(emptyDay);
+                // Highlight current day
+                const today = new Date();
+                if (year === today.getFullYear() && month === today.getMonth() && day === today.getDate()) {
+                    dayElement.classList.add('current-day');
                 }
                 
-                // Add cells for each day of the month
-                for (let day = 1; day <= daysInMonth; day++) {
-                    const dayElement = document.createElement('div');
-                    dayElement.textContent = day;
-                    
-                    // Highlight current day if it's today
-                    const today = new Date();
-                    if (year === today.getFullYear() && month === today.getMonth() && day === today.getDate()) {
-                        dayElement.classList.add('current-day');
-                    }
-                    
-                    // Mark event days - January 13
-                    if (month === 0 && day === 13) { // January is month 0
-                        dayElement.classList.add('event-day');
-                        dayElement.setAttribute('data-event', 'Kazine Vol 1 Issue 2 (Coming Soon)');
-                    }
-                    
-                    daysGrid.appendChild(dayElement);
+                // Mark event days - February 14
+                if (month === 1 && day === 14 && year === 2026) { // February is month 1
+                    dayElement.classList.add('event-day');
+                    dayElement.setAttribute('data-event', 'Kazine Vol 1 Issue 2 (Coming Soon)');
                 }
                 
-                calendar.appendChild(daysGrid);
-                monthContainer.appendChild(calendar);
-                yearCalendar.appendChild(monthContainer);
+                calendarDays.appendChild(dayElement);
             }
         }
         
-        generateYearCalendar(2026);
+        // Initialize calendar for February 2026
+        generateCalendar(currentMonth, currentYear);
         
-        // Calendar navigation buttons
-        document.getElementById('scrollTopBtn').addEventListener('click', function() {
-            yearCalendar.scrollTo({ top: 0, behavior: 'smooth' });
+        // Calendar navigation
+        document.getElementById('prevMonth').addEventListener('click', function() {
+            currentMonth--;
+            if (currentMonth < 0) {
+                currentMonth = 11;
+                currentYear--;
+            }
+            generateCalendar(currentMonth, currentYear);
         });
         
-        document.getElementById('scrollBottomBtn').addEventListener('click', function() {
-            yearCalendar.scrollTo({ top: yearCalendar.scrollHeight, behavior: 'smooth' });
+        document.getElementById('nextMonth').addEventListener('click', function() {
+            currentMonth++;
+            if (currentMonth > 11) {
+                currentMonth = 0;
+                currentYear++;
+            }
+            generateCalendar(currentMonth, currentYear);
         });
         
         // Updated Project Data (sorted by progress descending)
