@@ -97,6 +97,50 @@
             width: 100%;
         }
 
+        /* Desktop Navigation Menu */
+        .desktop-nav {
+            display: flex;
+            gap: 4px;
+            background: var(--accent-gray);
+            padding: 4px;
+            border-radius: var(--border-radius);
+        }
+
+        @media (max-width: 768px) {
+            .desktop-nav {
+                display: none;
+            }
+        }
+
+        .nav-button {
+            padding: 12px 24px;
+            background: transparent;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--text-gray);
+            cursor: pointer;
+            transition: var(--transition);
+            white-space: nowrap;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .nav-button:hover {
+            color: var(--primary-black);
+            background: rgba(0, 0, 0, 0.05);
+            transform: translateY(-2px);
+        }
+
+        .nav-button.active {
+            color: var(--primary-black);
+            background: var(--primary-white);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
         /* Mobile Menu Button */
         .mobile-menu-btn {
             display: none;
@@ -108,6 +152,12 @@
             padding: 8px;
             border-radius: 8px;
             transition: var(--transition);
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
         }
 
         .mobile-menu-btn:hover {
@@ -461,16 +511,16 @@
         }
 
         .twitter-link {
-            color: #1DA1F2;
+            color: #000000;
             text-decoration: none;
             font-weight: 600;
             transition: var(--transition);
-            border-bottom: 1px dashed #1DA1F2;
+            border-bottom: 1px dashed #000000;
         }
 
         .twitter-link:hover {
-            color: #0c85d0;
-            border-bottom-color: #0c85d0;
+            color: #333333;
+            border-bottom-color: #333333;
         }
 
         /* FAQ Form Section */
@@ -731,15 +781,18 @@
             font-size: 14px;
         }
 
+        /* X Logo Icon */
+        .x-logo {
+            font-family: 'Inter', sans-serif;
+            font-weight: 900;
+            font-size: 18px;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             /* Mobile Header */
             .logo-container .logo-text {
                 font-size: 20px;
-            }
-
-            .mobile-menu-btn {
-                display: block;
             }
 
             /* Adjust spacing */
@@ -826,7 +879,18 @@
                 <div class="logo-text">KACHOO</div>
             </div>
             
-            <!-- Mobile Menu Button (right side) -->
+            <!-- Desktop Navigation Menu (visible only on desktop) -->
+            <nav class="desktop-nav">
+                <a href="#holding" class="nav-button">Holding Company</a>
+                <a href="https://thekachoo.github.io/Home/kafkapages.html" class="nav-button" target="_blank">Kafkapages</a>
+                <a href="https://thekachoo.github.io/Home/kazine.html" class="nav-button" target="_blank">Kazine Collection</a>
+                <a href="https://thekachoo.github.io/Home/kaboom.html" class="nav-button" target="_blank">Kaboom</a>
+                <a href="https://thekachoo.github.io/Home/kazinevol1.html" class="nav-button" target="_blank">Kazine Vol 1</a>
+                <a href="#projects" class="nav-button">Project Management</a>
+                <a href="#guidelines" class="nav-button">Guidelines</a>
+            </nav>
+            
+            <!-- Mobile Menu Button (right side, visible only on mobile) -->
             <button class="mobile-menu-btn" id="mobileMenuBtn">
                 <i class="fas fa-bars"></i>
             </button>
@@ -1015,7 +1079,7 @@
                             <i class="fas fa-envelope"></i>
                         </a>
                         <a href="https://twitter.com/thekachoo" target="_blank" class="social-link">
-                            <i class="fab fa-twitter"></i>
+                            <span class="x-logo">𝕏</span>
                         </a>
                     </div>
                 </div>
@@ -1041,10 +1105,10 @@
                 <div class="footer-section">
                     <h3>Contact</h3>
                     <ul class="footer-links">
-                        <li><i class="fab fa-twitter" style="color: #1DA1F2;"></i>
+                        <li><span class="x-logo" style="color: #000000; background: white; border-radius: 3px; padding: 2px 4px; font-size: 14px; margin-right: 8px;">𝕏</span>
                             <a href="https://twitter.com/TheKachoo" target="_blank">@TheKachoo (Official)</a>
                         </li>
-                        <li><i class="fab fa-twitter" style="color: #1DA1F2;"></i>
+                        <li><span class="x-logo" style="color: #000000; background: white; border-radius: 3px; padding: 2px 4px; font-size: 14px; margin-right: 8px;">𝕏</span>
                             <a href="https://twitter.com/HaiKachoo" target="_blank">@HaiKachoo (Contact Person)</a>
                         </li>
                         <li><i class="fas fa-envelope" style="color: rgba(255,255,255,0.7);"></i>
@@ -1101,13 +1165,35 @@
             link.addEventListener('click', closeMobileMenu);
         });
 
-        // Smooth scroll function
+        // Desktop Navigation Active State
+        document.querySelectorAll('.desktop-nav .nav-button').forEach(button => {
+            button.addEventListener('click', function() {
+                // Only apply active state for internal links
+                if (this.getAttribute('href').startsWith('#')) {
+                    document.querySelectorAll('.desktop-nav .nav-button').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                }
+            });
+        });
+
+        // Smooth scroll function for internal links
         function scrollToSection(sectionId) {
             const section = document.getElementById(sectionId);
             if (section) {
                 window.scrollTo({
                     top: section.offsetTop - 100,
                     behavior: 'smooth'
+                });
+                
+                // Update active state for desktop nav
+                document.querySelectorAll('.desktop-nav .nav-button').forEach(btn => {
+                    if (btn.getAttribute('href') === `#${sectionId}`) {
+                        btn.classList.add('active');
+                    } else {
+                        btn.classList.remove('active');
+                    }
                 });
             }
         }
