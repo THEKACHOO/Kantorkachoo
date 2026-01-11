@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KACHOO - Digital Media Hub</title>
+    <title>KACHOO OFFICIAL</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -51,7 +51,7 @@
             right: 0;
             z-index: 1000;
             backdrop-filter: blur(10px);
-            background-color: rgba(255, 255, 255, 0.92);
+            background-color: rgba(255, 255, 255, 0.98);
         }
 
         .header-content {
@@ -60,6 +60,7 @@
             align-items: center;
         }
 
+        /* Logo for desktop */
         .logo-container {
             display: flex;
             align-items: center;
@@ -96,24 +97,93 @@
             width: 100%;
         }
 
-        /* Navigation Menu */
-        .nav-button {
-            padding: 12px 24px;
-            background: transparent;
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
             border: none;
-            border-radius: 8px;
-            font-family: 'Inter', sans-serif;
-            font-weight: 600;
-            font-size: 14px;
-            color: var(--text-gray);
+            font-size: 24px;
+            color: var(--primary-black);
             cursor: pointer;
+            padding: 8px;
+            border-radius: 8px;
             transition: var(--transition);
-            white-space: nowrap;
         }
 
-        .nav-button:hover {
-            color: var(--primary-black);
+        .mobile-menu-btn:hover {
             background: rgba(0, 0, 0, 0.05);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            width: 280px;
+            height: 100vh;
+            background: var(--primary-white);
+            box-shadow: -4px 0 24px rgba(0, 0, 0, 0.1);
+            padding: 80px 24px 24px;
+            transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 999;
+            overflow-y: auto;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 998;
+        }
+
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-menu-close {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--primary-black);
+            cursor: pointer;
+        }
+
+        .mobile-menu-list {
+            list-style: none;
+        }
+
+        .mobile-menu-item {
+            margin-bottom: 16px;
+        }
+
+        .mobile-menu-link {
+            display: block;
+            padding: 16px;
+            background: var(--accent-gray);
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            color: var(--primary-black);
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .mobile-menu-link:hover {
+            background: rgba(0, 0, 0, 0.1);
+            transform: translateX(4px);
         }
 
         /* Hero Section */
@@ -122,6 +192,16 @@
             background: linear-gradient(135deg, #FFFFFF 0%, #FAFAFA 100%);
             position: relative;
             overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 140px 0 60px;
+                min-height: auto;
+            }
         }
 
         .hero::before {
@@ -141,6 +221,18 @@
             max-width: 800px;
             margin: 0 auto;
             text-align: center;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .hero-tag {
@@ -153,10 +245,16 @@
             color: var(--text-gray);
             margin-bottom: 24px;
             letter-spacing: 0.5px;
+            animation: fadeIn 0.8s ease-out 0.2s both;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         .hero h1 {
-            font-size: 56px;
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
             font-weight: 900;
             line-height: 1.1;
             letter-spacing: -1px;
@@ -165,99 +263,16 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            animation: fadeInUp 1s ease-out 0.4s both;
         }
 
         .hero-subtitle {
-            font-size: 18px;
+            font-size: clamp(1rem, 4vw, 1.25rem);
             color: var(--text-gray);
             max-width: 600px;
             margin: 0 auto 40px;
             line-height: 1.7;
-        }
-
-        /* Main Menu Grid */
-        .main-menu-section {
-            padding: 80px 0;
-            background: var(--primary-white);
-        }
-
-        .menu-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-            margin-top: 40px;
-        }
-
-        @media (max-width: 768px) {
-            .menu-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 480px) {
-            .menu-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .menu-card {
-            background: var(--primary-white);
-            border: 1px solid rgba(0, 0, 0, 0.08);
-            border-radius: var(--border-radius);
-            padding: 40px 32px;
-            text-align: center;
-            transition: var(--transition);
-            text-decoration: none;
-            color: inherit;
-            display: block;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .menu-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: var(--primary-black);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.4s ease;
-        }
-
-        .menu-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--hover-shadow);
-        }
-
-        .menu-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .menu-icon {
-            font-size: 48px;
-            margin-bottom: 24px;
-            display: inline-block;
-            transition: var(--transition);
-        }
-
-        .menu-card:hover .menu-icon {
-            transform: scale(1.1);
-        }
-
-        .menu-title {
-            font-size: 24px;
-            font-weight: 800;
-            margin-bottom: 12px;
-            letter-spacing: -0.5px;
-        }
-
-        .menu-description {
-            font-size: 15px;
-            color: var(--text-gray);
-            line-height: 1.6;
+            animation: fadeInUp 1s ease-out 0.6s both;
         }
 
         /* Platform Buttons Section */
@@ -268,15 +283,9 @@
 
         .platform-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 32px;
             margin-top: 40px;
-        }
-
-        @media (max-width: 768px) {
-            .platform-grid {
-                grid-template-columns: 1fr;
-            }
         }
 
         .platform-button {
@@ -291,14 +300,8 @@
             position: relative;
             overflow: hidden;
             animation: float 3s ease-in-out infinite;
-        }
-
-        .platform-button:nth-child(2) {
-            animation-delay: 0.5s;
-        }
-
-        .platform-button:nth-child(3) {
-            animation-delay: 1s;
+            transition: var(--transition);
+            transform: translateY(0);
         }
 
         @keyframes float {
@@ -312,23 +315,30 @@
 
         .platform-button:hover {
             animation-play-state: paused;
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: var(--hover-shadow);
         }
 
         .platform-icon {
             font-size: 64px;
             margin-bottom: 24px;
             display: inline-block;
+            transition: var(--transition);
+        }
+
+        .platform-button:hover .platform-icon {
+            transform: rotate(10deg) scale(1.1);
         }
 
         .platform-title {
-            font-size: 32px;
+            font-size: clamp(1.5rem, 5vw, 2rem);
             font-weight: 900;
             margin-bottom: 16px;
             letter-spacing: -1px;
         }
 
         .platform-description {
-            font-size: 16px;
+            font-size: clamp(0.9rem, 3vw, 1rem);
             color: var(--text-gray);
             margin-bottom: 32px;
             line-height: 1.6;
@@ -355,20 +365,103 @@
             transform: translateX(5px);
         }
 
-        /* FAQ Form Section */
-        .faq-form-section {
+        /* Publish Process Section */
+        .publish-section {
             padding: 100px 0;
             background: var(--primary-white);
         }
 
+        .publish-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            margin-top: 40px;
+        }
+
+        .publish-step {
+            background: var(--primary-white);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: var(--border-radius);
+            padding: 40px 32px;
+            position: relative;
+            transition: var(--transition);
+            animation: fadeInUp 0.8s ease-out both;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .publish-step:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        .publish-step:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .publish-step:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+        .publish-step:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--hover-shadow);
+        }
+
+        .step-number {
+            position: absolute;
+            top: -20px;
+            left: 32px;
+            width: 40px;
+            height: 40px;
+            background: var(--primary-black);
+            color: var(--primary-white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .step-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--primary-black);
+        }
+
+        .step-description {
+            font-size: 16px;
+            color: var(--text-gray);
+            line-height: 1.7;
+        }
+
+        .step-highlight {
+            display: inline-block;
+            padding: 4px 12px;
+            background: var(--accent-gray);
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-top: 16px;
+            color: var(--primary-black);
+        }
+
+        /* FAQ Form Section */
+        .faq-form-section {
+            padding: 100px 0;
+            background: var(--accent-gray);
+        }
+
         .form-container {
-            max-width: 800px;
+            max-width: 600px;
             margin: 0 auto;
             background: var(--primary-white);
             border: 1px solid rgba(0, 0, 0, 0.08);
             border-radius: var(--border-radius);
-            padding: 64px;
+            padding: 48px;
             box-shadow: var(--card-shadow);
+            animation: fadeInUp 0.8s ease-out;
         }
 
         @media (max-width: 768px) {
@@ -389,7 +482,7 @@
             font-size: 16px;
             color: var(--text-gray);
             text-align: center;
-            margin-bottom: 48px;
+            margin-bottom: 32px;
         }
 
         .form-group {
@@ -431,6 +524,7 @@
             display: flex;
             gap: 8px;
             margin-bottom: 32px;
+            justify-content: center;
         }
 
         .rating-star {
@@ -443,6 +537,7 @@
         .rating-star:hover,
         .rating-star.active {
             color: #FFD700;
+            transform: scale(1.2);
         }
 
         .submit-button {
@@ -493,70 +588,6 @@
             display: block;
         }
 
-        /* CTA Section */
-        .cta-section {
-            padding: 120px 0;
-            background: linear-gradient(135deg, #000000 0%, #1A1A1A 100%);
-            color: var(--primary-white);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
-        }
-
-        .cta-content {
-            position: relative;
-            z-index: 1;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .cta-title {
-            font-size: 48px;
-            font-weight: 900;
-            margin-bottom: 24px;
-            letter-spacing: -1px;
-        }
-
-        .cta-subtitle {
-            font-size: 18px;
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 40px;
-            line-height: 1.7;
-        }
-
-        .cta-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            background: var(--primary-white);
-            color: var(--primary-black);
-            padding: 18px 40px;
-            border-radius: var(--border-radius);
-            font-size: 16px;
-            font-weight: 700;
-            text-decoration: none;
-            transition: var(--transition);
-            border: 2px solid transparent;
-        }
-
-        .cta-button:hover {
-            background: transparent;
-            color: var(--primary-white);
-            border-color: var(--primary-white);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 32px rgba(255, 255, 255, 0.1);
-        }
-
         /* Footer */
         footer {
             background: var(--primary-black);
@@ -595,6 +626,9 @@
 
         .footer-links li {
             margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
 
         .footer-links a {
@@ -606,7 +640,7 @@
 
         .footer-links a:hover {
             color: var(--primary-white);
-            padding-left: 8px;
+            transform: translateX(4px);
         }
 
         .social-links {
@@ -643,44 +677,35 @@
         }
 
         /* Responsive Design */
-        @media (max-width: 1024px) {
-            .hero h1 {
-                font-size: 48px;
-            }
-            
-            .cta-title {
-                font-size: 36px;
-            }
-            
-            .form-title {
-                font-size: 28px;
-            }
-        }
-
         @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                gap: 20px;
+            /* Mobile Header */
+            .logo-container .logo-text {
+                font-size: 20px;
             }
-            
-            .hero {
-                padding: 140px 0 60px;
+
+            .mobile-menu-btn {
+                display: block;
             }
-            
-            .hero h1 {
-                font-size: 36px;
+
+            /* Adjust spacing */
+            .platforms-section,
+            .publish-section,
+            .faq-form-section {
+                padding: 60px 0;
             }
-            
-            .hero-subtitle {
-                font-size: 16px;
+
+            .platform-grid,
+            .publish-steps {
+                gap: 24px;
             }
-            
-            .platform-title {
-                font-size: 28px;
+
+            .platform-button,
+            .publish-step {
+                padding: 32px 24px;
             }
-            
-            .cta-title {
-                font-size: 32px;
+
+            .footer-content {
+                gap: 32px;
             }
         }
 
@@ -688,35 +713,114 @@
             .container {
                 padding: 0 16px;
             }
-            
-            .hero h1 {
-                font-size: 28px;
+
+            .platform-button,
+            .publish-step {
+                padding: 24px 20px;
             }
-            
-            .menu-title {
-                font-size: 20px;
-            }
-            
+
             .form-container {
                 padding: 24px;
             }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
         }
+
+        /* Animation for mobile menu items */
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .mobile-menu-item {
+            animation: slideInRight 0.3s ease-out both;
+        }
+
+        .mobile-menu-item:nth-child(1) { animation-delay: 0.1s; }
+        .mobile-menu-item:nth-child(2) { animation-delay: 0.15s; }
+        .mobile-menu-item:nth-child(3) { animation-delay: 0.2s; }
+        .mobile-menu-item:nth-child(4) { animation-delay: 0.25s; }
+        .mobile-menu-item:nth-child(5) { animation-delay: 0.3s; }
+        .mobile-menu-item:nth-child(6) { animation-delay: 0.35s; }
+        .mobile-menu-item:nth-child(7) { animation-delay: 0.4s; }
     </style>
 </head>
 <body>
     <!-- Header -->
     <header>
         <div class="container header-content">
+            <!-- Logo on left (mobile and desktop) -->
             <div class="logo-container" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
                 <img src="logo-thekachoo.png" alt="KACHOO Logo" class="logo-img">
                 <div class="logo-text">KACHOO</div>
             </div>
             
-            <button class="nav-button" onclick="scrollToSection('main-menu')">
-                <i class="fas fa-bars"></i> Menu
+            <!-- Mobile Menu Button (right side) -->
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
             </button>
         </div>
     </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="mobile-menu-close" id="mobileMenuClose">
+            <i class="fas fa-times"></i>
+        </button>
+        <ul class="mobile-menu-list">
+            <li class="mobile-menu-item">
+                <a href="#holding" class="mobile-menu-link" onclick="closeMobileMenu()">
+                    <i class="fas fa-building" style="margin-right: 12px;"></i>
+                    Holding Company
+                </a>
+            </li>
+            <li class="mobile-menu-item">
+                <a href="https://thekachoo.github.io/Home/kafkapages.html" class="mobile-menu-link" target="_blank" onclick="closeMobileMenu()">
+                    <i class="fas fa-file-alt" style="margin-right: 12px;"></i>
+                    Kafkapages
+                </a>
+            </li>
+            <li class="mobile-menu-item">
+                <a href="https://thekachoo.github.io/Home/kazine.html" class="mobile-menu-link" target="_blank" onclick="closeMobileMenu()">
+                    <i class="fas fa-book" style="margin-right: 12px;"></i>
+                    Kazine Collection
+                </a>
+            </li>
+            <li class="mobile-menu-item">
+                <a href="https://thekachoo.github.io/Home/kaboom.html" class="mobile-menu-link" target="_blank" onclick="closeMobileMenu()">
+                    <i class="fas fa-bolt" style="margin-right: 12px;"></i>
+                    Kaboom
+                </a>
+            </li>
+            <li class="mobile-menu-item">
+                <a href="https://thekachoo.github.io/Home/kazinevol1.html" class="mobile-menu-link" target="_blank" onclick="closeMobileMenu()">
+                    <i class="fas fa-star" style="margin-right: 12px;"></i>
+                    KAZINE VOLUME 1
+                </a>
+            </li>
+            <li class="mobile-menu-item">
+                <a href="#projects" class="mobile-menu-link" onclick="closeMobileMenu()">
+                    <i class="fas fa-tasks" style="margin-right: 12px;"></i>
+                    Project Management
+                </a>
+            </li>
+            <li class="mobile-menu-item">
+                <a href="#guidelines" class="mobile-menu-link" onclick="closeMobileMenu()">
+                    <i class="fas fa-clipboard-check" style="margin-right: 12px;"></i>
+                    Guidelines
+                </a>
+            </li>
+        </ul>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -724,62 +828,16 @@
             <div class="hero-tag">THE NEXT BIG THING IN DIGITAL MEDIA</div>
             <h1>WE TURN IDEAS INTO ATTENTION</h1>
             <p class="hero-subtitle">
-                We are a digital-first media and news publication built to shape conversations in a fast-moving world. By transforming ideas into compelling narratives, we help stories gain visibility, relevance, and lasting impact. Our platform exists to spotlight what matters, connecting information, creativity, and public interest through modern digital channels.
+                We are a digital-first media and news publication built to shape conversations in a fast-moving world.
             </p>
-        </div>
-    </section>
-
-    <!-- Main Menu Grid -->
-    <section class="main-menu-section" id="main-menu">
-        <div class="container">
-            <h2 class="section-title" style="text-align: center; font-size: 40px; font-weight: 900; margin-bottom: 16px;">Explore KACHOO</h2>
-            <p style="text-align: center; color: var(--text-gray); max-width: 600px; margin: 0 auto 40px; font-size: 18px;">Navigate through our digital media ecosystem</p>
-            
-            <div class="menu-grid">
-                <a href="#holding" class="menu-card">
-                    <div class="menu-icon">🏢</div>
-                    <h3 class="menu-title">Holding Company</h3>
-                    <p class="menu-description">Strategic overview of our media portfolio and business operations</p>
-                </a>
-                
-                <a href="https://thekachoo.github.io/Home/kafkapages.html" class="menu-card" target="_blank">
-                    <div class="menu-icon">📄</div>
-                    <h3 class="menu-title">Kafkapages</h3>
-                    <p class="menu-description">Advanced document platform with AI-powered editing and collaboration tools</p>
-                </a>
-                
-                <a href="https://thekachoo.github.io/Home/kazine.html" class="menu-card" target="_blank">
-                    <div class="menu-icon">📚</div>
-                    <h3 class="menu-title">Kazine Collection</h3>
-                    <p class="menu-description">Curated collection of digital publications and creative works</p>
-                </a>
-                
-                <a href="https://thekachoo.github.io/Home/kaboom.html" class="menu-card" target="_blank">
-                    <div class="menu-icon">💥</div>
-                    <h3 class="menu-title">Kaboom</h3>
-                    <p class="menu-description">Real-time news platform delivering curated content and breaking stories</p>
-                </a>
-                
-                <a href="https://thekachoo.github.io/Home/kazinevol1.html" class="menu-card" target="_blank">
-                    <div class="menu-icon">🎯</div>
-                    <h3 class="menu-title">KAZINE VOLUME 1</h3>
-                    <p class="menu-description">Premiere edition of our flagship digital magazine publication</p>
-                </a>
-                
-                <a href="#projects" class="menu-card">
-                    <div class="menu-icon">📊</div>
-                    <h3 class="menu-title">Project Management</h3>
-                    <p class="menu-description">Track and manage ongoing media projects and initiatives</p>
-                </a>
-            </div>
         </div>
     </section>
 
     <!-- Platform Buttons Section -->
     <section class="platforms-section">
         <div class="container">
-            <h2 style="text-align: center; font-size: 40px; font-weight: 900; margin-bottom: 16px;">Our Digital Platforms</h2>
-            <p style="text-align: center; color: var(--text-gray); max-width: 600px; margin: 0 auto 40px; font-size: 18px;">Explore our specialized media platforms with unique animations</p>
+            <h2 style="text-align: center; font-size: clamp(1.8rem, 5vw, 2.5rem); font-weight: 900; margin-bottom: 16px; letter-spacing: -0.5px;">Our Digital Platforms</h2>
+            <p style="text-align: center; color: var(--text-gray); max-width: 600px; margin: 0 auto 40px; font-size: clamp(0.9rem, 3vw, 1.1rem);">Explore our specialized media platforms</p>
             
             <div class="platform-grid">
                 <a href="https://thekachoo.github.io/Home/kafkapages.html" class="platform-button" target="_blank">
@@ -802,6 +860,37 @@
                     <p class="platform-description">Real-time news platform delivering curated content and breaking stories.</p>
                     <span class="platform-cta">READ MORE <i class="fas fa-arrow-right"></i></span>
                 </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publish Process Section -->
+    <section class="publish-section">
+        <div class="container">
+            <h2 style="text-align: center; font-size: clamp(1.8rem, 5vw, 2.5rem); font-weight: 900; margin-bottom: 16px; letter-spacing: -0.5px;">How To Publish With Us</h2>
+            <p style="text-align: center; color: var(--text-gray); max-width: 600px; margin: 0 auto 40px; font-size: clamp(0.9rem, 3vw, 1.1rem);">Follow these simple steps to get your work published</p>
+            
+            <div class="publish-steps">
+                <div class="publish-step">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Prepare Your Proposal</h3>
+                    <p class="step-description">Prepare your proposal or half-finished manuscript before submitting to Kachoo. Publication proposal guidelines are available in the main menu under <strong>Guidelines</strong>.</p>
+                    <div class="step-highlight">Check Guidelines First</div>
+                </div>
+                
+                <div class="publish-step">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Submit Your Work</h3>
+                    <p class="step-description">Send your proposal via email or direct message to <strong>@HAIKACHOO</strong> on X app. Make sure your submission follows our guidelines for faster processing.</p>
+                    <div class="step-highlight">Email or DM @HAIKACHOO</div>
+                </div>
+                
+                <div class="publish-step">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Get Response</h3>
+                    <p class="step-description">We will respond to your submission within maximum <strong>2×24 hours</strong>. Our team will review your proposal and provide feedback or next steps.</p>
+                    <div class="step-highlight">Max 48 Hours Response</div>
+                </div>
             </div>
         </div>
     </section>
@@ -831,11 +920,6 @@
                         <input type="hidden" id="rating" name="rating" value="0">
                     </div>
                     
-                    <div class="form-group">
-                        <label for="email" class="form-label">Email (Optional)</label>
-                        <input type="email" id="email" name="email" class="form-input" placeholder="your@email.com">
-                    </div>
-                    
                     <button type="submit" class="submit-button">
                         <i class="fas fa-paper-plane"></i> Submit Question & Rating
                     </button>
@@ -846,20 +930,6 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container cta-content">
-            <h2 class="cta-title">Join Our Media Revolution</h2>
-            <p class="cta-subtitle">
-                Be part of the conversation shaping tomorrow's digital landscape. Subscribe to our newsletter for updates.
-            </p>
-            <a href="#subscribe" class="cta-button">
-                <span>Subscribe Now</span>
-                <i class="fas fa-arrow-right"></i>
-            </a>
-        </div>
-    </section>
-
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -867,7 +937,7 @@
                 <div class="footer-section">
                     <h3>KACHOO</h3>
                     <p style="color: rgba(255,255,255,0.7); margin-top: 16px; max-width: 300px;">
-                        Digital media holding company turning ideas into attention through innovative publications.
+                        Digital media company turning ideas into attention through innovative publications.
                     </p>
                     <div class="social-links">
                         <a href="mailto:ohkachoo@gmail.com" class="social-link">
@@ -876,57 +946,90 @@
                         <a href="https://twitter.com/thekachoo" target="_blank" class="social-link">
                             <i class="fab fa-twitter"></i>
                         </a>
-                        <a href="#" class="social-link">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" class="social-link">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
                     </div>
                 </div>
                 
                 <div class="footer-section">
                     <h3>Platforms</h3>
                     <ul class="footer-links">
-                        <li><a href="https://thekachoo.github.io/Home/kafkapages.html" target="_blank">Kafkapages</a></li>
-                        <li><a href="https://thekachoo.github.io/Home/kazine.html" target="_blank">Kazine Collection</a></li>
-                        <li><a href="https://thekachoo.github.io/Home/kaboom.html" target="_blank">Kaboom</a></li>
-                        <li><a href="https://thekachoo.github.io/Home/kazinevol1.html" target="_blank">KAZINE VOLUME 1</a></li>
+                        <li><i class="fab fa-twitter" style="color: rgba(255,255,255,0.7);"></i>
+                            <a href="https://thekachoo.github.io/Home/kafkapages.html" target="_blank">Kafkapages</a>
+                        </li>
+                        <li><i class="fab fa-twitter" style="color: rgba(255,255,255,0.7);"></i>
+                            <a href="https://thekachoo.github.io/Home/kazine.html" target="_blank">Kazine Collection</a>
+                        </li>
+                        <li><i class="fab fa-twitter" style="color: rgba(255,255,255,0.7);"></i>
+                            <a href="https://thekachoo.github.io/Home/kaboom.html" target="_blank">Kaboom</a>
+                        </li>
+                        <li><i class="fab fa-twitter" style="color: rgba(255,255,255,0.7);"></i>
+                            <a href="https://thekachoo.github.io/Home/kazinevol1.html" target="_blank">KAZINE VOLUME 1</a>
+                        </li>
                     </ul>
                 </div>
                 
                 <div class="footer-section">
-                    <h3>Company</h3>
+                    <h3>Contact</h3>
                     <ul class="footer-links">
-                        <li><a href="#holding">Holding Company</a></li>
-                        <li><a href="#projects">Project Management</a></li>
-                        <li><a href="#contact">Contact Us</a></li>
-                        <li><a href="#careers">Careers</a></li>
+                        <li><i class="fab fa-twitter" style="color: #1DA1F2;"></i>
+                            <a href="https://twitter.com/TheKachoo" target="_blank">@TheKachoo (Official)</a>
+                        </li>
+                        <li><i class="fab fa-twitter" style="color: #1DA1F2;"></i>
+                            <a href="https://twitter.com/HaiKachoo" target="_blank">@HaiKachoo (Contact Person)</a>
+                        </li>
+                        <li><i class="fas fa-envelope" style="color: rgba(255,255,255,0.7);"></i>
+                            <a href="mailto:ohkachoo@gmail.com">ohkachoo@gmail.com</a>
+                        </li>
                     </ul>
                 </div>
                 
                 <div class="footer-section">
-                    <h3>Contact Info</h3>
+                    <h3>Address</h3>
                     <ul class="footer-links">
                         <li style="color: rgba(255,255,255,0.7); margin-bottom: 20px;">
                             <i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i>
-                            Jenderal Sudirman Avenue, South Jakarta
-                        </li>
-                        <li style="color: rgba(255,255,255,0.7);">
-                            <i class="fas fa-envelope" style="margin-right: 10px;"></i>
-                            ohkachoo@gmail.com
+                            Jenderal Sudirman Avenue,<br>
+                            Lots 61–62,<br>
+                            South Jakarta 12930,<br>
+                            Indonesia
                         </li>
                     </ul>
                 </div>
             </div>
             
             <div class="copyright">
-                &copy; 2026 KACHOO Digital Media Hub. All rights reserved. Turning ideas into attention since 2023.
+                &copy; 2026 KACHOO Digital Media Hub. All rights reserved.
             </div>
         </div>
     </footer>
 
     <script>
+        // Mobile Menu Functionality
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+        const mobileMenuClose = document.getElementById('mobileMenuClose');
+
+        function openMobileMenu() {
+            mobileMenu.classList.add('active');
+            mobileMenuOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('active');
+            mobileMenuOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        mobileMenuBtn.addEventListener('click', openMobileMenu);
+        mobileMenuClose.addEventListener('click', closeMobileMenu);
+        mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+
+        // Close menu when clicking on links
+        document.querySelectorAll('.mobile-menu-link').forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+
         // Smooth scroll function
         function scrollToSection(sectionId) {
             const section = document.getElementById(sectionId);
@@ -987,7 +1090,6 @@
             
             const question = document.getElementById('question').value;
             const rating = document.getElementById('rating').value;
-            const email = document.getElementById('email').value || 'Not provided';
             const formMessage = document.getElementById('formMessage');
             
             if (!question) {
@@ -1007,7 +1109,6 @@
             formData.append('Timestamp', new Date().toISOString());
             formData.append('Question', question);
             formData.append('Rating', rating);
-            formData.append('Email', email);
             
             // Google Apps Script Web App URL
             const scriptURL = 'https://script.google.com/macros/s/AKfycbzRjY1P-4pAw9Tasw4z-3jQ26YL3IFeOa88HBlrKYyY8vWJ0b6BqUaD7t9I3j5Tr_39iA/exec';
@@ -1060,11 +1161,28 @@
             const header = document.querySelector('header');
             if (window.scrollY > 100) {
                 header.style.boxShadow = '0 4px 24px rgba(0, 0, 0, 0.08)';
-                header.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
             } else {
                 header.style.boxShadow = 'none';
-                header.style.backgroundColor = 'rgba(255, 255, 255, 0.92)';
             }
+        });
+
+        // Animate publish steps on scroll
+        const observerOptions = {
+            threshold: 0.3,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const publishObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.publish-step').forEach(step => {
+            publishObserver.observe(step);
         });
 
         // Set initial header state
