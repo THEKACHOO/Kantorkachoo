@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kachoo Guidelines 2026 | HeyKachoo</title>
+    <title>Kachoo Guidelines</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap">
     <style>
@@ -18,7 +18,6 @@
             --primary-white: #FFFFFF;
             --accent-blue: #007AFF;
             --accent-red: #FF3B30;
-            --accent-yellow: #FFCC00;
             --gray-light: #F5F5F7;
             --gray-medium: #8E8E93;
             --gray-dark: #1D1D1F;
@@ -31,12 +30,11 @@
             line-height: 1.6;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
         }
 
-        /* Header dengan Logo Kachoo */
+        /* Header */
         .main-header {
-            padding: 1rem 5%;
+            padding: 1.2rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -55,7 +53,7 @@
         }
 
         .logo-kachoo {
-            height: 45px;
+            height: 50px;
             width: auto;
             filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
         }
@@ -63,71 +61,84 @@
         .logo-text {
             font-size: 1.8rem;
             font-weight: 900;
-            background: linear-gradient(90deg, #000000, #333333);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+            color: var(--primary-black);
             letter-spacing: -0.5px;
         }
 
         .year-badge {
             background: var(--primary-black);
             color: var(--primary-white);
-            padding: 0.3rem 1.2rem;
+            padding: 0.4rem 1.5rem;
             border-radius: 20px;
             font-weight: 700;
             font-size: 0.9rem;
             letter-spacing: 1px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
         /* Hero Section */
         .hero-section {
-            padding: 3rem 5% 2rem;
+            padding: 4rem 5% 3rem;
             text-align: center;
             max-width: 900px;
             margin: 0 auto;
         }
 
         .hero-title {
-            font-size: 4rem;
+            font-size: 4.5rem;
             font-weight: 900;
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
             line-height: 1.1;
             letter-spacing: -2px;
-            background: linear-gradient(135deg, #000000, #333333);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+            color: var(--primary-black);
         }
 
         .hero-subtitle {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             color: var(--gray-medium);
             max-width: 700px;
-            margin: 0 auto 2rem;
+            margin: 0 auto 2.5rem;
             font-weight: 500;
         }
 
-        /* Heyzine Container - SISTEM UTAMA */
+        /* Heyzine Flipbook Section - MAIN CONTENT */
         .heyzine-section {
-            padding: 2rem 5% 4rem;
+            padding: 2rem 5% 5rem;
             background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
         }
 
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--primary-black);
+        }
+
+        .section-title p {
+            font-size: 1.1rem;
+            color: var(--gray-medium);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* HEYZINE FLIPBOOK CONTAINER */
         .heyzine-container {
             max-width: 1200px;
             margin: 0 auto;
             background: var(--primary-white);
-            border-radius: 20px;
+            border-radius: 24px;
             overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.1);
             border: 1px solid var(--gray-light);
         }
 
         .heyzine-header {
             background: linear-gradient(135deg, #000000, #1a1a1a);
-            padding: 1.2rem 2rem;
+            padding: 1.5rem 2.5rem;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             display: flex;
             justify-content: space-between;
@@ -136,11 +147,11 @@
 
         .heyzine-title {
             color: var(--primary-white);
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             font-weight: 600;
             display: flex;
             align-items: center;
-            gap: 0.8rem;
+            gap: 1rem;
         }
 
         .heyzine-title i {
@@ -157,15 +168,15 @@
             background: rgba(255, 255, 255, 0.1);
             border: none;
             color: var(--primary-white);
-            width: 40px;
-            height: 40px;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             transition: all 0.3s ease;
-            font-size: 1rem;
+            font-size: 1.1rem;
         }
 
         .control-btn:hover {
@@ -173,20 +184,17 @@
             transform: scale(1.05);
         }
 
-        .control-btn.active {
-            background: var(--accent-blue);
-        }
-
+        /* HEYZINE FRAME - IMPORTANT: Replace the URL here */
         .heyzine-frame-container {
             position: relative;
             width: 100%;
-            height: 70vh;
-            min-height: 500px;
+            height: 75vh;
+            min-height: 550px;
             background: #f8f9fa;
             overflow: hidden;
         }
 
-        .heyzine-frame {
+        #heyzineFrame {
             width: 100%;
             height: 100%;
             border: none;
@@ -208,9 +216,9 @@
         }
 
         .loading-spinner {
-            font-size: 3rem;
+            font-size: 3.5rem;
             color: var(--accent-blue);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.8rem;
             animation: spin 1s linear infinite;
         }
 
@@ -223,66 +231,44 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 2rem;
+            padding: 1.5rem 2.5rem;
             background: var(--gray-light);
             border-top: 1px solid rgba(0, 0, 0, 0.05);
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: var(--gray-medium);
         }
 
         .page-info {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.8rem;
         }
 
         .download-btn {
             background: var(--primary-black);
             color: var(--primary-white);
             border: none;
-            padding: 0.6rem 1.5rem;
-            border-radius: 8px;
+            padding: 0.8rem 2rem;
+            border-radius: 10px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.8rem;
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
         }
 
         .download-btn:hover {
             background: var(--gray-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
         }
 
-        /* Guidelines Content - DIsisipkan dalam Flipbook Heyzine */
-        .guidelines-intro {
-            padding: 3rem 5%;
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .guidelines-intro h2 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            color: var(--primary-black);
-        }
-
-        .guidelines-intro p {
-            font-size: 1.1rem;
-            color: var(--gray-medium);
-            margin-bottom: 2rem;
-            line-height: 1.8;
-        }
-
-        /* Contact Section - seperti yang diminta */
+        /* Contact Section */
         .contact-section {
-            padding: 4rem 5%;
+            padding: 5rem 5%;
             background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
             color: var(--primary-white);
         }
@@ -294,70 +280,73 @@
         }
 
         .contact-title {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             font-weight: 800;
-            margin-bottom: 3rem;
-            background: linear-gradient(90deg, #FFFFFF, #CCCCCC);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+            margin-bottom: 3.5rem;
+            color: var(--primary-white);
         }
 
         .contact-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 4rem;
         }
 
         .contact-card {
             background: rgba(255, 255, 255, 0.05);
-            border-radius: 16px;
-            padding: 2.5rem;
+            border-radius: 20px;
+            padding: 3rem;
             border: 1px solid rgba(255, 255, 255, 0.1);
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             backdrop-filter: blur(10px);
         }
 
         .contact-card:hover {
-            transform: translateY(-10px);
-            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-12px);
+            background: rgba(255, 255, 255, 0.08);
             border-color: var(--accent-blue);
-            box-shadow: 0 15px 30px rgba(0, 122, 255, 0.15);
+            box-shadow: 0 20px 40px rgba(0, 122, 255, 0.15);
         }
 
         .contact-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
+            font-size: 2.8rem;
+            margin-bottom: 1.8rem;
             color: var(--accent-blue);
             display: inline-block;
-            width: 80px;
-            height: 80px;
+            width: 90px;
+            height: 90px;
             border-radius: 50%;
             background: rgba(0, 122, 255, 0.1);
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 1.5rem;
+            margin: 0 auto 1.8rem;
         }
 
         .contact-text {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
             color: var(--primary-white);
+        }
+
+        .contact-desc {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
         }
 
         .contact-link {
             color: var(--accent-blue);
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
             display: inline-block;
-            margin-top: 0.5rem;
-            transition: all 0.3s ease;
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
+            padding: 0.8rem 1.5rem;
+            border-radius: 10px;
             background: rgba(0, 122, 255, 0.1);
+            transition: all 0.3s ease;
         }
 
         .contact-link:hover {
@@ -367,7 +356,7 @@
 
         /* Footer */
         .main-footer {
-            padding: 2rem 5%;
+            padding: 2.5rem 5%;
             text-align: center;
             background: var(--primary-black);
             color: var(--primary-white);
@@ -375,9 +364,9 @@
         }
 
         .footer-logo {
-            height: 30px;
-            margin-bottom: 1rem;
-            opacity: 0.8;
+            height: 35px;
+            margin-bottom: 1.2rem;
+            opacity: 0.9;
         }
 
         .footer-text {
@@ -391,44 +380,54 @@
         /* Responsive Design */
         @media (max-width: 1024px) {
             .hero-title {
-                font-size: 3rem;
+                font-size: 3.5rem;
             }
             
             .heyzine-frame-container {
-                height: 60vh;
+                height: 65vh;
             }
         }
 
         @media (max-width: 768px) {
             .hero-title {
-                font-size: 2.5rem;
+                font-size: 2.8rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
             }
             
             .heyzine-header {
                 flex-direction: column;
-                gap: 1rem;
-                padding: 1rem;
+                gap: 1.2rem;
+                padding: 1.2rem;
             }
             
             .heyzine-frame-container {
-                height: 50vh;
-                min-height: 400px;
+                height: 55vh;
+                min-height: 450px;
             }
             
             .flipbook-info {
                 flex-direction: column;
-                gap: 1rem;
+                gap: 1.2rem;
                 text-align: center;
+                padding: 1.2rem;
             }
             
             .contact-grid {
                 grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .contact-card {
+                padding: 2.5rem;
             }
         }
 
         @media (max-width: 480px) {
             .hero-title {
-                font-size: 2rem;
+                font-size: 2.3rem;
             }
             
             .hero-subtitle {
@@ -440,28 +439,27 @@
             }
             
             .heyzine-frame-container {
-                height: 40vh;
-                min-height: 300px;
+                height: 45vh;
+                min-height: 350px;
             }
             
-            .contact-card {
-                padding: 2rem;
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+            
+            .contact-title {
+                font-size: 2.2rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header dengan Logo Kachoo -->
+    <!-- Header with Kachoo Logo -->
     <header class="main-header">
         <div class="logo-container">
-            <!-- Logo Kachoo -->
-            <svg class="logo-kachoo" width="45" height="45" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect width="100" height="100" rx="15" fill="black"/>
-                <path d="M30 30L70 30L70 70L30 70L30 30Z" stroke="white" stroke-width="6"/>
-                <circle cx="35" cy="35" r="5" fill="white"/>
-                <circle cx="65" cy="65" r="5" fill="white"/>
-                <path d="M25 25L75 75" stroke="white" stroke-width="4" stroke-linecap="round"/>
-            </svg>
+            <!-- Replace with your logo: logo-thekachoo.png -->
+            <img src="logo-thekachoo.png" alt="Kachoo Logo" class="logo-kachoo" 
+                 onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAiIGhlaWdodD0iNTAiIHZpZXdCb3g9IjAgMCAxMDAgMTAwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiByeD0iMTUiIGZpbGw9ImJsYWNrIi8+PHBhdGggZD0iTTMwIDMwTDcwIDMwTDcwIDcwTDMwIDcwTDMwIDMwWiIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSI2Ii8+PGNpcmNsZSBjeD0iMzUiIGN5PSIzNSIgcj0iNSIgZmlsbD0id2hpdGUiLz48Y2lyY2xlIGN4PSI2NSIgY3k9IjY1IiByPSI1IiBmaWxsPSJ3aGl0ZSIvPjxwYXRoIGQ9Ik0yNSAyNUw3NSA3NSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48L3N2Zz4=';">
             <div class="logo-text">KACHOO</div>
         </div>
         <div class="year-badge">2026</div>
@@ -469,63 +467,82 @@
 
     <!-- Hero Section -->
     <section class="hero-section">
-        <h1 class="hero-title">DESIGN GUIDELINES</h1>
-        <p class="hero-subtitle">Pedoman kreatif untuk konsistensi visual dan pengalaman pengguna yang luar biasa dalam setiap proyek.</p>
+        <h1 class="hero-title">GUIDELINES</h1>
+        <p class="hero-subtitle">Comprehensive design system and visual standards for all Kachoo projects and collaborations</p>
     </section>
 
-    <!-- Heyzine Flipbook Section - SISTEM UTAMA -->
+    <!-- Heyzine Flipbook Section - MAIN CONTENT -->
     <section class="heyzine-section">
+        <div class="section-title">
+            <h2>Read me!</h2>
+        </div>
+        
         <div class="heyzine-container">
             <div class="heyzine-header">
                 <div class="heyzine-title">
-                    <i class="fas fa-book-open"></i> Kachoo Guidelines 2026 - Interactive Flipbook
+                    <i class="fas fa-book-open"></i> Kachoo Design 2026
                 </div>
                 <div class="heyzine-controls">
                     <button class="control-btn" id="btnFullscreen" title="Fullscreen">
                         <i class="fas fa-expand"></i>
                     </button>
-                    <button class="control-btn" id="btnZoomIn" title="Zoom In">
-                        <i class="fas fa-search-plus"></i>
-                    </button>
-                    <button class="control-btn" id="btnZoomOut" title="Zoom Out">
-                        <i class="fas fa-search-minus"></i>
+                    <button class="control-btn" id="btnReload" title="Reload">
+                        <i class="fas fa-redo"></i>
                     </button>
                 </div>
             </div>
             
-            <div class="heyzine-frame-container" id="heyzineContainer">
+            <!-- HEYZINE FLIPBOOK FRAME -->
+            <!-- REPLACE THE URL BELOW WITH YOUR HEYZINE FLIPBOOK LINK -->
+            <div class="heyzine-frame-container">
                 <div class="loading-container" id="loadingContainer">
                     <i class="fas fa-spinner loading-spinner"></i>
-                    <h3 style="margin-bottom: 0.5rem; color: var(--gray-dark);">Loading Guidelines Flipbook</h3>
-                    <p style="color: var(--gray-medium);">Preparing your interactive reading experience...</p>
+                    <h3 style="margin-bottom: 1rem; color: var(--gray-dark);">Loading Heyzine Flipbook</h3>
+                    <p style="color: var(--gray-medium); text-align: center; max-width: 400px;">
+                        Loading interactive guidelines flipbook. This may take a moment...
+                    </p>
                 </div>
-                <!-- Frame Heyzine akan dimuat di sini -->
+                
+                <!-- 
+                    IMPORTANT: REPLACE THE SRC ATTRIBUTE BELOW WITH YOUR ACTUAL HEYZINE FLIPBOOK URL
+                    Example: https://heyzine.com/flip-book/your-flipbook-id.html
+                -->
+                <iframe id="heyzineFrame" 
+                        src="https://heyzine.com/flip-book/your-flipbook-id-here.html" 
+                        frameborder="0" 
+                        scrolling="no" 
+                        allowfullscreen 
+                        allow="autoplay; fullscreen"
+                        title="Kachoo Design Guidelines Flipbook">
+                </iframe>
             </div>
             
             <div class="flipbook-info">
                 <div class="page-info">
-                    <i class="fas fa-file-alt"></i>
-                    <span>Guidelines Document - 12 Pages</span>
+                    <i class="fas fa-book"></i>
+                    <span>Design Guidelines & Standards</span>
                 </div>
-                <a href="#" class="download-btn" id="downloadBtn">
-                    <i class="fas fa-download"></i> Download PDF
-                </a>
+                <button class="download-btn" id="downloadBtn">
+                    <i class="fas fa-download"></i> Download Guidelines PDF
+                </button>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section - seperti yang diminta -->
+    <!-- Contact Section -->
     <section class="contact-section">
         <div class="contact-container">
-            <h2 class="contact-title">Get In Touch</h2>
+            <h2 class="contact-title">Contact Information</h2>
             <div class="contact-grid">
                 <div class="contact-card">
                     <div class="contact-icon">
-                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-x-twitter"></i>
                     </div>
                     <h3 class="contact-text">Twitter / X</h3>
-                    <p>Follow for updates and announcements</p>
-                    <a href="https://x.com/HaiKachoo" target="_blank" class="contact-link">@HaiKachoo</a>
+                    <p class="contact-desc">For direct communication and inquiries</p>
+                    <a href="https://x.com/HaiKachoo" target="_blank" class="contact-link">
+                        @HaiKachoo
+                    </a>
                 </div>
                 
                 <div class="contact-card">
@@ -533,8 +550,10 @@
                         <i class="fas fa-envelope"></i>
                     </div>
                     <h3 class="contact-text">Email</h3>
-                    <p>For inquiries and collaboration</p>
-                    <a href="mailto:ohkachoo@gmail.com" class="contact-link">ohkachoo@gmail.com</a>
+                    <p class="contact-desc">For business inquiries and collaboration proposals</p>
+                    <a href="mailto:ohkachoo@gmail.com" class="contact-link">
+                        ohkachoo@gmail.com
+                    </a>
                 </div>
             </div>
         </div>
@@ -542,175 +561,66 @@
 
     <!-- Footer -->
     <footer class="main-footer">
-        <div class="footer-logo">
-            <svg width="30" height="30" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect width="100" height="100" rx="10" fill="white"/>
-                <path d="M30 30L70 30L70 70L30 70L30 30Z" stroke="black" stroke-width="5"/>
-                <circle cx="35" cy="35" r="4" fill="black"/>
-                <circle cx="65" cy="65" r="4" fill="black"/>
-                <path d="M25 25L75 75" stroke="black" stroke-width="3" stroke-linecap="round"/>
-            </svg>
-        </div>
+        <img src="logo-thekachoo.png" alt="Kachoo Logo" class="footer-logo" 
+             onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzUiIGhlaWdodD0iMzUiIHZpZXdCb3g9IjAgMCAxMDAgMTAwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiByeD0iMTAiIGZpbGw9IndoaXRlIi8+PHBhdGggZD0iTTMwIDMwTDcwIDMwTDcwIDcwTDMwIDcwTDMwIDMwWiIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLXdpZHRoPSI1Ii8+PGNpcmNsZSBjeD0iMzUiIGN5PSIzNSIgcj0iNCIgZmlsbD0iYmxhY2siLz48Y2lyY2xlIGN4PSI2NSIgY3k9IjY1IiByPSI0IiBmaWxsPSJibGFjayIvPjxwYXRoIGQ9Ik0yNSAyNUw3NSA3NSIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLXdpZHRoPSIzIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48L3N2Zz4=';">
         <p class="footer-text">
-            © 2026 Kachoo Guidelines. All design principles and visual standards are property of Kachoo Creative.
+            © 2026 Kachoo Design Guidelines. All rights reserved.<br>
+            Design system and visual standards are proprietary property of Kachoo.
         </p>
     </footer>
 
     <script>
-        // Simulasi Heyzine Flipbook dengan konten Guidelines
         document.addEventListener('DOMContentLoaded', function() {
-            const heyzineContainer = document.getElementById('heyzineContainer');
+            const heyzineFrame = document.getElementById('heyzineFrame');
             const loadingContainer = document.getElementById('loadingContainer');
             const downloadBtn = document.getElementById('downloadBtn');
+            const btnFullscreen = document.getElementById('btnFullscreen');
+            const btnReload = document.getElementById('btnReload');
             
-            // Konten Guidelines untuk flipbook (simulasi)
-            const guidelinesContent = [
-                {
-                    title: "Brand Identity",
-                    content: "Our visual identity is built on precision, clarity, and bold expression. Maintain consistency across all touchpoints.",
-                    icon: "fas fa-palette"
-                },
-                {
-                    title: "Color System",
-                    content: "Primary: Black (#000000) & White (#FFFFFF). Accent: Blue (#007AFF), Red (#FF3B30), Yellow (#FFCC00).",
-                    icon: "fas fa-fill-drip"
-                },
-                {
-                    title: "Typography",
-                    content: "Use Inter font family exclusively. Headings: 900 weight. Body: 400-500 weight. Line height: 1.6 for optimal readability.",
-                    icon: "fas fa-font"
-                },
-                {
-                    title: "UI Components",
-                    content: "Buttons have 8px border-radius. Cards have 16px border-radius with subtle shadows. Maintain consistent spacing system.",
-                    icon: "fas fa-cube"
-                },
-                {
-                    title: "Imagery & Graphics",
-                    content: "High-contrast, clean compositions. Minimal use of effects. Always maintain visual hierarchy and balance.",
-                    icon: "fas fa-image"
-                },
-                {
-                    title: "Motion & Interaction",
-                    content: "Animations should be purposeful and smooth (300-500ms duration). Use easing curves for natural movement.",
-                    icon: "fas fa-bolt"
-                },
-                {
-                    title: "Responsive Design",
-                    content: "Design for mobile-first approach. Breakpoints: 480px, 768px, 1024px, 1200px. Test across all devices.",
-                    icon: "fas fa-mobile-alt"
-                },
-                {
-                    title: "Accessibility",
-                    content: "WCAG 2.1 AA compliance minimum. Color contrast ratio ≥ 4.5:1. Support keyboard navigation and screen readers.",
-                    icon: "fas fa-universal-access"
-                },
-                {
-                    title: "Voice & Tone",
-                    content: "Clear, confident, and helpful. Avoid jargon. Be concise but warm in communication.",
-                    icon: "fas fa-comment-alt"
-                },
-                {
-                    title: "File Organization",
-                    content: "Use consistent naming conventions. Organize assets in logical folder structures. Version control for all design files.",
-                    icon: "fas fa-folder"
-                },
-                {
-                    title: "Collaboration",
-                    content: "Use shared libraries and design systems. Document decisions and iterations. Regular design reviews.",
-                    icon: "fas fa-users"
-                },
-                {
-                    title: "Quality Assurance",
-                    content: "Test designs in real scenarios. Get feedback from diverse users. Iterate based on data and insights.",
-                    icon: "fas fa-check-double"
-                }
-            ];
+            // IMPORTANT: Replace this with your actual Heyzine URL
+            // const HEYZINE_URL = 'https://heyzine.com/flip-book/your-actual-flipbook-id.html';
             
-            // Simulasi loading Heyzine flipbook
-            setTimeout(() => {
-                loadingContainer.style.display = 'none';
-                
-                // Membuat konten flipbook interaktif
-                const flipbookContent = document.createElement('div');
-                flipbookContent.className = 'flipbook-content';
-                flipbookContent.style.cssText = `
-                    width: 100%;
-                    height: 100%;
-                    display: grid;
-                    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-                    gap: 20px;
-                    padding: 30px;
-                    overflow-y: auto;
-                    background: #f8f9fa;
-                `;
-                
-                // Tambahkan setiap guideline sebagai "halaman" dalam flipbook
-                guidelinesContent.forEach((guideline, index) => {
-                    const page = document.createElement('div');
-                    page.className = 'flipbook-page';
-                    page.style.cssText = `
-                        background: white;
-                        border-radius: 12px;
-                        padding: 30px;
-                        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-                        border: 1px solid #e9ecef;
-                        transition: transform 0.3s ease, box-shadow 0.3s ease;
-                        cursor: pointer;
-                        position: relative;
-                        overflow: hidden;
-                    `;
-                    
-                    page.innerHTML = `
-                        <div style="position: absolute; top: 20px; right: 20px; font-size: 48px; font-weight: 900; color: rgba(0,0,0,0.03);">${String(index + 1).padStart(2, '0')}</div>
-                        <div style="font-size: 2.5rem; margin-bottom: 20px; color: #007AFF;">
-                            <i class="${guideline.icon}"></i>
-                        </div>
-                        <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 15px; color: #000;">${guideline.title}</h3>
-                        <p style="color: #666; line-height: 1.6; margin-bottom: 0;">${guideline.content}</p>
-                    `;
-                    
-                    // Efek hover untuk halaman
-                    page.addEventListener('mouseenter', () => {
-                        page.style.transform = 'translateY(-10px)';
-                        page.style.boxShadow = '0 15px 30px rgba(0,0,0,0.1)';
-                    });
-                    
-                    page.addEventListener('mouseleave', () => {
-                        page.style.transform = 'translateY(0)';
-                        page.style.boxShadow = '0 5px 15px rgba(0,0,0,0.05)';
-                    });
-                    
-                    flipbookContent.appendChild(page);
-                });
-                
-                heyzineContainer.appendChild(flipbookContent);
-                
-                // Animasi masuk untuk halaman
-                const pages = document.querySelectorAll('.flipbook-page');
-                pages.forEach((page, index) => {
-                    page.style.opacity = '0';
-                    page.style.transform = 'translateY(20px)';
+            // Hide loading when Heyzine is loaded
+            heyzineFrame.onload = function() {
+                setTimeout(() => {
+                    loadingContainer.style.opacity = '0';
+                    loadingContainer.style.transition = 'opacity 0.5s ease';
                     
                     setTimeout(() => {
-                        page.style.transition = 'all 0.5s ease';
-                        page.style.opacity = '1';
-                        page.style.transform = 'translateY(0)';
-                    }, index * 100);
-                });
-                
-            }, 1500); // Simulasi loading time
+                        loadingContainer.style.display = 'none';
+                    }, 500);
+                }, 1000);
+            };
             
-            // Kontrol flipbook
-            const btnFullscreen = document.getElementById('btnFullscreen');
-            const btnZoomIn = document.getElementById('btnZoomIn');
-            const btnZoomOut = document.getElementById('btnZoomOut');
+            // Handle loading errors
+            heyzineFrame.onerror = function() {
+                loadingContainer.innerHTML = `
+                    <i class="fas fa-exclamation-triangle" style="color: var(--accent-red); font-size: 3.5rem; margin-bottom: 1.5rem;"></i>
+                    <h3 style="margin-bottom: 1rem; color: var(--gray-dark);">Unable to Load Flipbook</h3>
+                    <p style="color: var(--gray-medium); text-align: center; max-width: 500px; margin-bottom: 2rem;">
+                        There was an error loading the Heyzine flipbook. Please check the URL or try the following:
+                    </p>
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
+                        <button onclick="window.location.reload()" style="background: var(--accent-blue); color: white; border: none; padding: 0.8rem 1.5rem; border-radius: 8px; cursor: pointer; font-weight: 600;">
+                            <i class="fas fa-redo"></i> Reload Page
+                        </button>
+                        <button onclick="openDirectLink()" style="background: var(--primary-black); color: white; border: none; padding: 0.8rem 1.5rem; border-radius: 8px; cursor: pointer; font-weight: 600;">
+                            <i class="fas fa-external-link-alt"></i> Open Direct Link
+                        </button>
+                    </div>
+                `;
+            };
             
+            function openDirectLink() {
+                // Replace with your actual Heyzine URL
+                window.open('https://heyzine.com/flip-book/your-flipbook-id-here.html', '_blank');
+            }
+            
+            // Fullscreen functionality
             let isFullscreen = false;
-            let zoomLevel = 1;
             
             btnFullscreen.addEventListener('click', () => {
-                const container = document.querySelector('.heyzine-container');
+                const container = document.querySelector('.heyzine-frame-container');
                 
                 if (!isFullscreen) {
                     if (container.requestFullscreen) {
@@ -735,53 +645,75 @@
                 isFullscreen = !isFullscreen;
             });
             
-            btnZoomIn.addEventListener('click', () => {
-                if (zoomLevel < 1.5) {
-                    zoomLevel += 0.1;
-                    updateZoom();
-                }
+            // Reload functionality
+            btnReload.addEventListener('click', () => {
+                loadingContainer.style.display = 'flex';
+                loadingContainer.style.opacity = '1';
+                
+                // Show loading for 1 second, then reload iframe
+                setTimeout(() => {
+                    heyzineFrame.src = heyzineFrame.src;
+                }, 1000);
             });
             
-            btnZoomOut.addEventListener('click', () => {
-                if (zoomLevel > 0.7) {
-                    zoomLevel -= 0.1;
-                    updateZoom();
-                }
+            // Download button functionality
+            downloadBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                // Simulate download process
+                const originalText = downloadBtn.innerHTML;
+                downloadBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Preparing Download...';
+                downloadBtn.disabled = true;
+                
+                setTimeout(() => {
+                    // In a real implementation, this would trigger a PDF download
+                    // For now, we'll show a success message
+                    downloadBtn.innerHTML = '<i class="fas fa-check"></i> Download Ready!';
+                    
+                    setTimeout(() => {
+                        downloadBtn.innerHTML = originalText;
+                        downloadBtn.disabled = false;
+                        
+                        // Show download link modal (simulated)
+                        alert('Guidelines PDF download is ready. Please check your downloads folder.');
+                    }, 1500);
+                }, 2000);
             });
             
-            function updateZoom() {
-                const content = document.querySelector('.flipbook-content');
-                if (content) {
-                    content.style.transform = `scale(${zoomLevel})`;
-                    content.style.transformOrigin = 'center center';
+            // Handle fullscreen change events
+            document.addEventListener('fullscreenchange', handleFullscreenChange);
+            document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
+            document.addEventListener('msfullscreenchange', handleFullscreenChange);
+            
+            function handleFullscreenChange() {
+                if (!document.fullscreenElement && 
+                    !document.webkitFullscreenElement && 
+                    !document.msFullscreenElement) {
+                    isFullscreen = false;
+                    btnFullscreen.innerHTML = '<i class="fas fa-expand"></i>';
                 }
             }
             
-            // Download button action
-            downloadBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                downloadBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Preparing...';
-                
-                setTimeout(() => {
-                    downloadBtn.innerHTML = '<i class="fas fa-check"></i> Ready!';
+            // Smooth scroll for navigation
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const href = this.getAttribute('href');
+                    if (href === '#') return;
                     
-                    // Simulasi download
-                    setTimeout(() => {
-                        downloadBtn.innerHTML = '<i class="fas fa-download"></i> Download PDF';
-                        alert('Guidelines PDF is ready for download!');
-                    }, 1000);
-                }, 1500);
-            });
-            
-            // Animasi scroll untuk halaman
-            window.addEventListener('scroll', () => {
-                const scrolled = window.pageYOffset;
-                const heroTitle = document.querySelector('.hero-title');
-                
-                if (heroTitle && window.innerWidth > 768) {
-                    const rate = scrolled * -0.2;
-                    heroTitle.style.transform = `translateY(${rate}px)`;
-                }
+                    const targetId = href.substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    
+                    if (targetElement) {
+                        e.preventDefault();
+                        const headerHeight = document.querySelector('header').offsetHeight;
+                        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
             });
         });
     </script>
