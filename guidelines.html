@@ -3,512 +3,762 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guidelines | HeyKachoo</title>
+    <title>Kachoo Guidelines</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
         }
 
         :root {
-            --primary-color: #000000;
-            --secondary-color: #ffffff;
-            --accent-color: #f0f0f0;
-            --text-color: #333333;
-            --text-light: #666666;
+            --primary-black: #000000;
+            --primary-white: #FFFFFF;
+            --accent-red: #FF3B30;
+            --accent-blue: #007AFF;
+            --accent-yellow: #FFCC00;
+            --gray-light: #F5F5F7;
+            --gray-medium: #8E8E93;
+            --gray-dark: #1D1D1F;
         }
 
         body {
-            background-color: var(--secondary-color);
-            color: var(--text-color);
-            line-height: 1.6;
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+            color: var(--gray-dark);
+            min-height: 100vh;
             overflow-x: hidden;
         }
 
-        /* Header Styles */
-        header {
-            padding: 2rem 5%;
+        /* Background Decorative Elements */
+        .bg-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .bg-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(0, 122, 255, 0.05);
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .circle-1 {
+            width: 400px;
+            height: 400px;
+            top: -200px;
+            right: -100px;
+            animation-delay: 0s;
+        }
+
+        .circle-2 {
+            width: 300px;
+            height: 300px;
+            bottom: -150px;
+            left: -100px;
+            background: rgba(255, 59, 48, 0.05);
+            animation-delay: 5s;
+        }
+
+        .circle-3 {
+            width: 200px;
+            height: 200px;
+            top: 50%;
+            left: 10%;
+            background: rgba(255, 204, 0, 0.05);
+            animation-delay: 10s;
+        }
+
+        /* Header dengan Logo Kachoo */
+        .main-header {
+            padding: 1.5rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: var(--secondary-color);
-            border-bottom: 1px solid var(--accent-color);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            backdrop-filter: blur(10px);
-            animation: fadeDown 0.8s ease-out;
+            position: relative;
+            z-index: 10;
         }
 
-        .logo {
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-img {
+            height: 50px;
+            width: auto;
+            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .logo-img:hover {
+            transform: rotate(-10deg) scale(1.1);
+        }
+
+        .logo-text {
             font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--primary-color);
+            font-weight: 900;
+            background: linear-gradient(90deg, #000000, #333333);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
             letter-spacing: -0.5px;
         }
 
-        .logo span {
-            background-color: var(--primary-color);
-            color: var(--secondary-color);
-            padding: 0 5px;
-            border-radius: 3px;
+        .year-badge {
+            background: var(--primary-black);
+            color: var(--primary-white);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
 
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: var(--text-color);
-            font-weight: 500;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-
-        nav a:hover {
-            color: var(--primary-color);
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--primary-color);
-            transition: width 0.3s ease;
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 5rem 5% 3rem;
+        /* Hero Section dengan efek 3D */
+        .hero-section {
             text-align: center;
-            max-width: 900px;
-            margin: 0 auto;
-            animation: fadeUp 1s ease-out;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            line-height: 1.1;
-            letter-spacing: -1px;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            color: var(--text-light);
-            max-width: 700px;
-            margin: 0 auto 2rem;
-        }
-
-        /* Guidelines Container */
-        .guidelines-container {
-            padding: 2rem 5% 4rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .guidelines-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .guideline-card {
-            background-color: var(--secondary-color);
-            border: 1px solid var(--accent-color);
-            border-radius: 12px;
-            padding: 2rem;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            padding: 4rem 5% 6rem;
             position: relative;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
         }
 
-        .guideline-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
-            border-color: var(--primary-color);
+        .hero-title {
+            font-size: 5rem;
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -2px;
+            position: relative;
+            display: inline-block;
         }
 
-        .guideline-card::before {
-            content: '';
+        .hero-title .text-stroke {
+            color: transparent;
+            -webkit-text-stroke: 2px var(--primary-black);
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title .text-fill {
             position: absolute;
             top: 0;
             left: 0;
-            width: 5px;
-            height: 0;
-            background-color: var(--primary-color);
-            transition: height 0.4s ease;
+            color: var(--primary-black);
+            clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+            animation: fillText 3s ease-in-out infinite alternate;
         }
 
-        .guideline-card:hover::before {
-            height: 100%;
+        .hero-subtitle {
+            font-size: 1.4rem;
+            color: var(--gray-medium);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            line-height: 1.6;
         }
 
-        .card-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--primary-color);
+        /* Heyzine-style Flipbook Container */
+        .flipbook-container {
+            max-width: 1200px;
+            margin: 0 auto 8rem;
+            padding: 0 2%;
+            perspective: 2000px;
         }
 
-        .guideline-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--primary-color);
+        .flipbook {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            position: relative;
         }
 
-        .guideline-card p {
-            color: var(--text-light);
-            margin-bottom: 1.5rem;
+        /* Flipbook Page Styling */
+        .flipbook-page {
+            background: var(--primary-white);
+            border-radius: 24px;
+            padding: 3rem;
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.08),
+                0 0 0 1px rgba(0, 0, 0, 0.03),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.9);
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            position: relative;
+            overflow: hidden;
+            min-height: 500px;
+            display: flex;
+            flex-direction: column;
+            transform-style: preserve-3d;
         }
 
-        .card-number {
+        .flipbook-page:hover {
+            transform: translateY(-20px) rotateX(5deg) rotateY(-2deg);
+            box-shadow: 
+                0 40px 80px rgba(0, 0, 0, 0.15),
+                0 0 0 1px rgba(0, 0, 0, 0.05),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.95);
+        }
+
+        .page-number {
             position: absolute;
-            top: 1.5rem;
-            right: 1.5rem;
-            font-size: 3rem;
-            font-weight: 800;
-            color: rgba(0, 0, 0, 0.05);
+            top: 2rem;
+            right: 2rem;
+            font-size: 5rem;
+            font-weight: 900;
+            color: rgba(0, 0, 0, 0.03);
             line-height: 1;
+            z-index: 1;
         }
 
-        /* Contact Section */
+        .page-icon {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            color: var(--primary-black);
+            display: inline-block;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--gray-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.5s ease, background 0.3s ease;
+        }
+
+        .flipbook-page:hover .page-icon {
+            transform: scale(1.1) rotate(15deg);
+            background: var(--accent-blue);
+            color: var(--primary-white);
+        }
+
+        .page-title {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            position: relative;
+            z-index: 2;
+        }
+
+        .page-content {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--gray-medium);
+            margin-bottom: 2rem;
+            flex-grow: 1;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Page-specific styles */
+        .page-1 {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+        }
+
+        .page-2 {
+            background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 100%);
+        }
+
+        .page-3 {
+            background: linear-gradient(135deg, #ffffff 0%, #fff8f0 100%);
+        }
+
+        .page-4 {
+            background: linear-gradient(135deg, #ffffff 0%, #f9f0ff 100%);
+        }
+
+        .page-5 {
+            background: linear-gradient(135deg, #ffffff 0%, #f0fff4 100%);
+        }
+
+        .page-6 {
+            background: linear-gradient(135deg, #ffffff 0%, #fff0f0 100%);
+        }
+
+        /* Decorative elements inside pages */
+        .page-decoration {
+            position: absolute;
+            opacity: 0.05;
+            z-index: 1;
+        }
+
+        .decoration-1 {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 8px solid var(--primary-black);
+            bottom: -100px;
+            right: -100px;
+        }
+
+        .decoration-2 {
+            width: 150px;
+            height: 150px;
+            border: 6px solid var(--accent-red);
+            top: -75px;
+            left: -75px;
+            transform: rotate(45deg);
+        }
+
+        /* Contact Section dengan efek glassmorphism */
         .contact-section {
-            padding: 4rem 5%;
-            background-color: var(--accent-color);
-            border-top: 1px solid rgba(0, 0, 0, 0.05);
-            animation: fadeUp 1s ease-out 0.3s both;
+            padding: 5rem 5%;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
         }
 
         .contact-container {
             max-width: 800px;
             margin: 0 auto;
             text-align: center;
+            position: relative;
+            z-index: 2;
         }
 
-        .contact-container h2 {
+        .contact-title {
             font-size: 2.5rem;
-            margin-bottom: 2rem;
-            color: var(--primary-color);
+            font-weight: 800;
+            margin-bottom: 3rem;
+            background: linear-gradient(90deg, #000000, #333333);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
 
-        .contact-info {
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(255, 255, 255, 0.3);
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 1.5rem;
+            text-align: center;
         }
 
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1rem 2rem;
-            background-color: var(--secondary-color);
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-
-        .contact-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        .contact-card:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+            border-color: rgba(0, 122, 255, 0.2);
         }
 
         .contact-icon {
-            font-size: 1.5rem;
-            color: var(--primary-color);
+            font-size: 2.5rem;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: var(--primary-white);
+        }
+
+        .twitter-icon {
+            background: linear-gradient(135deg, #000000, #333333);
+        }
+
+        .email-icon {
+            background: linear-gradient(135deg, #FF3B30, #FF9500);
         }
 
         .contact-text {
-            font-size: 1.1rem;
-            color: var(--text-color);
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--primary-black);
         }
 
         .contact-link {
             text-decoration: none;
-            color: inherit;
-            transition: color 0.3s ease;
+            color: var(--accent-blue);
+            font-weight: 500;
+            display: inline-block;
+            margin-top: 0.5rem;
+            transition: all 0.3s ease;
         }
 
         .contact-link:hover {
-            color: var(--primary-color);
+            color: var(--primary-black);
+            transform: translateX(5px);
         }
 
         /* Footer */
-        footer {
-            padding: 2rem 5%;
+        .main-footer {
+            padding: 3rem 5%;
             text-align: center;
-            background-color: var(--primary-color);
-            color: var(--secondary-color);
+            background: var(--primary-black);
+            color: var(--primary-white);
+            position: relative;
         }
 
-        footer p {
+        .footer-logo {
+            height: 40px;
+            margin-bottom: 1.5rem;
             opacity: 0.8;
         }
 
+        .footer-text {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
         /* Animations */
-        @keyframes fadeDown {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
         @keyframes float {
             0%, 100% {
-                transform: translateY(0);
+                transform: translateY(0) rotate(0deg);
             }
-            50% {
-                transform: translateY(-10px);
+            33% {
+                transform: translateY(-30px) rotate(120deg);
+            }
+            66% {
+                transform: translateY(20px) rotate(240deg);
             }
         }
 
-        .floating {
-            animation: float 5s ease-in-out infinite;
+        @keyframes fillText {
+            0% {
+                clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+            }
+            100% {
+                clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-title {
+                font-size: 4rem;
+            }
+            
+            .flipbook {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+        }
+
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
+            .hero-title {
+                font-size: 3rem;
             }
             
-            .guidelines-grid {
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .flipbook-page {
+                padding: 2rem;
+                min-height: 400px;
+            }
+            
+            .page-title {
+                font-size: 1.8rem;
+            }
+            
+            .contact-grid {
                 grid-template-columns: 1fr;
-            }
-            
-            nav ul {
-                gap: 1rem;
-            }
-            
-            .contact-item {
-                padding: 0.8rem 1.5rem;
             }
         }
 
         @media (max-width: 480px) {
-            header {
-                flex-direction: column;
-                gap: 1rem;
+            .hero-title {
+                font-size: 2.5rem;
             }
             
-            .hero h1 {
-                font-size: 2rem;
+            .logo-text {
+                font-size: 1.5rem;
             }
             
-            .hero p {
-                font-size: 1rem;
+            .flipbook-page {
+                padding: 1.5rem;
             }
             
-            .contact-item {
-                flex-direction: column;
-                text-align: center;
-                padding: 1rem;
+            .page-icon {
+                font-size: 2.5rem;
+                width: 70px;
+                height: 70px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="logo">Guide<span>Lines</span></div>
-        <nav>
-            <ul>
-                <li><a href="#guidelines">Guidelines</a></li>
-                <li><a href="#contact">Kontak</a></li>
-                <li><a href="#about">Tentang</a></li>
-            </ul>
-        </nav>
+    <!-- Background Elements -->
+    <div class="bg-elements">
+        <div class="bg-circle circle-1"></div>
+        <div class="bg-circle circle-2"></div>
+        <div class="bg-circle circle-3"></div>
+    </div>
+
+    <!-- Header dengan Logo Kachoo -->
+    <header class="main-header">
+        <div class="logo-container">
+            <!-- Logo Kachoo - menggunakan placeholder jika tidak ada file -->
+            <div class="logo-img">
+                <svg width="50" height="50" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="100" height="100" rx="20" fill="black"/>
+                    <path d="M35 35L65 35L65 65L35 65L35 35Z" stroke="white" stroke-width="6"/>
+                    <circle cx="40" cy="40" r="5" fill="white"/>
+                    <circle cx="60" cy="60" r="5" fill="white"/>
+                    <path d="M30 30L70 70" stroke="white" stroke-width="4" stroke-linecap="round"/>
+                </svg>
+            </div>
+            <div class="logo-text">KACHOO</div>
+        </div>
+        <div class="year-badge">2026</div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <h1>Panduan Desain & Konten</h1>
-        <p>Pedoman untuk memastikan konsistensi dan kualitas dalam setiap proyek yang kami kerjakan. Ikuti panduan ini untuk hasil terbaik.</p>
+    <section class="hero-section">
+        <h1 class="hero-title">
+            <span class="text-stroke">GUIDELINES</span>
+            <span class="text-fill">GUIDELINES</span>
+        </h1>
+        <p class="hero-subtitle">
+            Pedoman kreatif untuk proyek digital yang inovatif. Setiap halaman adalah panduan untuk menciptakan pengalaman yang luar biasa dan berkesan.
+        </p>
     </section>
 
-    <!-- Guidelines Section -->
-    <section class="guidelines-container" id="guidelines">
-        <div class="guidelines-grid">
-            <!-- Card 1 -->
-            <div class="guideline-card floating" style="animation-delay: 0.1s;">
-                <div class="card-number">01</div>
-                <div class="card-icon">
+    <!-- Heyzine-style Flipbook -->
+    <section class="flipbook-container">
+        <div class="flipbook">
+            <!-- Page 1 -->
+            <div class="flipbook-page page-1">
+                <div class="page-number">01</div>
+                <div class="page-decoration decoration-1"></div>
+                <div class="page-icon">
                     <i class="fas fa-palette"></i>
                 </div>
-                <h3>Palet Warna</h3>
-                <p>Gunakan skema warna hitam dan putih sebagai dasar. Warna aksen harus digunakan secara minimal dan dengan tujuan yang jelas.</p>
+                <h2 class="page-title">Sistem Warna & Visual</h2>
+                <div class="page-content">
+                    <p>Dominasi hitam-putih dengan aksen warna cerah untuk highlight. Kontras tinggi untuk keterbacaan optimal.</p>
+                    <ul style="margin-top: 1.5rem; padding-left: 1.5rem;">
+                        <li>Hitam (#000000) untuk teks utama</li>
+                        <li>Putih (#FFFFFF) untuk background</li>
+                        <li>Aksen biru (#007AFF) untuk interaksi</li>
+                        <li>Aksen merah (#FF3B30) untuk perhatian</li>
+                    </ul>
+                </div>
             </div>
 
-            <!-- Card 2 -->
-            <div class="guideline-card floating" style="animation-delay: 0.2s;">
-                <div class="card-number">02</div>
-                <div class="card-icon">
+            <!-- Page 2 -->
+            <div class="flipbook-page page-2">
+                <div class="page-number">02</div>
+                <div class="page-icon">
                     <i class="fas fa-font"></i>
                 </div>
-                <h3>Tipografi</h3>
-                <p>Gunakan font sans-serif dengan hierarki yang jelas. Heading harus memiliki kontras yang kuat terhadap body text.</p>
-            </div>
-
-            <!-- Card 3 -->
-            <div class="guideline-card floating" style="animation-delay: 0.3s;">
-                <div class="card-number">03</div>
-                <div class="card-icon">
-                    <i class="fas fa-image"></i>
+                <h2 class="page-title">Tipografi & Hierarki</h2>
+                <div class="page-content">
+                    <p>Gunakan sistem font SF Pro Display untuk konsistensi di seluruh platform. Hierarki yang jelas untuk memandu pembaca.</p>
+                    <p style="margin-top: 1.5rem; font-weight: 800; font-size: 2rem;">Heading Utama</p>
+                    <p style="font-weight: 600; font-size: 1.5rem;">Subheading</p>
+                    <p style="font-weight: 400; font-size: 1rem;">Body text untuk konten panjang dengan line-height yang nyaman dibaca.</p>
                 </div>
-                <h3>Gambar & Visual</h3>
-                <p>Semua gambar harus berkualitas tinggi, dengan komposisi yang bersih dan fokus pada subjek. Hindari gambar yang terlalu ramai.</p>
             </div>
 
-            <!-- Card 4 -->
-            <div class="guideline-card floating" style="animation-delay: 0.4s;">
-                <div class="card-number">04</div>
-                <div class="card-icon">
+            <!-- Page 3 -->
+            <div class="flipbook-page page-3">
+                <div class="page-number">03</div>
+                <div class="page-decoration decoration-2"></div>
+                <div class="page-icon">
+                    <i class="fas fa-cube"></i>
+                </div>
+                <h2 class="page-title">Komponen UI & Interaksi</h2>
+                <div class="page-content">
+                    <p>Setiap komponen harus memiliki feedback visual yang jelas saat berinteraksi. Transisi halus dengan kurva bezier natural.</p>
+                    <p style="margin-top: 1.5rem;">Gunakan efek glassmorphism untuk elemen overlay. Bayangan yang subtil untuk kedalaman.</p>
+                    <p style="margin-top: 1.5rem;">Animasi tidak boleh melebihi 500ms untuk menjaga responsivitas.</p>
+                </div>
+            </div>
+
+            <!-- Page 4 -->
+            <div class="flipbook-page page-4">
+                <div class="page-number">04</div>
+                <div class="page-icon">
                     <i class="fas fa-mobile-alt"></i>
                 </div>
-                <h3>Responsif</h3>
-                <p>Desain harus responsif di semua perangkat. Pastikan pengalaman pengguna konsisten di desktop, tablet, dan mobile.</p>
+                <h2 class="page-title">Responsif & Multi-Platform</h2>
+                <div class="page-content">
+                    <p>Desain harus berfungsi optimal di semua ukuran layar dan perangkat. Mulai dari mobile hingga desktop.</p>
+                    <p style="margin-top: 1.5rem;">Breakpoint utama: 480px (mobile), 768px (tablet), 1024px (desktop kecil), 1200px+ (desktop besar).</p>
+                    <p style="margin-top: 1.5rem;">Test di berbagai browser modern dan pastikan performa tetap optimal.</p>
+                </div>
             </div>
 
-            <!-- Card 5 -->
-            <div class="guideline-card floating" style="animation-delay: 0.5s;">
-                <div class="card-number">05</div>
-                <div class="card-icon">
+            <!-- Page 5 -->
+            <div class="flipbook-page page-5">
+                <div class="page-number">05</div>
+                <div class="page-icon">
                     <i class="fas fa-bolt"></i>
                 </div>
-                <h3>Animasi</h3>
-                <p>Animasi harus halus dan memiliki tujuan fungsional. Hindari animasi yang berlebihan atau mengganggu pengguna.</p>
+                <h2 class="page-title">Animasi & Mikrointeraksi</h2>
+                <div class="page-content">
+                    <p>Setiap interaksi pengguna harus direspons dengan animasi yang bermakna dan fungsional.</p>
+                    <p style="margin-top: 1.5rem;">Hover effects untuk menunjukkan elemen yang dapat diklik. Loading animation untuk menunggu konten.</p>
+                    <p style="margin-top: 1.5rem;">Transisi halaman dengan efek fade atau slide yang halus. Tidak ada animasi yang mengganggu fokus pengguna.</p>
+                </div>
             </div>
 
-            <!-- Card 6 -->
-            <div class="guideline-card floating" style="animation-delay: 0.6s;">
-                <div class="card-number">06</div>
-                <div class="card-icon">
-                    <i class="fas fa-users"></i>
+            <!-- Page 6 -->
+            <div class="flipbook-page page-6">
+                <div class="page-number">06</div>
+                <div class="page-icon">
+                    <i class="fas fa-universal-access"></i>
                 </div>
-                <h3>Aksesibilitas</h3>
-                <p>Pastikan konten dapat diakses oleh semua pengguna, termasuk mereka dengan keterbatasan penglihatan atau motorik.</p>
+                <h2 class="page-title">Aksesibilitas & Inklusivitas</h2>
+                <div class="page-content">
+                    <p>Pastikan semua pengguna dapat mengakses konten, termasuk mereka dengan kebutuhan khusus.</p>
+                    <p style="margin-top: 1.5rem;">Rasio kontras minimal 4.5:1 untuk teks biasa, 3:1 untuk teks besar. Dukungan screen reader dengan markup semantik.</p>
+                    <p style="margin-top: 1.5rem;">Navigasi dengan keyboard harus lengkap dan logis. Hindari ketergantungan pada warna saja untuk menyampaikan informasi.</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section class="contact-section" id="contact">
+    <section class="contact-section">
         <div class="contact-container">
-            <h2>Hubungi Kami</h2>
-            <div class="contact-info">
-                <a href="https://x.com/HaiKachoo" target="_blank" class="contact-link">
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fab fa-twitter"></i>
-                        </div>
-                        <div class="contact-text">
-                            @HaiKachoo
-                        </div>
+            <h2 class="contact-title">Terhubung dengan Kami</h2>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon twitter-icon">
+                        <i class="fab fa-twitter"></i>
                     </div>
-                </a>
+                    <h3 class="contact-text">Twitter/X</h3>
+                    <p>Ikuti update terbaru dan proyek kami</p>
+                    <a href="https://x.com/HaiKachoo" target="_blank" class="contact-link">@HaiKachoo →</a>
+                </div>
                 
-                <a href="mailto:ohkachoo@gmail.com" class="contact-link">
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="contact-text">
-                            ohkachoo@gmail.com
-                        </div>
+                <div class="contact-card">
+                    <div class="contact-icon email-icon">
+                        <i class="fas fa-envelope"></i>
                     </div>
-                </a>
+                    <h3 class="contact-text">Email</h3>
+                    <p>Untuk pertanyaan dan kolaborasi</p>
+                    <a href="mailto:ohkachoo@gmail.com" class="contact-link">ohkachoo@gmail.com →</a>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
-        <p>&copy; 2023 Guidelines by Kachoo. All rights reserved.</p>
+    <footer class="main-footer">
+        <div class="footer-logo">
+            <svg width="40" height="40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="100" height="100" rx="15" fill="white"/>
+                <path d="M30 30L70 30L70 70L30 70L30 30Z" stroke="black" stroke-width="6"/>
+                <circle cx="35" cy="35" r="4" fill="black"/>
+                <circle cx="65" cy="65" r="4" fill="black"/>
+                <path d="M25 25L75 75" stroke="black" stroke-width="4" stroke-linecap="round"/>
+            </svg>
+        </div>
+        <p class="footer-text">
+            © 2026 Kachoo Guidelines. Semua pedoman dalam halaman ini dapat berkembang seiring waktu untuk mengikuti perkembangan teknologi dan tren desain terbaru.
+        </p>
     </footer>
 
     <script>
-        // Menambahkan interaksi saat scroll
+        // Animasi untuk flipbook pages
         document.addEventListener('DOMContentLoaded', function() {
-            // Animasi saat scroll
-            const guidelineCards = document.querySelectorAll('.guideline-card');
+            // Animate pages on scroll
+            const pages = document.querySelectorAll('.flipbook-page');
             
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
+                        entry.target.style.animation = 'fadeInUp 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards';
+                        observer.unobserve(entry.target);
                     }
                 });
-            }, { threshold: 0.1 });
-            
-            guidelineCards.forEach(card => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(20px)';
-                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                observer.observe(card);
+            }, {
+                threshold: 0.2,
+                rootMargin: '0px 0px -100px 0px'
             });
             
-            // Efek hover untuk contact items
-            const contactItems = document.querySelectorAll('.contact-item');
-            contactItems.forEach(item => {
-                item.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-5px) scale(1.02)';
+            pages.forEach((page, index) => {
+                page.style.opacity = '0';
+                page.style.transform = 'translateY(40px)';
+                setTimeout(() => {
+                    observer.observe(page);
+                }, index * 100);
+            });
+            
+            // Interactive hover effects for contact cards
+            const contactCards = document.querySelectorAll('.contact-card');
+            contactCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    const icon = this.querySelector('.contact-icon');
+                    icon.style.transform = 'rotate(15deg) scale(1.1)';
                 });
                 
-                item.addEventListener('mouseleave', function() {
-                    this.style.transform = 'translateY(0) scale(1)';
+                card.addEventListener('mouseleave', function() {
+                    const icon = this.querySelector('.contact-icon');
+                    icon.style.transform = 'rotate(0) scale(1)';
                 });
             });
             
-            // Smooth scroll untuk navigasi
-            document.querySelectorAll('nav a').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
+            // Parallax effect for background circles
+            document.addEventListener('mousemove', function(e) {
+                const circles = document.querySelectorAll('.bg-circle');
+                const mouseX = e.clientX / window.innerWidth;
+                const mouseY = e.clientY / window.innerHeight;
+                
+                circles.forEach((circle, index) => {
+                    const speed = 0.05 + (index * 0.02);
+                    const x = (mouseX - 0.5) * 100 * speed;
+                    const y = (mouseY - 0.5) * 100 * speed;
                     
-                    const targetId = this.getAttribute('href');
-                    if(targetId.startsWith('#')) {
-                        const targetElement = document.querySelector(targetId);
-                        if(targetElement) {
-                            window.scrollTo({
-                                top: targetElement.offsetTop - 80,
-                                behavior: 'smooth'
-                            });
-                        }
-                    }
+                    circle.style.transform = `translate(${x}px, ${y}px)`;
                 });
             });
+            
+            // Add click effect to pages
+            pages.forEach(page => {
+                page.addEventListener('click', function() {
+                    this.style.transform = 'translateY(-20px) rotateX(10deg) rotateY(-5deg) scale(1.02)';
+                    
+                    setTimeout(() => {
+                        this.style.transform = 'translateY(-20px) rotateX(5deg) rotateY(-2deg)';
+                    }, 300);
+                });
+            });
+            
+            // Dynamic year update (for future proofing)
+            const yearBadge = document.querySelector('.year-badge');
+            const currentYear = new Date().getFullYear();
+            if (currentYear > 2026) {
+                yearBadge.textContent = currentYear;
+            }
         });
     </script>
 </body>
