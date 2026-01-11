@@ -64,6 +64,7 @@
             display: flex;
             align-items: center;
             gap: 12px;
+            cursor: pointer;
         }
 
         .logo-img {
@@ -96,14 +97,6 @@
         }
 
         /* Navigation Menu */
-        .nav-menu {
-            display: flex;
-            gap: 4px;
-            background: var(--accent-gray);
-            padding: 4px;
-            border-radius: var(--border-radius);
-        }
-
         .nav-button {
             padding: 12px 24px;
             background: transparent;
@@ -121,12 +114,6 @@
         .nav-button:hover {
             color: var(--primary-black);
             background: rgba(0, 0, 0, 0.05);
-        }
-
-        .nav-button.active {
-            color: var(--primary-black);
-            background: var(--primary-white);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         }
 
         /* Hero Section */
@@ -188,30 +175,46 @@
             line-height: 1.7;
         }
 
-        /* Stats Section */
-        .stats-section {
+        /* Main Menu Grid */
+        .main-menu-section {
             padding: 80px 0;
             background: var(--primary-white);
         }
 
-        .stats-grid {
+        .menu-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
             margin-top: 40px;
         }
 
-        .stat-card {
+        @media (max-width: 768px) {
+            .menu-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .menu-card {
             background: var(--primary-white);
             border: 1px solid rgba(0, 0, 0, 0.08);
             border-radius: var(--border-radius);
-            padding: 32px;
+            padding: 40px 32px;
+            text-align: center;
             transition: var(--transition);
+            text-decoration: none;
+            color: inherit;
+            display: block;
             position: relative;
             overflow: hidden;
         }
 
-        .stat-card::before {
+        .menu-card::before {
             content: '';
             position: absolute;
             top: 0;
@@ -224,169 +227,270 @@
             transition: transform 0.4s ease;
         }
 
-        .stat-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--hover-shadow);
-        }
-
-        .stat-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .stat-value {
-            font-size: 48px;
-            font-weight: 900;
-            margin-bottom: 8px;
-            background: linear-gradient(135deg, #000000 0%, #333333 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .stat-label {
-            font-size: 16px;
-            color: var(--text-gray);
-            font-weight: 500;
-        }
-
-        /* Process Section */
-        .process-section {
-            padding: 100px 0;
-            background: var(--accent-gray);
-        }
-
-        .section-header {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 60px;
-        }
-
-        .section-title {
-            font-size: 40px;
-            font-weight: 900;
-            margin-bottom: 16px;
-            letter-spacing: -0.5px;
-        }
-
-        .section-subtitle {
-            font-size: 18px;
-            color: var(--text-gray);
-        }
-
-        .process-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 24px;
-            counter-reset: step-counter;
-        }
-
-        .process-step {
-            background: var(--primary-white);
-            border-radius: var(--border-radius);
-            padding: 40px 32px;
-            position: relative;
-            transition: var(--transition);
-            border: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        .process-step::before {
-            counter-increment: step-counter;
-            content: counter(step-counter);
-            position: absolute;
-            top: -20px;
-            left: 32px;
-            width: 40px;
-            height: 40px;
-            background: var(--primary-black);
-            color: var(--primary-white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            font-weight: 700;
-        }
-
-        .process-step:hover {
+        .menu-card:hover {
             transform: translateY(-8px);
             box-shadow: var(--hover-shadow);
         }
 
-        .step-icon {
-            font-size: 32px;
+        .menu-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .menu-icon {
+            font-size: 48px;
             margin-bottom: 24px;
-            color: var(--primary-black);
+            display: inline-block;
+            transition: var(--transition);
         }
 
-        .step-title {
-            font-size: 20px;
-            font-weight: 700;
+        .menu-card:hover .menu-icon {
+            transform: scale(1.1);
+        }
+
+        .menu-title {
+            font-size: 24px;
+            font-weight: 800;
             margin-bottom: 12px;
+            letter-spacing: -0.5px;
         }
 
-        .step-description {
+        .menu-description {
             font-size: 15px;
             color: var(--text-gray);
             line-height: 1.6;
         }
 
-        /* FAQ Section */
-        .faq-section {
+        /* Platform Buttons Section */
+        .platforms-section {
+            padding: 100px 0;
+            background: var(--accent-gray);
+        }
+
+        .platform-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .platform-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .platform-button {
+            background: var(--primary-white);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: var(--border-radius);
+            padding: 48px 32px;
+            text-align: center;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            position: relative;
+            overflow: hidden;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .platform-button:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+
+        .platform-button:nth-child(3) {
+            animation-delay: 1s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        .platform-button:hover {
+            animation-play-state: paused;
+        }
+
+        .platform-icon {
+            font-size: 64px;
+            margin-bottom: 24px;
+            display: inline-block;
+        }
+
+        .platform-title {
+            font-size: 32px;
+            font-weight: 900;
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+        }
+
+        .platform-description {
+            font-size: 16px;
+            color: var(--text-gray);
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+
+        .platform-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--primary-black);
+            color: var(--primary-white);
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 14px;
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+
+        .platform-button:hover .platform-cta {
+            background: transparent;
+            color: var(--primary-black);
+            border-color: var(--primary-black);
+            transform: translateX(5px);
+        }
+
+        /* FAQ Form Section */
+        .faq-form-section {
             padding: 100px 0;
             background: var(--primary-white);
         }
 
-        .faq-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px;
-            margin-top: 40px;
-        }
-
-        .faq-item {
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
             background: var(--primary-white);
             border: 1px solid rgba(0, 0, 0, 0.08);
             border-radius: var(--border-radius);
-            padding: 32px;
+            padding: 64px;
+            box-shadow: var(--card-shadow);
+        }
+
+        @media (max-width: 768px) {
+            .form-container {
+                padding: 32px;
+            }
+        }
+
+        .form-title {
+            font-size: 32px;
+            font-weight: 900;
+            margin-bottom: 8px;
+            text-align: center;
+            letter-spacing: -0.5px;
+        }
+
+        .form-subtitle {
+            font-size: 16px;
+            color: var(--text-gray);
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .form-group {
+            margin-bottom: 32px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--primary-black);
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 16px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: var(--border-radius);
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
             transition: var(--transition);
-            cursor: pointer;
+            background: var(--primary-white);
         }
 
-        .faq-item:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--hover-shadow);
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary-black);
+            box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);
         }
 
-        .faq-question {
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 16px;
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        /* Rating Stars */
+        .rating-group {
             display: flex;
-            justify-content: space-between;
+            gap: 8px;
+            margin-bottom: 32px;
+        }
+
+        .rating-star {
+            font-size: 32px;
+            color: #E5E5E5;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .rating-star:hover,
+        .rating-star.active {
+            color: #FFD700;
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 20px;
+            background: var(--primary-black);
+            color: var(--primary-white);
+            border: none;
+            border-radius: var(--border-radius);
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
             align-items: center;
+            justify-content: center;
+            gap: 12px;
         }
 
-        .faq-answer {
-            font-size: 15px;
-            color: var(--text-gray);
-            line-height: 1.6;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
+        .submit-button:hover {
+            background: #333333;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
         }
 
-        .faq-item.active .faq-answer {
-            max-height: 200px;
-            margin-top: 16px;
+        /* Message States */
+        .form-message {
+            padding: 20px;
+            border-radius: var(--border-radius);
+            margin-top: 24px;
+            text-align: center;
+            font-weight: 600;
+            display: none;
         }
 
-        .faq-toggle {
-            color: var(--text-gray);
-            transition: transform 0.3s ease;
+        .form-message.success {
+            background: #D4EDDA;
+            color: #155724;
+            border: 1px solid #C3E6CB;
+            display: block;
         }
 
-        .faq-item.active .faq-toggle {
-            transform: rotate(45deg);
+        .form-message.error {
+            background: #F8D7DA;
+            color: #721C24;
+            border: 1px solid #F5C6CB;
+            display: block;
         }
 
         /* CTA Section */
@@ -544,14 +648,12 @@
                 font-size: 48px;
             }
             
-            .section-title {
+            .cta-title {
                 font-size: 36px;
             }
             
-            .nav-menu {
-                overflow-x: auto;
-                padding: 8px;
-                gap: 2px;
+            .form-title {
+                font-size: 28px;
             }
         }
 
@@ -573,20 +675,12 @@
                 font-size: 16px;
             }
             
-            .section-title {
-                font-size: 32px;
-            }
-            
-            .stat-value {
-                font-size: 36px;
+            .platform-title {
+                font-size: 28px;
             }
             
             .cta-title {
-                font-size: 36px;
-            }
-            
-            .process-steps {
-                grid-template-columns: 1fr;
+                font-size: 32px;
             }
         }
 
@@ -599,16 +693,11 @@
                 font-size: 28px;
             }
             
-            .nav-button {
-                padding: 10px 16px;
-                font-size: 13px;
+            .menu-title {
+                font-size: 20px;
             }
             
-            .stat-card {
-                padding: 24px;
-            }
-            
-            .faq-item {
+            .form-container {
                 padding: 24px;
             }
         }
@@ -618,20 +707,14 @@
     <!-- Header -->
     <header>
         <div class="container header-content">
-            <div class="logo-container">
+            <div class="logo-container" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
                 <img src="logo-thekachoo.png" alt="KACHOO Logo" class="logo-img">
                 <div class="logo-text">KACHOO</div>
             </div>
             
-            <nav class="nav-menu">
-                <a href="#holding" class="nav-button active">Holding Company</a>
-                <a href="https://thekachoo.github.io/Home/kafkapages.html" class="nav-button">Kafkapages</a>
-                <a href="https://thekachoo.github.io/Home/kazine.html" class="nav-button">Kazine Collection</a>
-                <a href="https://thekachoo.github.io/Home/kaboom.html" class="nav-button">Kaboom</a>
-                <a href="https://thekachoo.github.io/Home/kazinevol1.html" class="nav-button">KAZINE VOLUME 1</a>
-                <a href="#projects" class="nav-button">Project Management</a>
-                <a href="#contact" class="nav-button">Contact</a>
-            </nav>
+            <button class="nav-button" onclick="scrollToSection('main-menu')">
+                <i class="fas fa-bars"></i> Menu
+            </button>
         </div>
     </header>
 
@@ -643,150 +726,122 @@
             <p class="hero-subtitle">
                 We are a digital-first media and news publication built to shape conversations in a fast-moving world. By transforming ideas into compelling narratives, we help stories gain visibility, relevance, and lasting impact. Our platform exists to spotlight what matters, connecting information, creativity, and public interest through modern digital channels.
             </p>
-            <div style="margin-top: 40px; display: inline-flex; align-items: center; gap: 20px; background: var(--accent-gray); padding: 12px 24px; border-radius: var(--border-radius);">
-                <div style="text-align: center;">
-                    <div style="font-size: 32px; font-weight: 900; color: var(--primary-black);">4.8</div>
-                    <div style="font-size: 14px; color: var(--text-gray);">Media Rating</div>
-                </div>
-                <div style="height: 40px; width: 1px; background: rgba(0,0,0,0.1);"></div>
-                <div>
-                    <div style="font-size: 24px; font-weight: 900; color: var(--primary-black);">230+</div>
-                    <div style="font-size: 14px; color: var(--text-gray);">Projects Delivered</div>
-                </div>
+        </div>
+    </section>
+
+    <!-- Main Menu Grid -->
+    <section class="main-menu-section" id="main-menu">
+        <div class="container">
+            <h2 class="section-title" style="text-align: center; font-size: 40px; font-weight: 900; margin-bottom: 16px;">Explore KACHOO</h2>
+            <p style="text-align: center; color: var(--text-gray); max-width: 600px; margin: 0 auto 40px; font-size: 18px;">Navigate through our digital media ecosystem</p>
+            
+            <div class="menu-grid">
+                <a href="#holding" class="menu-card">
+                    <div class="menu-icon">🏢</div>
+                    <h3 class="menu-title">Holding Company</h3>
+                    <p class="menu-description">Strategic overview of our media portfolio and business operations</p>
+                </a>
+                
+                <a href="https://thekachoo.github.io/Home/kafkapages.html" class="menu-card" target="_blank">
+                    <div class="menu-icon">📄</div>
+                    <h3 class="menu-title">Kafkapages</h3>
+                    <p class="menu-description">Advanced document platform with AI-powered editing and collaboration tools</p>
+                </a>
+                
+                <a href="https://thekachoo.github.io/Home/kazine.html" class="menu-card" target="_blank">
+                    <div class="menu-icon">📚</div>
+                    <h3 class="menu-title">Kazine Collection</h3>
+                    <p class="menu-description">Curated collection of digital publications and creative works</p>
+                </a>
+                
+                <a href="https://thekachoo.github.io/Home/kaboom.html" class="menu-card" target="_blank">
+                    <div class="menu-icon">💥</div>
+                    <h3 class="menu-title">Kaboom</h3>
+                    <p class="menu-description">Real-time news platform delivering curated content and breaking stories</p>
+                </a>
+                
+                <a href="https://thekachoo.github.io/Home/kazinevol1.html" class="menu-card" target="_blank">
+                    <div class="menu-icon">🎯</div>
+                    <h3 class="menu-title">KAZINE VOLUME 1</h3>
+                    <p class="menu-description">Premiere edition of our flagship digital magazine publication</p>
+                </a>
+                
+                <a href="#projects" class="menu-card">
+                    <div class="menu-icon">📊</div>
+                    <h3 class="menu-title">Project Management</h3>
+                    <p class="menu-description">Track and manage ongoing media projects and initiatives</p>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Stats Section -->
-    <section class="stats-section">
+    <!-- Platform Buttons Section -->
+    <section class="platforms-section">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Safe & Convenient Publishing</h2>
-                <p class="section-subtitle">Instant, quality publications. Keep your content fresh and keep engaging audiences.</p>
-            </div>
+            <h2 style="text-align: center; font-size: 40px; font-weight: 900; margin-bottom: 16px;">Our Digital Platforms</h2>
+            <p style="text-align: center; color: var(--text-gray); max-width: 600px; margin: 0 auto 40px; font-size: 18px;">Explore our specialized media platforms with unique animations</p>
             
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-value">98%</div>
-                    <div class="stat-label">Content Accuracy</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value">24h</div>
-                    <div class="stat-label">Average Turnaround</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value">10K+</div>
-                    <div class="stat-label">Monthly Readers</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value">∞</div>
-                    <div class="stat-label">Creative Possibilities</div>
-                </div>
+            <div class="platform-grid">
+                <a href="https://thekachoo.github.io/Home/kafkapages.html" class="platform-button" target="_blank">
+                    <div class="platform-icon">📄</div>
+                    <h3 class="platform-title">Kafkapages</h3>
+                    <p class="platform-description">Advanced document platform with AI-powered editing and collaboration tools for modern teams.</p>
+                    <span class="platform-cta">CHECK THIS OUT <i class="fas fa-arrow-right"></i></span>
+                </a>
+                
+                <a href="https://thekachoo.github.io/Home/kazine.html" class="platform-button" target="_blank">
+                    <div class="platform-icon">👗</div>
+                    <h3 class="platform-title">Kazine</h3>
+                    <p class="platform-description">Digital fashion & lifestyle magazine pushing boundaries in creative publishing.</p>
+                    <span class="platform-cta">EXPLORE FASHION <i class="fas fa-arrow-right"></i></span>
+                </a>
+                
+                <a href="https://thekachoo.github.io/Home/kaboom.html" class="platform-button" target="_blank">
+                    <div class="platform-icon">💥</div>
+                    <h3 class="platform-title">KABOOM</h3>
+                    <p class="platform-description">Real-time news platform delivering curated content and breaking stories.</p>
+                    <span class="platform-cta">READ MORE <i class="fas fa-arrow-right"></i></span>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Process Section -->
-    <section class="process-section">
+    <!-- FAQ Form Section -->
+    <section class="faq-form-section" id="contact">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">4 Quick Steps To Use Our Services</h2>
-                <p class="section-subtitle">Streamlined process for maximum impact</p>
-            </div>
-            
-            <div class="process-steps">
-                <div class="process-step">
-                    <div class="step-icon">📱</div>
-                    <h3 class="step-title">Explore Platform</h3>
-                    <p class="step-description">Browse our digital publications and understand our media ecosystem.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-icon">🎯</div>
-                    <h3 class="step-title">Choose Publication</h3>
-                    <p class="step-description">Select the right platform for your content: Kafkapages, Kazine, or Kaboom.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-icon">✍️</div>
-                    <h3 class="step-title">Submit Content</h3>
-                    <p class="step-description">Share your story, article, or creative piece with our editorial team.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-icon">🚀</div>
-                    <h3 class="step-title">Get Published</h3>
-                    <p class="step-description">Watch your ideas gain traction and reach engaged audiences.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="faq-section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Have Questions About KACHOO?</h2>
-                <p class="section-subtitle">Find answers to our most frequently asked questions</p>
-            </div>
-            
-            <div class="faq-grid">
-                <div class="faq-item">
-                    <div class="faq-question">
-                        What is KACHOO?
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        KACHOO is a digital-first media holding company that transforms ideas into attention through multiple publication platforms including Kafkapages, Kazine, and Kaboom.
-                    </div>
-                </div>
+            <div class="form-container">
+                <h2 class="form-title">Have Questions About KACHOO?</h2>
+                <p class="form-subtitle">Submit your questions and rate our platform. All responses will be saved for review.</p>
                 
-                <div class="faq-item">
-                    <div class="faq-question">
-                        How To Submit Content?
-                        <span class="faq-toggle">+</span>
+                <form id="faqForm">
+                    <div class="form-group">
+                        <label for="question" class="form-label">Your Question</label>
+                        <textarea id="question" name="question" class="form-input form-textarea" placeholder="Type your question here..." required></textarea>
                     </div>
-                    <div class="faq-answer">
-                        You can submit content through our various platform websites. Each publication has specific submission guidelines tailored to its audience and format.
+                    
+                    <div class="form-group">
+                        <label class="form-label">Rate Your Experience</label>
+                        <div class="rating-group">
+                            <span class="rating-star" data-rating="1">★</span>
+                            <span class="rating-star" data-rating="2">★</span>
+                            <span class="rating-star" data-rating="3">★</span>
+                            <span class="rating-star" data-rating="4">★</span>
+                            <span class="rating-star" data-rating="5">★</span>
+                        </div>
+                        <input type="hidden" id="rating" name="rating" value="0">
                     </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        What Are The Advantages?
-                        <span class="faq-toggle">+</span>
+                    
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email (Optional)</label>
+                        <input type="email" id="email" name="email" class="form-input" placeholder="your@email.com">
                     </div>
-                    <div class="faq-answer">
-                        We offer digital distribution, editorial excellence, creative design, and targeted audience reach across multiple specialized media platforms.
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        How To Collaborate?
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        Contact our project management team to discuss partnerships, sponsored content, or media collaborations that align with your goals.
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        Who Is Our Audience?
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        Our audience includes readers, thinkers, creators, and professionals interested in quality digital content across literature, culture, news, and creative expression.
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        Content Guidelines?
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        We maintain high editorial standards. All content must be original, well-researched, and align with the specific focus of the chosen publication platform.
-                    </div>
-                </div>
+                    
+                    <button type="submit" class="submit-button">
+                        <i class="fas fa-paper-plane"></i> Submit Question & Rating
+                    </button>
+                    
+                    <div id="formMessage" class="form-message"></div>
+                </form>
             </div>
         </div>
     </section>
@@ -794,19 +849,19 @@
     <!-- CTA Section -->
     <section class="cta-section">
         <div class="container cta-content">
-            <h2 class="cta-title">Explore Our Publications</h2>
+            <h2 class="cta-title">Join Our Media Revolution</h2>
             <p class="cta-subtitle">
-                Dive into our digital media ecosystem and discover platforms designed for every type of content creator and reader.
+                Be part of the conversation shaping tomorrow's digital landscape. Subscribe to our newsletter for updates.
             </p>
-            <a href="#publications" class="cta-button">
-                <span>View All Platforms</span>
+            <a href="#subscribe" class="cta-button">
+                <span>Subscribe Now</span>
                 <i class="fas fa-arrow-right"></i>
             </a>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer id="contact">
+    <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
@@ -831,22 +886,22 @@
                 </div>
                 
                 <div class="footer-section">
-                    <h3>Quick Links</h3>
+                    <h3>Platforms</h3>
                     <ul class="footer-links">
-                        <li><a href="#holding">Holding Company</a></li>
-                        <li><a href="https://thekachoo.github.io/Home/kafkapages.html">Kafkapages</a></li>
-                        <li><a href="https://thekachoo.github.io/Home/kazine.html">Kazine Collection</a></li>
-                        <li><a href="https://thekachoo.github.io/Home/kaboom.html">Kaboom</a></li>
+                        <li><a href="https://thekachoo.github.io/Home/kafkapages.html" target="_blank">Kafkapages</a></li>
+                        <li><a href="https://thekachoo.github.io/Home/kazine.html" target="_blank">Kazine Collection</a></li>
+                        <li><a href="https://thekachoo.github.io/Home/kaboom.html" target="_blank">Kaboom</a></li>
+                        <li><a href="https://thekachoo.github.io/Home/kazinevol1.html" target="_blank">KAZINE VOLUME 1</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-section">
-                    <h3>More</h3>
+                    <h3>Company</h3>
                     <ul class="footer-links">
-                        <li><a href="https://thekachoo.github.io/Home/kazinevol1.html">KAZINE VOLUME 1</a></li>
+                        <li><a href="#holding">Holding Company</a></li>
                         <li><a href="#projects">Project Management</a></li>
                         <li><a href="#contact">Contact Us</a></li>
-                        <li><a href="#editorial">Editorial Guidelines</a></li>
+                        <li><a href="#careers">Careers</a></li>
                     </ul>
                 </div>
                 
@@ -872,46 +927,131 @@
     </footer>
 
     <script>
-        // FAQ Toggle Functionality
-        document.querySelectorAll('.faq-item').forEach(item => {
-            item.addEventListener('click', () => {
-                // Close all other FAQ items
-                document.querySelectorAll('.faq-item').forEach(otherItem => {
-                    if (otherItem !== item && otherItem.classList.contains('active')) {
-                        otherItem.classList.remove('active');
+        // Smooth scroll function
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                window.scrollTo({
+                    top: section.offsetTop - 100,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        // Rating stars functionality
+        const stars = document.querySelectorAll('.rating-star');
+        const ratingInput = document.getElementById('rating');
+        
+        stars.forEach(star => {
+            star.addEventListener('click', function() {
+                const rating = this.getAttribute('data-rating');
+                ratingInput.value = rating;
+                
+                // Update star display
+                stars.forEach(s => {
+                    if (s.getAttribute('data-rating') <= rating) {
+                        s.classList.add('active');
+                    } else {
+                        s.classList.remove('active');
                     }
                 });
-                
-                // Toggle current item
-                item.classList.toggle('active');
+            });
+            
+            // Hover effect
+            star.addEventListener('mouseover', function() {
+                const rating = this.getAttribute('data-rating');
+                stars.forEach(s => {
+                    if (s.getAttribute('data-rating') <= rating) {
+                        s.style.color = '#FFD700';
+                    } else {
+                        s.style.color = '#E5E5E5';
+                    }
+                });
+            });
+            
+            star.addEventListener('mouseout', function() {
+                const currentRating = ratingInput.value;
+                stars.forEach(s => {
+                    if (s.getAttribute('data-rating') <= currentRating) {
+                        s.style.color = '#FFD700';
+                    } else {
+                        s.style.color = '#E5E5E5';
+                    }
+                });
             });
         });
 
-        // Navigation Button Active State
-        document.querySelectorAll('.nav-button').forEach(button => {
-            button.addEventListener('click', function(e) {
-                if (this.getAttribute('href').startsWith('#')) {
-                    e.preventDefault();
+        // Form submission to Google Sheets
+        document.getElementById('faqForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const question = document.getElementById('question').value;
+            const rating = document.getElementById('rating').value;
+            const email = document.getElementById('email').value || 'Not provided';
+            const formMessage = document.getElementById('formMessage');
+            
+            if (!question) {
+                formMessage.textContent = 'Please enter your question.';
+                formMessage.className = 'form-message error';
+                return;
+            }
+            
+            if (rating === '0') {
+                formMessage.textContent = 'Please rate your experience.';
+                formMessage.className = 'form-message error';
+                return;
+            }
+            
+            // Create form data
+            const formData = new FormData();
+            formData.append('Timestamp', new Date().toISOString());
+            formData.append('Question', question);
+            formData.append('Rating', rating);
+            formData.append('Email', email);
+            
+            // Google Apps Script Web App URL
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbzRjY1P-4pAw9Tasw4z-3jQ26YL3IFeOa88HBlrKYyY8vWJ0b6BqUaD7t9I3j5Tr_39iA/exec';
+            
+            // Show loading state
+            const submitBtn = this.querySelector('.submit-button');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            submitBtn.disabled = true;
+            
+            // Send data to Google Sheets
+            fetch(scriptURL, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (response.ok) {
+                    formMessage.textContent = 'Thank you! Your question and rating have been saved.';
+                    formMessage.className = 'form-message success';
                     
-                    // Remove active class from all buttons
-                    document.querySelectorAll('.nav-button').forEach(btn => {
-                        btn.classList.remove('active');
+                    // Reset form
+                    document.getElementById('faqForm').reset();
+                    ratingInput.value = '0';
+                    stars.forEach(star => {
+                        star.classList.remove('active');
+                        star.style.color = '#E5E5E5';
                     });
-                    
-                    // Add active class to clicked button
-                    this.classList.add('active');
-                    
-                    // Smooth scroll to section
-                    const targetId = this.getAttribute('href');
-                    const targetElement = document.querySelector(targetId);
-                    
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 100,
-                            behavior: 'smooth'
-                        });
-                    }
+                } else {
+                    throw new Error('Network response was not ok.');
                 }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                formMessage.textContent = 'There was an error submitting your form. Please try again.';
+                formMessage.className = 'form-message error';
+            })
+            .finally(() => {
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                
+                // Auto-hide message after 5 seconds
+                setTimeout(() => {
+                    formMessage.style.display = 'none';
+                }, 5000);
             });
         });
 
@@ -925,32 +1065,6 @@
                 header.style.boxShadow = 'none';
                 header.style.backgroundColor = 'rgba(255, 255, 255, 0.92)';
             }
-        });
-
-        // Animate stats on scroll
-        const observerOptions = {
-            threshold: 0.5
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const statValue = entry.target.querySelector('.stat-value');
-                    if (statValue) {
-                        // Add animation class
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                }
-            });
-        }, observerOptions);
-
-        // Observe all stat cards
-        document.querySelectorAll('.stat-card').forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
-            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(card);
         });
 
         // Set initial header state
