@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KAZINE VOLUME 1 - Open Audition</title>
+    <title>KAZINE VOLUME 1</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -59,18 +59,42 @@
         /* Header Styles */
         header {
             text-align: center;
-            padding: 4rem 2rem 2rem;
+            padding: 3rem 2rem 2rem;
             position: relative;
         }
         
-        .logo {
-            font-size: 2.8rem;
-            font-weight: 900;
-            letter-spacing: 8px;
-            color: #000;
+        .logo-container {
+            margin-bottom: 2rem;
+        }
+        
+        .logo-img {
+            max-width: 300px;
+            height: auto;
             margin-bottom: 1.5rem;
-            text-transform: uppercase;
             animation: fadeInDown 1.2s ease-out;
+        }
+        
+        .volume-link {
+            display: inline-block;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+        
+        .volume-link:hover {
+            transform: scale(1.05);
+        }
+        
+        .volume-img {
+            max-width: 500px;
+            width: 90%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+        }
+        
+        .volume-img:hover {
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.15);
         }
         
         .subtitle {
@@ -78,7 +102,7 @@
             font-weight: 300;
             letter-spacing: 4px;
             color: #555;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
             animation: fadeIn 1.5s ease-out 0.3s both;
         }
         
@@ -366,13 +390,20 @@
                 padding: 2rem 1.5rem;
             }
             
-            .logo {
-                font-size: 2rem;
-                letter-spacing: 5px;
+            .logo-img {
+                max-width: 200px;
+            }
+            
+            .volume-img {
+                max-width: 100%;
             }
             
             .section-title {
                 font-size: 1.7rem;
+            }
+            
+            .intro-text {
+                font-size: 1.2rem;
             }
         }
     </style>
@@ -383,10 +414,17 @@
     
     <!-- Header Section -->
     <header>
-        <h1 class="logo">Kazine</h1>
-        <div class="subtitle">MODEL AUDITION</div>
-        <div class="volume-badge">VOLUME 1</div>
-        <h2 class="section-title">Open Audition for Campaign & Commercial Models</h2>
+        <div class="logo-container">
+            <!-- Ganti dengan gambar KAZINE.png -->
+            <img src="https://via.placeholder.com/300x100/000000/FFFFFF?text=KAZINE" alt="KAZINE" class="logo-img">
+        </div>
+        
+        <!-- Link to Volume 1 -->
+        <a href="kazinevol1.html" class="volume-link">
+            <img src="https://via.placeholder.com/500x250/000000/FFFFFF?text=Kazine+Vol+1+Campaign" alt="Kazine Volume 1" class="volume-img">
+        </a>
+        
+        <h2 class="section-title" style="margin-top: 3rem;">Open Audition for Campaign & Commercial Models</h2>
     </header>
     
     <!-- Main Content -->
@@ -416,11 +454,11 @@
                 </li>
                 <li>
                     <span class="requirement-number">4</span>
-                    <span class="requirement-text"><strong>No multi-character/face claim</strong> allowed.</span>
+                    <span class="requirement-text"><strong>No multi-character/face claim</strong>.</span>
                 </li>
                 <li>
                     <span class="requirement-number">5</span>
-                    <span class="requirement-text"><strong>No agency representation? ALSO NOT A PROBLEM!</strong></span>
+                    <span class="requirement-text"><strong>No agency representation? NOT A PROBLEM!</strong></span>
                 </li>
                 <li>
                     <span class="requirement-number">6</span>
@@ -463,7 +501,7 @@
         <!-- How to Apply -->
         <section class="apply-section">
             <h2 class="section-title">How to Apply</h2>
-            <p>Just send your portfolio to <a href="https://twitter.com/Haikachoo" target="_blank" class="social-link">@Haikachoo</a> (clickable username directing to Twitter) with the following format:</p>
+            <p>Just send your portfolio to <a href="https://twitter.com/Haikachoo" target="_blank" class="social-link">@Haikachoo</a> with the following format:</p>
             
             <div class="copy-box">
                 <p class="copy-text">"You stole my attention! I want to join Kachoo's model audition!<br><br>
@@ -478,7 +516,7 @@
     
     <!-- Footer -->
     <footer>
-        <p>KAZINE VOLUME 1 • KACHOO MODEL AUDITION</p>
+        <p>KAZINE VOLUME 1 • KACHOO</p>
         <p>© 2023 Kachoo Creative. All rights reserved.</p>
     </footer>
 
@@ -553,7 +591,7 @@
         // Initial animations
         document.addEventListener('DOMContentLoaded', () => {
             // Trigger animations for elements
-            const animatedElements = document.querySelectorAll('.logo, .subtitle, .volume-badge, .section-title, .intro-text');
+            const animatedElements = document.querySelectorAll('.logo-img, .volume-img, .section-title, .intro-text');
             animatedElements.forEach(el => {
                 el.style.animationPlayState = 'running';
             });
