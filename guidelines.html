@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guidelines | HeyKachoo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        :root {
+            --primary-color: #000000;
+            --secondary-color: #ffffff;
+            --accent-color: #f0f0f0;
+            --text-color: #333333;
+            --text-light: #666666;
+        }
+
+        body {
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header Styles */
+        header {
+            padding: 2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--secondary-color);
+            border-bottom: 1px solid var(--accent-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            animation: fadeDown 0.8s ease-out;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            padding: 0 5px;
+            border-radius: 3px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 5rem 5% 3rem;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+            animation: fadeUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        /* Guidelines Container */
+        .guidelines-container {
+            padding: 2rem 5% 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .guidelines-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .guideline-card {
+            background-color: var(--secondary-color);
+            border: 1px solid var(--accent-color);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+        }
+
+        .guideline-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+            border-color: var(--primary-color);
+        }
+
+        .guideline-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 0;
+            background-color: var(--primary-color);
+            transition: height 0.4s ease;
+        }
+
+        .guideline-card:hover::before {
+            height: 100%;
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .guideline-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .guideline-card p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .card-number {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            font-size: 3rem;
+            font-weight: 800;
+            color: rgba(0, 0, 0, 0.05);
+            line-height: 1;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 4rem 5%;
+            background-color: var(--accent-color);
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            animation: fadeUp 1s ease-out 0.3s both;
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-container h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 2rem;
+            background-color: var(--secondary-color);
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .contact-text {
+            font-size: 1.1rem;
+            color: var(--text-color);
+        }
+
+        .contact-link {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        .contact-link:hover {
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            padding: 2rem 5%;
+            text-align: center;
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+        }
+
+        footer p {
+            opacity: 0.8;
+        }
+
+        /* Animations */
+        @keyframes fadeDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .floating {
+            animation: float 5s ease-in-out infinite;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .guidelines-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            nav ul {
+                gap: 1rem;
+            }
+            
+            .contact-item {
+                padding: 0.8rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .contact-item {
+                flex-direction: column;
+                text-align: center;
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">Guide<span>Lines</span></div>
+        <nav>
+            <ul>
+                <li><a href="#guidelines">Guidelines</a></li>
+                <li><a href="#contact">Kontak</a></li>
+                <li><a href="#about">Tentang</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Panduan Desain & Konten</h1>
+        <p>Pedoman untuk memastikan konsistensi dan kualitas dalam setiap proyek yang kami kerjakan. Ikuti panduan ini untuk hasil terbaik.</p>
+    </section>
+
+    <!-- Guidelines Section -->
+    <section class="guidelines-container" id="guidelines">
+        <div class="guidelines-grid">
+            <!-- Card 1 -->
+            <div class="guideline-card floating" style="animation-delay: 0.1s;">
+                <div class="card-number">01</div>
+                <div class="card-icon">
+                    <i class="fas fa-palette"></i>
+                </div>
+                <h3>Palet Warna</h3>
+                <p>Gunakan skema warna hitam dan putih sebagai dasar. Warna aksen harus digunakan secara minimal dan dengan tujuan yang jelas.</p>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="guideline-card floating" style="animation-delay: 0.2s;">
+                <div class="card-number">02</div>
+                <div class="card-icon">
+                    <i class="fas fa-font"></i>
+                </div>
+                <h3>Tipografi</h3>
+                <p>Gunakan font sans-serif dengan hierarki yang jelas. Heading harus memiliki kontras yang kuat terhadap body text.</p>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="guideline-card floating" style="animation-delay: 0.3s;">
+                <div class="card-number">03</div>
+                <div class="card-icon">
+                    <i class="fas fa-image"></i>
+                </div>
+                <h3>Gambar & Visual</h3>
+                <p>Semua gambar harus berkualitas tinggi, dengan komposisi yang bersih dan fokus pada subjek. Hindari gambar yang terlalu ramai.</p>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="guideline-card floating" style="animation-delay: 0.4s;">
+                <div class="card-number">04</div>
+                <div class="card-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h3>Responsif</h3>
+                <p>Desain harus responsif di semua perangkat. Pastikan pengalaman pengguna konsisten di desktop, tablet, dan mobile.</p>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="guideline-card floating" style="animation-delay: 0.5s;">
+                <div class="card-number">05</div>
+                <div class="card-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <h3>Animasi</h3>
+                <p>Animasi harus halus dan memiliki tujuan fungsional. Hindari animasi yang berlebihan atau mengganggu pengguna.</p>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="guideline-card floating" style="animation-delay: 0.6s;">
+                <div class="card-number">06</div>
+                <div class="card-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>Aksesibilitas</h3>
+                <p>Pastikan konten dapat diakses oleh semua pengguna, termasuk mereka dengan keterbatasan penglihatan atau motorik.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="contact-container">
+            <h2>Hubungi Kami</h2>
+            <div class="contact-info">
+                <a href="https://x.com/HaiKachoo" target="_blank" class="contact-link">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-twitter"></i>
+                        </div>
+                        <div class="contact-text">
+                            @HaiKachoo
+                        </div>
+                    </div>
+                </a>
+                
+                <a href="mailto:ohkachoo@gmail.com" class="contact-link">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            ohkachoo@gmail.com
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2023 Guidelines by Kachoo. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Menambahkan interaksi saat scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animasi saat scroll
+            const guidelineCards = document.querySelectorAll('.guideline-card');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            guidelineCards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+            
+            // Efek hover untuk contact items
+            const contactItems = document.querySelectorAll('.contact-item');
+            contactItems.forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px) scale(1.02)';
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+            
+            // Smooth scroll untuk navigasi
+            document.querySelectorAll('nav a').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if(targetId.startsWith('#')) {
+                        const targetElement = document.querySelector(targetId);
+                        if(targetElement) {
+                            window.scrollTo({
+                                top: targetElement.offsetTop - 80,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
