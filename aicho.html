@@ -14,7 +14,7 @@
         }
         
         body {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #f5f5f5;
             min-height: 100vh;
             padding: 20px;
             display: flex;
@@ -26,24 +26,25 @@
             width: 100%;
             max-width: 900px;
             background: white;
-            border-radius: 20px;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
             height: 90vh;
             display: flex;
             flex-direction: column;
+            border: 1px solid #e0e0e0;
         }
         
         /* Header Styles */
         .header {
-            background: linear-gradient(90deg, #1a1a2e 0%, #16213e 100%);
-            color: white;
-            padding: 15px 25px;
+            background: #ffffff;
+            color: #000000;
+            padding: 18px 25px;
             display: flex;
             align-items: center;
             justify-content: space-between;
             position: relative;
-            border-bottom: 3px solid #4cc9f0;
+            border-bottom: 1px solid #000000;
         }
         
         .logo-container {
@@ -55,9 +56,10 @@
         .logo {
             width: 50px;
             height: 50px;
-            border-radius: 12px;
+            border-radius: 10px;
             cursor: pointer;
             transition: all 0.3s ease;
+            border: 2px solid #000000;
         }
         
         .logo:active {
@@ -73,40 +75,35 @@
         
         .title {
             font-size: 28px;
-            font-weight: 700;
+            font-weight: 800;
             letter-spacing: 1px;
-            background: linear-gradient(90deg, #4cc9f0, #f72585);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            color: #000000;
         }
         
         .subtitle {
             font-size: 14px;
-            color: #b8c1ec;
-            font-weight: 300;
+            color: #666666;
+            font-weight: 400;
         }
         
         .home-btn {
-            background: #4361ee;
-            color: white;
-            border: none;
+            background: #ffffff;
+            color: #000000;
+            border: 1px solid #000000;
             padding: 10px 20px;
-            border-radius: 50px;
+            border-radius: 6px;
             cursor: pointer;
             font-weight: 600;
             display: flex;
             align-items: center;
             gap: 8px;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
         }
         
         .home-btn:hover {
-            background: #3a56d4;
+            background: #000000;
+            color: #ffffff;
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(67, 97, 238, 0.4);
         }
         
         /* Chat Area Styles */
@@ -114,7 +111,7 @@
             flex: 1;
             padding: 25px;
             overflow-y: auto;
-            background: #f8f9fa;
+            background: #fafafa;
             display: flex;
             flex-direction: column;
             gap: 20px;
@@ -148,52 +145,52 @@
             border-radius: 50%;
             object-fit: cover;
             flex-shrink: 0;
-            border: 3px solid white;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border: 2px solid #000000;
         }
         
         .user-avatar {
-            filter: grayscale(100%);
-            background: #333;
+            background: #000000;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
+            color: #ffffff;
             font-size: 20px;
         }
         
         .ai-avatar {
-            background: white;
+            background: #ffffff;
             padding: 5px;
         }
         
         .bubble {
             padding: 18px 22px;
-            border-radius: 25px;
+            border-radius: 18px;
             position: relative;
             line-height: 1.5;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
             word-wrap: break-word;
+            max-width: 100%;
         }
         
         .user-bubble {
-            background: #1a1a2e;
-            color: white;
+            background: #000000;
+            color: #ffffff;
             border-top-left-radius: 5px;
-            border-bottom-right-radius: 25px;
+            border-bottom-right-radius: 18px;
+            border: 1px solid #000000;
         }
         
         .ai-bubble {
-            background: white;
-            color: #333;
-            border: 1px solid #e0e0e0;
+            background: #ffffff;
+            color: #000000;
+            border: 1px solid #000000;
             border-top-right-radius: 5px;
-            border-bottom-left-radius: 25px;
+            border-bottom-left-radius: 18px;
         }
         
         .message-time {
             font-size: 12px;
-            color: #888;
+            color: #666666;
             margin-top: 8px;
             display: flex;
             align-items: center;
@@ -206,31 +203,20 @@
         
         /* Footer Styles */
         .footer {
-            padding: 20px 25px;
-            background: white;
-            border-top: 1px solid #eee;
+            padding: 18px 25px;
+            background: #ffffff;
+            border-top: 1px solid #e0e0e0;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 15px;
         }
         
         .footer-text {
-            color: #666;
+            color: #000000;
             font-size: 14px;
             display: flex;
             align-items: center;
             gap: 8px;
-        }
-        
-        .heart {
-            color: #f72585;
-            animation: heartbeat 1.5s infinite;
-        }
-        
-        @keyframes heartbeat {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
         }
         
         /* Scrollbar Styling */
@@ -244,7 +230,7 @@
         }
         
         ::-webkit-scrollbar-thumb {
-            background: linear-gradient(180deg, #4361ee, #3a0ca3);
+            background: #000000;
             border-radius: 10px;
         }
         
@@ -252,11 +238,11 @@
         @media (max-width: 768px) {
             .container {
                 height: 95vh;
-                border-radius: 15px;
+                border-radius: 10px;
             }
             
             .header {
-                padding: 12px 20px;
+                padding: 15px 20px;
             }
             
             .title {
@@ -293,6 +279,24 @@
             .home-btn i {
                 margin: 0;
             }
+            
+            .subtitle {
+                display: none;
+            }
+        }
+        
+        /* Additional black-white styling */
+        .ai-bubble strong {
+            color: #000000;
+            font-weight: 700;
+        }
+        
+        .heart {
+            color: #000000;
+        }
+        
+        .fa-clock {
+            color: #666666;
         }
     </style>
 </head>
@@ -351,12 +355,7 @@
         <!-- Footer -->
         <div class="footer">
             <div class="footer-text">
-                <span>Powered by</span>
-                <strong style="color:#4361ee;">Kachoo Media</strong>
-                <span>•</span>
-                <span>Made with</span>
-                <i class="fas fa-heart heart"></i>
-                <span>for digital publishing</span>
+                <span>Powered by Kachoo Media</span>
             </div>
         </div>
     </div>
@@ -383,13 +382,6 @@
         logo.addEventListener('mouseout', function() {
             this.style.transform = 'scale(1)';
         });
-        
-        // Add typing indicator effect (optional for future messages)
-        function simulateTyping() {
-            return new Promise(resolve => {
-                setTimeout(resolve, 1000);
-            });
-        }
     </script>
 </body>
 </html>
