@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Management Dashboard</title>
+    <title>Project Kachoo</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
@@ -56,7 +56,7 @@
             50% { transform: translateY(-8px); }
         }
 
-        @keylines shimmer {
+        @keyframes shimmer {
             0% { background-position: -1000px 0; }
             100% { background-position: 1000px 0; }
         }
@@ -97,11 +97,13 @@
             justify-content: center;
             border-radius: 8px;
             animation: float 4s ease-in-out infinite;
+            overflow: hidden;
         }
 
-        .logo-icon i {
-            color: var(--pure-white);
-            font-size: 22px;
+        .logo-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .logo h1 {
@@ -174,6 +176,8 @@
             border: 1px solid var(--gray-200);
             animation: slideInRight 1s ease-out;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            max-height: 620px;
+            overflow-y: auto;
         }
 
         .calendar-container:hover {
@@ -186,6 +190,11 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 25px;
+            position: sticky;
+            top: 0;
+            background-color: var(--pure-white);
+            z-index: 10;
+            padding: 10px 0;
         }
 
         .calendar-header h2 {
@@ -215,6 +224,19 @@
             background-color: var(--gray-200);
         }
 
+        .calendar-month {
+            margin-bottom: 35px;
+        }
+
+        .calendar-month h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--gray-800);
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
         .calendar {
             width: 100%;
         }
@@ -234,15 +256,16 @@
         }
 
         .calendar-days div {
-            height: 50px;
+            height: 45px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 500;
-            border-radius: 10px;
+            border-radius: 8px;
             transition: all 0.2s ease;
             position: relative;
             cursor: pointer;
+            font-size: 15px;
         }
 
         .calendar-days div:hover {
@@ -290,6 +313,10 @@
             border-radius: 12px;
             border-left: 4px solid var(--pure-black);
             animation: fadeIn 0.8s ease-out;
+            position: sticky;
+            bottom: 0;
+            background-color: var(--pure-white);
+            border-top: 1px solid var(--gray-200);
         }
 
         .event-details h3 {
@@ -346,7 +373,7 @@
 
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 20px;
         }
 
@@ -361,12 +388,13 @@
             animation: slideInLeft 0.8s ease-out;
         }
 
-        .project-card:nth-child(2) { animation-delay: 0.1s; }
-        .project-card:nth-child(3) { animation-delay: 0.2s; }
-        .project-card:nth-child(4) { animation-delay: 0.3s; }
-        .project-card:nth-child(5) { animation-delay: 0.4s; }
-        .project-card:nth-child(6) { animation-delay: 0.5s; }
-        .project-card:nth-child(7) { animation-delay: 0.6s; }
+        .project-card:nth-child(1) { animation-delay: 0.1s; }
+        .project-card:nth-child(2) { animation-delay: 0.2s; }
+        .project-card:nth-child(3) { animation-delay: 0.3s; }
+        .project-card:nth-child(4) { animation-delay: 0.4s; }
+        .project-card:nth-child(5) { animation-delay: 0.5s; }
+        .project-card:nth-child(6) { animation-delay: 0.6s; }
+        .project-card:nth-child(7) { animation-delay: 0.7s; }
 
         .project-card:hover {
             transform: translateY(-8px);
@@ -399,6 +427,8 @@
         .project-title h3 {
             font-size: 18px;
             font-weight: 700;
+            flex: 1;
+            line-height: 1.4;
         }
 
         .project-status {
@@ -408,6 +438,8 @@
             border-radius: 50px;
             background-color: var(--gray-200);
             color: var(--gray-800);
+            white-space: nowrap;
+            margin-left: 10px;
         }
 
         .project-progress {
@@ -454,6 +486,10 @@
                 grid-template-columns: 1fr;
                 gap: 25px;
             }
+            
+            .calendar-container {
+                max-height: 500px;
+            }
         }
 
         @media (max-width: 768px) {
@@ -473,6 +509,16 @@
                 height: 40px;
                 font-size: 14px;
             }
+            
+            .project-title {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+            
+            .project-status {
+                margin-left: 0;
+            }
         }
     </style>
 </head>
@@ -482,7 +528,8 @@
         <header>
             <div class="logo">
                 <div class="logo-icon">
-                    <i class="fas fa-project-diagram"></i>
+                    <!-- Logo placeholder - replace with actual logo-thekachoo.png -->
+                    <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-weight: bold; color: white; font-size: 20px;">K</div>
                 </div>
                 <h1>Project<span>Management</span></h1>
             </div>
@@ -510,28 +557,17 @@
         <!-- Calendar Section -->
         <section class="calendar-container">
             <div class="calendar-header">
-                <h2>February 2026</h2>
+                <h2>2026 Calendar</h2>
                 <div class="calendar-nav">
-                    <button id="prevMonth"><i class="fas fa-chevron-left"></i></button>
-                    <button id="nextMonth"><i class="fas fa-chevron-right"></i></button>
+                    <button id="scrollTopBtn"><i class="fas fa-arrow-up"></i></button>
+                    <button id="scrollBottomBtn"><i class="fas fa-arrow-down"></i></button>
                 </div>
             </div>
-            <div class="calendar">
-                <div class="calendar-weekdays">
-                    <div>Sun</div>
-                    <div>Mon</div>
-                    <div>Tue</div>
-                    <div>Wed</div>
-                    <div>Thu</div>
-                    <div>Fri</div>
-                    <div>Sat</div>
-                </div>
-                <div class="calendar-days" id="calendarDays">
-                    <!-- Calendar days will be generated with JavaScript -->
-                </div>
+            <div id="yearCalendar">
+                <!-- Calendar months will be generated with JavaScript -->
             </div>
             <div class="event-details">
-                <h3><i class="far fa-calendar-check"></i> Upcoming Event: February 14, 2026</h3>
+                <h3><i class="far fa-calendar-check"></i> Upcoming Event: January 13, 2026</h3>
                 <p><strong>Kazine Vol 1 Issue 2 (Coming Soon)</strong> - Publication release for the second issue of Kazine magazine.</p>
             </div>
         </section>
@@ -569,9 +605,9 @@
         // Chart Configuration
         const ctx = document.getElementById('progressChart').getContext('2d');
         
-        // Generate chart data
+        // Generate chart data - line only until January 2026
         const months = ['Nov 2025', 'Dec 2025', 'Jan 2026', 'Feb 2026', 'Mar 2026'];
-        const progressData = [45, 62, 78, 0, 0]; // Data for Nov, Dec, Jan
+        const progressData = [45, 62, 78, null, null]; // Data for Nov, Dec, Jan only
         
         const progressChart = new Chart(ctx, {
             type: 'line',
@@ -588,8 +624,14 @@
                     pointBackgroundColor: '#000000',
                     pointBorderColor: '#FFFFFF',
                     pointBorderWidth: 2,
-                    pointRadius: 6,
-                    pointHoverRadius: 9
+                    pointRadius: [6, 6, 6, 0, 0], // Only show points for first three months
+                    pointHoverRadius: 9,
+                    segment: {
+                        borderColor: ctx => {
+                            // Only draw line until January (index 2)
+                            return ctx.p1DataIndex < 2 ? '#000000' : 'transparent';
+                        }
+                    }
                 }]
             },
             options: {
@@ -638,7 +680,11 @@
                         borderWidth: 1,
                         callbacks: {
                             label: function(context) {
-                                return `Completion: ${context.parsed.y}%`;
+                                if (context.dataIndex < 3) {
+                                    return `Completion: ${context.parsed.y}%`;
+                                } else {
+                                    return 'Data not available yet';
+                                }
                             }
                         }
                     }
@@ -664,105 +710,131 @@
         // Start animation after a delay
         setTimeout(animateChart, 1000);
         
-        // Calendar Generation
-        const calendarDays = document.getElementById('calendarDays');
-        const currentDate = new Date();
-        const currentYear = currentDate.getFullYear();
-        const currentMonth = currentDate.getMonth();
+        // Generate full year calendar 2026
+        const yearCalendar = document.getElementById('yearCalendar');
+        const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 
+                           'July', 'August', 'September', 'October', 'November', 'December'];
         
-        // February 2026 calendar
-        const calendarDate = new Date(2026, 1, 1); // February 2026
-        const month = calendarDate.getMonth();
-        const year = calendarDate.getFullYear();
-        
-        function generateCalendar(month, year) {
-            calendarDays.innerHTML = '';
+        function generateYearCalendar(year) {
+            yearCalendar.innerHTML = '';
             
-            // Get first day of month
-            const firstDay = new Date(year, month, 1);
-            // Get last day of month
-            const lastDay = new Date(year, month + 1, 0);
-            // Get number of days in month
-            const daysInMonth = lastDay.getDate();
-            // Get day of week for first day (0 = Sunday, 1 = Monday, etc.)
-            const startingDay = firstDay.getDay();
-            
-            // Add empty cells for days before first day of month
-            for (let i = 0; i < startingDay; i++) {
-                const emptyDay = document.createElement('div');
-                emptyDay.classList.add('empty-day');
-                calendarDays.appendChild(emptyDay);
-            }
-            
-            // Add cells for each day of the month
-            for (let day = 1; day <= daysInMonth; day++) {
-                const dayElement = document.createElement('div');
-                dayElement.textContent = day;
+            for (let month = 0; month < 12; month++) {
+                const monthContainer = document.createElement('div');
+                monthContainer.className = 'calendar-month';
                 
-                // Highlight current day
-                if (year === currentYear && month === currentMonth && day === currentDate.getDate()) {
-                    dayElement.classList.add('current-day');
+                const monthTitle = document.createElement('h3');
+                monthTitle.textContent = `${monthNames[month]} ${year}`;
+                monthContainer.appendChild(monthTitle);
+                
+                const calendar = document.createElement('div');
+                calendar.className = 'calendar';
+                
+                // Weekdays header
+                const weekdays = document.createElement('div');
+                weekdays.className = 'calendar-weekdays';
+                const weekdayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+                
+                weekdayNames.forEach(day => {
+                    const dayElement = document.createElement('div');
+                    dayElement.textContent = day;
+                    weekdays.appendChild(dayElement);
+                });
+                
+                calendar.appendChild(weekdays);
+                
+                // Days grid
+                const daysGrid = document.createElement('div');
+                daysGrid.className = 'calendar-days';
+                
+                // Get first day of month
+                const firstDay = new Date(year, month, 1);
+                // Get last day of month
+                const lastDay = new Date(year, month + 1, 0);
+                // Get number of days in month
+                const daysInMonth = lastDay.getDate();
+                // Get day of week for first day (0 = Sunday, 1 = Monday, etc.)
+                const startingDay = firstDay.getDay();
+                
+                // Add empty cells for days before first day of month
+                for (let i = 0; i < startingDay; i++) {
+                    const emptyDay = document.createElement('div');
+                    emptyDay.classList.add('empty-day');
+                    daysGrid.appendChild(emptyDay);
                 }
                 
-                // Mark event days
-                if (day === 14) { // February 14 event
-                    dayElement.classList.add('event-day');
-                    dayElement.setAttribute('data-event', 'Kazine Vol 1 Issue 2 (Coming Soon)');
+                // Add cells for each day of the month
+                for (let day = 1; day <= daysInMonth; day++) {
+                    const dayElement = document.createElement('div');
+                    dayElement.textContent = day;
+                    
+                    // Highlight current day if it's today
+                    const today = new Date();
+                    if (year === today.getFullYear() && month === today.getMonth() && day === today.getDate()) {
+                        dayElement.classList.add('current-day');
+                    }
+                    
+                    // Mark event days - January 13
+                    if (month === 0 && day === 13) { // January is month 0
+                        dayElement.classList.add('event-day');
+                        dayElement.setAttribute('data-event', 'Kazine Vol 1 Issue 2 (Coming Soon)');
+                    }
+                    
+                    daysGrid.appendChild(dayElement);
                 }
                 
-                calendarDays.appendChild(dayElement);
+                calendar.appendChild(daysGrid);
+                monthContainer.appendChild(calendar);
+                yearCalendar.appendChild(monthContainer);
             }
         }
         
-        generateCalendar(month, year);
+        generateYearCalendar(2026);
         
-        // Calendar navigation
-        document.getElementById('prevMonth').addEventListener('click', function() {
-            // In a full implementation, this would change to previous month
-            alert('In a full implementation, this would navigate to January 2026');
+        // Calendar navigation buttons
+        document.getElementById('scrollTopBtn').addEventListener('click', function() {
+            yearCalendar.scrollTo({ top: 0, behavior: 'smooth' });
         });
         
-        document.getElementById('nextMonth').addEventListener('click', function() {
-            // In a full implementation, this would change to next month
-            alert('In a full implementation, this would navigate to March 2026');
+        document.getElementById('scrollBottomBtn').addEventListener('click', function() {
+            yearCalendar.scrollTo({ top: yearCalendar.scrollHeight, behavior: 'smooth' });
         });
         
-        // Project Data
+        // Updated Project Data (sorted by progress descending)
         const projects = [
             { 
+                name: "Kafkapages The Man Behind Delanosa: Time & Lost Book Publish", 
+                progress: 60,
+                status: "In Revision"
+            },
+            { 
+                name: "Kafkapages The Madman : Malvier Book Publish", 
+                progress: 60,
+                status: "In Revision"
+            },
+            { 
                 name: "Kazine Collection : Batch 1", 
-                progress: 85,
+                progress: 50,
                 status: "In Progress"
             },
             { 
                 name: "Kaboom news about Kaducation", 
-                progress: 60,
+                progress: 30,
+                status: "In Progress"
+            },
+            { 
+                name: "Kazine Vol 1 Issue 2", 
+                progress: 30,
                 status: "In Progress"
             },
             { 
                 name: "Kaducation Project", 
-                progress: 40,
-                status: "Planning"
-            },
-            { 
-                name: "Kazine Vol 1 Issue 2", 
-                progress: 75,
-                status: "In Progress"
-            },
-            { 
-                name: "Kafkapages The Man Behind Delanosa: Time & Lost Book Publish", 
-                progress: 25,
-                status: "Planning"
-            },
-            { 
-                name: "Kafkapages The Madman : Malvier Book Publish", 
                 progress: 10,
-                status: "Planning"
+                status: "In Discussion"
             },
             { 
                 name: "Kazine Vol 1 Issue 3", 
-                progress: 5,
-                status: "Planning"
+                progress: 10,
+                status: "Initial Planning"
             }
         ];
         
@@ -806,6 +878,14 @@
                     }
                 });
             });
+        });
+        
+        // Add logo image dynamically
+        window.addEventListener('load', function() {
+            // This is where you would load the actual logo-thekachoo.png
+            // For now, we're using a placeholder with the letter K
+            // To use actual logo, replace the div inside .logo-icon with:
+            // <img src="logo-thekachoo.png" alt="The Kachoo Logo">
         });
     </script>
 </body>
