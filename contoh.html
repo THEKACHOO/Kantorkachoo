@@ -3,51 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kachoo Office - Creative Coordination Hub</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+    <title>KACHOO - Digital Media Hub</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        :root {
+            --primary-black: #000000;
+            --primary-white: #FFFFFF;
+            --accent-gray: #F5F5F7;
+            --text-gray: #6E6E73;
+            --card-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+            --hover-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+            --border-radius: 12px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        :root {
-            --primary-color: #1a1a1a;
-            --accent-color: #ff3366;
-            --light-color: #f8f9fa;
-            --gray-color: #6c757d;
-            --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #ffffff;
-            color: #1a1a1a;
-            line-height: 1.7;
+            background-color: var(--primary-white);
+            color: var(--primary-black);
+            line-height: 1.6;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
 
-        /* Header dengan efek glassmorphism */
+        /* Header - Modern UI */
         header {
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            color: var(--primary-color);
+            background-color: var(--primary-white);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
             padding: 20px 0;
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            backdrop-filter: blur(10px);
+            background-color: rgba(255, 255, 255, 0.92);
         }
 
         .header-content {
@@ -63,88 +67,72 @@
         }
 
         .logo-img {
-            height: 50px;
+            height: 40px;
             width: auto;
-            animation: floatLogo 6s ease-in-out infinite;
-        }
-
-        @keyframes floatLogo {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
         }
 
         .logo-text {
-            font-size: 28px;
-            font-weight: 800;
+            font-size: 24px;
+            font-weight: 900;
             letter-spacing: -0.5px;
-        }
-
-        .logo-text .highlight {
-            color: var(--accent-color);
+            color: var(--primary-black);
             position: relative;
         }
 
-        .logo-text .highlight::after {
+        .logo-text::after {
             content: '';
             position: absolute;
-            bottom: -2px;
+            bottom: -4px;
             left: 0;
-            width: 100%;
+            width: 24px;
             height: 3px;
-            background-color: var(--accent-color);
-            transform: scaleX(0);
-            transform-origin: right;
-            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            background-color: var(--primary-black);
+            transition: width 0.3s ease;
         }
 
-        .logo-container:hover .highlight::after {
-            transform: scaleX(1);
-            transform-origin: left;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-
-        nav ul li {
-            margin-left: 30px;
-        }
-
-        nav ul li a {
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 15px;
-            position: relative;
-            padding: 8px 0;
-            transition: var(--transition);
-        }
-
-        nav ul li a::before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--accent-color);
-            transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        nav ul li a:hover {
-            color: var(--accent-color);
-        }
-
-        nav ul li a:hover::before {
+        .logo-container:hover .logo-text::after {
             width: 100%;
         }
 
-        /* Hero Section dengan efek seperti Creatwise */
+        /* Navigation Menu */
+        .nav-menu {
+            display: flex;
+            gap: 4px;
+            background: var(--accent-gray);
+            padding: 4px;
+            border-radius: var(--border-radius);
+        }
+
+        .nav-button {
+            padding: 12px 24px;
+            background: transparent;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--text-gray);
+            cursor: pointer;
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+
+        .nav-button:hover {
+            color: var(--primary-black);
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-button.active {
+            color: var(--primary-black);
+            background: var(--primary-white);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Hero Section */
         .hero {
-            padding: 180px 0 100px;
-            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-            text-align: center;
+            padding: 160px 0 100px;
+            background: linear-gradient(135deg, #FFFFFF 0%, #FAFAFA 100%);
             position: relative;
             overflow: hidden;
         }
@@ -156,306 +144,257 @@
             left: 0;
             right: 0;
             height: 1px;
-            background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(0, 0, 0, 0.1) 50%, 
+                transparent 100%);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            padding: 8px 16px;
+            background: var(--accent-gray);
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-gray);
+            margin-bottom: 24px;
+            letter-spacing: 0.5px;
         }
 
         .hero h1 {
-            font-size: 4.5rem;
-            font-weight: 800;
-            margin-bottom: 20px;
+            font-size: 56px;
+            font-weight: 900;
             line-height: 1.1;
             letter-spacing: -1px;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeUp 1s 0.2s forwards;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, #000000 0%, #333333 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .hero-subtitle {
-            font-size: 1.25rem;
-            font-weight: 400;
-            color: var(--gray-color);
-            max-width: 700px;
+            font-size: 18px;
+            color: var(--text-gray);
+            max-width: 600px;
             margin: 0 auto 40px;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeUp 1s 0.4s forwards;
+            line-height: 1.7;
         }
 
-        @keyframes fadeUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Progress Bar seperti di Creatwise */
-        .progress-section {
-            background-color: #fff;
+        /* Stats Section */
+        .stats-section {
             padding: 80px 0;
+            background: var(--primary-white);
         }
 
-        .progress-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .progress-title {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 40px;
-            text-align: center;
-            position: relative;
-        }
-
-        .progress-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 4px;
-            background-color: var(--accent-color);
-        }
-
-        .progress-item {
-            margin-bottom: 40px;
-            opacity: 0;
-            transform: translateX(-30px);
-            transition: opacity 0.8s, transform 0.8s;
-        }
-
-        .progress-item.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .progress-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
-        .progress-label {
-            font-size: 1.25rem;
-            font-weight: 600;
-        }
-
-        .progress-percentage {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--accent-color);
-        }
-
-        .progress-bar {
-            height: 8px;
-            background-color: #e9ecef;
-            border-radius: 4px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background-color: var(--accent-color);
-            border-radius: 4px;
-            width: 0;
-            transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        /* Section dengan grid seperti Creatwise */
-        .section {
-            padding: 100px 0;
-            position: relative;
-        }
-
-        .section-dark {
-            background-color: var(--primary-color);
-            color: #fff;
-        }
-
-        .section-title {
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 20px;
-            line-height: 1.1;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-subtitle {
-            font-size: 1.125rem;
-            color: var(--gray-color);
-            max-width: 700px;
-            margin-bottom: 60px;
-        }
-
-        .section-dark .section-subtitle {
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        .design-grid {
+        .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin-top: 60px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
         }
 
-        .design-card {
-            background-color: #fff;
-            border-radius: 12px;
-            padding: 40px 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        .stat-card {
+            background: var(--primary-white);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: var(--border-radius);
+            padding: 32px;
             transition: var(--transition);
-            border: 1px solid rgba(0, 0, 0, 0.05);
             position: relative;
             overflow: hidden;
         }
 
-        .section-dark .design-card {
-            background-color: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .design-card::before {
+        .stat-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 4px;
-            background-color: var(--accent-color);
+            right: 0;
+            height: 1px;
+            background: var(--primary-black);
             transform: scaleX(0);
             transform-origin: left;
-            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: transform 0.4s ease;
         }
 
-        .design-card:hover::before {
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--hover-shadow);
+        }
+
+        .stat-card:hover::before {
             transform: scaleX(1);
         }
 
-        .design-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        .stat-value {
+            font-size: 48px;
+            font-weight: 900;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #000000 0%, #333333 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        .design-icon {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: var(--accent-color);
+        .stat-label {
+            font-size: 16px;
+            color: var(--text-gray);
+            font-weight: 500;
         }
 
-        .design-card h3 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-        }
-
-        .design-card p {
-            color: var(--gray-color);
-            font-size: 0.95rem;
-        }
-
-        .section-dark .design-card p {
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        /* Process Flow dengan animasi baru */
-        .process-flow {
-            position: relative;
+        /* Process Section */
+        .process-section {
             padding: 100px 0;
-            background-color: var(--light-color);
+            background: var(--accent-gray);
         }
 
-        .process-container {
-            position: relative;
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
         }
 
-        .process-line {
-            position: absolute;
-            top: 100px;
-            left: 50px;
-            right: 50px;
-            height: 2px;
-            background-color: rgba(0, 0, 0, 0.1);
-            z-index: 1;
+        .section-title {
+            font-size: 40px;
+            font-weight: 900;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
         }
 
-        .process-line::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 0;
-            background-color: var(--accent-color);
-            animation: processLine 4s 1s forwards cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        @keyframes processLine {
-            to { width: 100%; }
+        .section-subtitle {
+            font-size: 18px;
+            color: var(--text-gray);
         }
 
         .process-steps {
-            display: flex;
-            justify-content: space-between;
-            position: relative;
-            z-index: 2;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
+            counter-reset: step-counter;
         }
 
         .process-step {
-            text-align: center;
-            width: 200px;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeUp 0.8s forwards;
+            background: var(--primary-white);
+            border-radius: var(--border-radius);
+            padding: 40px 32px;
+            position: relative;
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.05);
         }
 
-        .process-step:nth-child(1) { animation-delay: 0.3s; }
-        .process-step:nth-child(2) { animation-delay: 0.6s; }
-        .process-step:nth-child(3) { animation-delay: 0.9s; }
-        .process-step:nth-child(4) { animation-delay: 1.2s; }
-
-        .step-circle {
-            width: 80px;
-            height: 80px;
-            background-color: #fff;
+        .process-step::before {
+            counter-increment: step-counter;
+            content: counter(step-counter);
+            position: absolute;
+            top: -20px;
+            left: 32px;
+            width: 40px;
+            height: 40px;
+            background: var(--primary-black);
+            color: var(--primary-white);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
+            font-size: 18px;
             font-weight: 700;
-            color: var(--accent-color);
-            margin: 0 auto 20px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            border: 3px solid transparent;
+        }
+
+        .process-step:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--hover-shadow);
+        }
+
+        .step-icon {
+            font-size: 32px;
+            margin-bottom: 24px;
+            color: var(--primary-black);
+        }
+
+        .step-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .step-description {
+            font-size: 15px;
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 100px 0;
+            background: var(--primary-white);
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .faq-item {
+            background: var(--primary-white);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: var(--border-radius);
+            padding: 32px;
             transition: var(--transition);
+            cursor: pointer;
         }
 
-        .process-step:hover .step-circle {
-            transform: scale(1.1);
-            border-color: var(--accent-color);
+        .faq-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--hover-shadow);
         }
 
-        .step-content h4 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 10px;
+        .faq-question {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .step-content p {
-            color: var(--gray-color);
-            font-size: 0.9rem;
+        .faq-answer {
+            font-size: 15px;
+            color: var(--text-gray);
+            line-height: 1.6;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            margin-top: 16px;
+        }
+
+        .faq-toggle {
+            color: var(--text-gray);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
         }
 
         /* CTA Section */
         .cta-section {
             padding: 120px 0;
+            background: linear-gradient(135deg, #000000 0%, #1A1A1A 100%);
+            color: var(--primary-white);
             text-align: center;
-            background: linear-gradient(135deg, var(--primary-color) 0%, #2d2d2d 100%);
-            color: #fff;
             position: relative;
             overflow: hidden;
         }
@@ -467,90 +406,83 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(circle at 30% 50%, rgba(255, 51, 102, 0.1) 0%, transparent 70%);
+            background: radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         .cta-title {
-            font-size: 3.5rem;
-            font-weight: 800;
-            margin-bottom: 20px;
-            line-height: 1.1;
+            font-size: 48px;
+            font-weight: 900;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
         }
 
         .cta-subtitle {
-            font-size: 1.25rem;
+            font-size: 18px;
             color: rgba(255, 255, 255, 0.8);
-            max-width: 700px;
-            margin: 0 auto 40px;
+            margin-bottom: 40px;
+            line-height: 1.7;
         }
 
         .cta-button {
-            display: inline-block;
-            background-color: var(--accent-color);
-            color: #fff;
-            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--primary-white);
+            color: var(--primary-black);
             padding: 18px 40px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1rem;
-            letter-spacing: 0.5px;
+            border-radius: var(--border-radius);
+            font-size: 16px;
+            font-weight: 700;
+            text-decoration: none;
             transition: var(--transition);
-            border: 2px solid var(--accent-color);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.7s;
+            border: 2px solid transparent;
         }
 
         .cta-button:hover {
-            background-color: transparent;
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(255, 51, 102, 0.3);
-        }
-
-        .cta-button:hover::before {
-            left: 100%;
+            background: transparent;
+            color: var(--primary-white);
+            border-color: var(--primary-white);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(255, 255, 255, 0.1);
         }
 
         /* Footer */
         footer {
-            background-color: #0a0a0a;
-            color: #fff;
+            background: var(--primary-black);
+            color: var(--primary-white);
             padding: 80px 0 40px;
         }
 
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
+            gap: 48px;
             margin-bottom: 60px;
         }
 
-        .footer-column h3 {
-            font-size: 1.25rem;
+        .footer-section h3 {
+            font-size: 18px;
             font-weight: 700;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
             position: relative;
             display: inline-block;
         }
 
-        .footer-column h3::after {
+        .footer-section h3::after {
             content: '';
             position: absolute;
-            bottom: -5px;
+            bottom: -8px;
             left: 0;
-            width: 40px;
+            width: 32px;
             height: 2px;
-            background-color: var(--accent-color);
+            background: var(--primary-white);
         }
 
         .footer-links {
@@ -558,24 +490,25 @@
         }
 
         .footer-links li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
         .footer-links a {
             color: rgba(255, 255, 255, 0.7);
             text-decoration: none;
+            font-size: 15px;
             transition: var(--transition);
         }
 
         .footer-links a:hover {
-            color: #fff;
-            padding-left: 5px;
+            color: var(--primary-white);
+            padding-left: 8px;
         }
 
         .social-links {
             display: flex;
-            gap: 15px;
-            margin-top: 20px;
+            gap: 16px;
+            margin-top: 24px;
         }
 
         .social-link {
@@ -584,16 +517,17 @@
             justify-content: center;
             width: 40px;
             height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
-            color: #fff;
+            color: var(--primary-white);
             text-decoration: none;
             transition: var(--transition);
         }
 
         .social-link:hover {
-            background-color: var(--accent-color);
-            transform: translateY(-5px);
+            background: var(--primary-white);
+            color: var(--primary-black);
+            transform: translateY(-4px);
         }
 
         .copyright {
@@ -601,398 +535,426 @@
             padding-top: 40px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: rgba(255, 255, 255, 0.5);
-            font-size: 0.9rem;
+            font-size: 14px;
         }
 
-        /* Responsive */
-        @media (max-width: 992px) {
+        /* Responsive Design */
+        @media (max-width: 1024px) {
             .hero h1 {
-                font-size: 3.5rem;
+                font-size: 48px;
             }
             
             .section-title {
-                font-size: 2.5rem;
+                font-size: 36px;
             }
             
-            .process-steps {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 40px;
-            }
-            
-            .process-line {
-                display: none;
-            }
-            
-            .process-step {
-                width: 45%;
+            .nav-menu {
+                overflow-x: auto;
+                padding: 8px;
+                gap: 2px;
             }
         }
 
         @media (max-width: 768px) {
-            header {
-                padding: 15px 0;
-            }
-            
             .header-content {
                 flex-direction: column;
                 gap: 20px;
             }
             
-            nav ul {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            
-            nav ul li {
-                margin: 0 10px 10px;
-            }
-            
             .hero {
-                padding: 150px 0 80px;
+                padding: 140px 0 60px;
             }
             
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 36px;
             }
             
-            .section, .process-flow, .progress-section {
-                padding: 60px 0;
+            .hero-subtitle {
+                font-size: 16px;
             }
             
-            .process-step {
-                width: 100%;
+            .section-title {
+                font-size: 32px;
+            }
+            
+            .stat-value {
+                font-size: 36px;
             }
             
             .cta-title {
-                font-size: 2.5rem;
+                font-size: 36px;
+            }
+            
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 16px;
+            }
+            
+            .hero h1 {
+                font-size: 28px;
+            }
+            
+            .nav-button {
+                padding: 10px 16px;
+                font-size: 13px;
+            }
+            
+            .stat-card {
+                padding: 24px;
+            }
+            
+            .faq-item {
+                padding: 24px;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Header -->
     <header>
         <div class="container header-content">
             <div class="logo-container">
-                <img src="logo-thekachoo.png" alt="Kachoo Logo" class="logo-img">
-                <div class="logo-text">
-                    <span class="highlight">KACHOO</span> OFFICE
-                </div>
+                <img src="logo-thekachoo.png" alt="KACHOO Logo" class="logo-img">
+                <div class="logo-text">KACHOO</div>
             </div>
-            <nav>
-                <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#progress">Progress</a></li>
-                    <li><a href="#process">Process</a></li>
-                    <li><a href="#facilities">Facilities</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
+            
+            <nav class="nav-menu">
+                <a href="#holding" class="nav-button active">Holding Company</a>
+                <a href="https://thekachoo.github.io/Home/kafkapages.html" class="nav-button">Kafkapages</a>
+                <a href="https://thekachoo.github.io/Home/kazine.html" class="nav-button">Kazine Collection</a>
+                <a href="https://thekachoo.github.io/Home/kaboom.html" class="nav-button">Kaboom</a>
+                <a href="https://thekachoo.github.io/Home/kazinevol1.html" class="nav-button">KAZINE VOLUME 1</a>
+                <a href="#projects" class="nav-button">Project Management</a>
+                <a href="#contact" class="nav-button">Contact</a>
             </nav>
         </div>
     </header>
 
+    <!-- Hero Section -->
     <section class="hero">
-        <div class="container">
-            <h1>WE CRAFT PUBLICATIONS & CREATIVE EXPERIENCES</h1>
+        <div class="container hero-content">
+            <div class="hero-tag">THE NEXT BIG THING IN DIGITAL MEDIA</div>
+            <h1>WE TURN IDEAS INTO ATTENTION</h1>
             <p class="hero-subtitle">
-                From initial manuscript to final publication, we bring your vision to life with tailored editorial services and creative coordination.
+                We are a digital-first media and news publication built to shape conversations in a fast-moving world. By transforming ideas into compelling narratives, we help stories gain visibility, relevance, and lasting impact. Our platform exists to spotlight what matters, connecting information, creativity, and public interest through modern digital channels.
             </p>
-            <div class="office-address" style="background-color: rgba(0,0,0,0.05); padding: 15px 25px; border-radius: 50px; display: inline-block; margin-top: 20px;">
-                <i class="fas fa-map-marker-alt" style="margin-right: 8px; color: var(--accent-color);"></i>
-                <strong>Jenderal Sudirman Avenue, Lots 61–62, South Jakarta 12930</strong>
-            </div>
-        </div>
-    </section>
-
-    <section class="progress-section" id="progress">
-        <div class="container progress-container">
-            <h2 class="progress-title">Current Project Progress</h2>
-            
-            <div class="progress-item" id="progress1">
-                <div class="progress-header">
-                    <div class="progress-label">Manuscript Coordination</div>
-                    <div class="progress-percentage">85%</div>
+            <div style="margin-top: 40px; display: inline-flex; align-items: center; gap: 20px; background: var(--accent-gray); padding: 12px 24px; border-radius: var(--border-radius);">
+                <div style="text-align: center;">
+                    <div style="font-size: 32px; font-weight: 900; color: var(--primary-black);">4.8</div>
+                    <div style="font-size: 14px; color: var(--text-gray);">Media Rating</div>
                 </div>
-                <div class="progress-bar">
-                    <div class="progress-fill" style="width: 0;" data-width="85"></div>
-                </div>
-            </div>
-            
-            <div class="progress-item" id="progress2">
-                <div class="progress-header">
-                    <div class="progress-label">Editorial Review</div>
-                    <div class="progress-percentage">72%</div>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress-fill" style="width: 0;" data-width="72"></div>
-                </div>
-            </div>
-            
-            <div class="progress-item" id="progress3">
-                <div class="progress-header">
-                    <div class="progress-label">Design & Layout</div>
-                    <div class="progress-percentage">40%</div>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress-fill" style="width: 0;" data-width="40"></div>
-                </div>
-            </div>
-            
-            <div class="progress-item" id="progress4">
-                <div class="progress-header">
-                    <div class="progress-label">Production Readiness</div>
-                    <div class="progress-percentage">20%</div>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress-fill" style="width: 0;" data-width="20"></div>
+                <div style="height: 40px; width: 1px; background: rgba(0,0,0,0.1);"></div>
+                <div>
+                    <div style="font-size: 24px; font-weight: 900; color: var(--primary-black);">230+</div>
+                    <div style="font-size: 14px; color: var(--text-gray);">Projects Delivered</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="section" id="about">
+    <!-- Stats Section -->
+    <section class="stats-section">
         <div class="container">
-            <h2 class="section-title">Meet Kachoo: Your Creative Partners</h2>
-            <p class="section-subtitle">
-                When you partner with creative problem solvers who understand your vision, the possibilities are endless. We live for crafting exceptional publications and meaningful digital experiences.
-            </p>
+            <div class="section-header">
+                <h2 class="section-title">Safe & Convenient Publishing</h2>
+                <p class="section-subtitle">Instant, quality publications. Keep your content fresh and keep engaging audiences.</p>
+            </div>
             
-            <div class="design-grid">
-                <div class="design-card">
-                    <div class="design-icon">
-                        <i class="fas fa-pen-fancy"></i>
-                    </div>
-                    <h3>Editorial Excellence</h3>
-                    <p>We coordinate manuscripts and publications with precision and creative insight, ensuring every piece meets our high standards.</p>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value">98%</div>
+                    <div class="stat-label">Content Accuracy</div>
                 </div>
-                
-                <div class="design-card">
-                    <div class="design-icon">
-                        <i class="fas fa-layer-group"></i>
-                    </div>
-                    <h3>Creative Design</h3>
-                    <p>Our design team creates compelling visual experiences that enhance your content and engage your audience.</p>
+                <div class="stat-card">
+                    <div class="stat-value">24h</div>
+                    <div class="stat-label">Average Turnaround</div>
                 </div>
-                
-                <div class="design-card">
-                    <div class="design-icon">
-                        <i class="fas fa-rocket"></i>
-                    </div>
-                    <h3>Strategic Coordination</h3>
-                    <p>We streamline the publication process from initial submission to final production, optimizing every step along the way.</p>
+                <div class="stat-card">
+                    <div class="stat-value">10K+</div>
+                    <div class="stat-label">Monthly Readers</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">∞</div>
+                    <div class="stat-label">Creative Possibilities</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="process-flow" id="process">
-        <div class="container process-container">
-            <h2 class="section-title">Our Creative Process</h2>
-            <p class="section-subtitle" style="text-align: center; max-width: 800px; margin: 0 auto 60px;">
-                Every publication follows our refined creative workflow to ensure quality and consistency.
-            </p>
-            
-            <div class="process-line"></div>
+    <!-- Process Section -->
+    <section class="process-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">4 Quick Steps To Use Our Services</h2>
+                <p class="section-subtitle">Streamlined process for maximum impact</p>
+            </div>
             
             <div class="process-steps">
                 <div class="process-step">
-                    <div class="step-circle">1</div>
-                    <div class="step-content">
-                        <h4>Define</h4>
-                        <p>Initial assessment and scope definition for each project.</p>
-                    </div>
+                    <div class="step-icon">📱</div>
+                    <h3 class="step-title">Explore Platform</h3>
+                    <p class="step-description">Browse our digital publications and understand our media ecosystem.</p>
                 </div>
-                
                 <div class="process-step">
-                    <div class="step-circle">2</div>
-                    <div class="step-content">
-                        <h4>Design</h4>
-                        <p>Creative direction and visual design for publications.</p>
-                    </div>
+                    <div class="step-icon">🎯</div>
+                    <h3 class="step-title">Choose Publication</h3>
+                    <p class="step-description">Select the right platform for your content: Kafkapages, Kazine, or Kaboom.</p>
                 </div>
-                
                 <div class="process-step">
-                    <div class="step-circle">3</div>
-                    <div class="step-content">
-                        <h4>Develop</h4>
-                        <p>Editorial development and content refinement.</p>
-                    </div>
+                    <div class="step-icon">✍️</div>
+                    <h3 class="step-title">Submit Content</h3>
+                    <p class="step-description">Share your story, article, or creative piece with our editorial team.</p>
                 </div>
-                
                 <div class="process-step">
-                    <div class="step-circle">4</div>
-                    <div class="step-content">
-                        <h4>Deliver</h4>
-                        <p>Final coordination and transfer to production.</p>
-                    </div>
+                    <div class="step-icon">🚀</div>
+                    <h3 class="step-title">Get Published</h3>
+                    <p class="step-description">Watch your ideas gain traction and reach engaged audiences.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="section section-dark" id="facilities">
+    <!-- FAQ Section -->
+    <section class="faq-section">
         <div class="container">
-            <h2 class="section-title">We Design Meaningful Experiences</h2>
-            <p class="section-subtitle">
-                Not just quick impressions, but lasting creative impact. Our office is designed to foster creativity and collaboration at every step.
-            </p>
+            <div class="section-header">
+                <h2 class="section-title">Have Questions About KACHOO?</h2>
+                <p class="section-subtitle">Find answers to our most frequently asked questions</p>
+            </div>
             
-            <div class="design-grid">
-                <div class="design-card">
-                    <h3>Creative Spaces</h3>
-                    <p>Our offices are designed to inspire creativity and collaboration, with dedicated areas for different stages of the publication process.</p>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What is KACHOO?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        KACHOO is a digital-first media holding company that transforms ideas into attention through multiple publication platforms including Kafkapages, Kazine, and Kaboom.
+                    </div>
                 </div>
                 
-                <div class="design-card">
-                    <h3>Modern Tools</h3>
-                    <p>We use the latest editorial and design tools to ensure efficiency and quality in every project we coordinate.</p>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How To Submit Content?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        You can submit content through our various platform websites. Each publication has specific submission guidelines tailored to its audience and format.
+                    </div>
                 </div>
                 
-                <div class="design-card">
-                    <h3>Collaborative Culture</h3>
-                    <p>Our team works together seamlessly, sharing insights and expertise to create the best possible outcome for every publication.</p>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What Are The Advantages?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        We offer digital distribution, editorial excellence, creative design, and targeted audience reach across multiple specialized media platforms.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How To Collaborate?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Contact our project management team to discuss partnerships, sponsored content, or media collaborations that align with your goals.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Who Is Our Audience?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Our audience includes readers, thinkers, creators, and professionals interested in quality digital content across literature, culture, news, and creative expression.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Content Guidelines?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        We maintain high editorial standards. All content must be original, well-researched, and align with the specific focus of the chosen publication platform.
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- CTA Section -->
     <section class="cta-section">
-        <div class="container">
-            <h2 class="cta-title">Let's Start Creating Together</h2>
+        <div class="container cta-content">
+            <h2 class="cta-title">Explore Our Publications</h2>
             <p class="cta-subtitle">
-                Ready to bring your publication ideas to life? Contact us today to discuss your project and how we can help coordinate your creative vision.
+                Dive into our digital media ecosystem and discover platforms designed for every type of content creator and reader.
             </p>
-            <a href="#contact" class="cta-button">Start Your Project</a>
+            <a href="#publications" class="cta-button">
+                <span>View All Platforms</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
         </div>
     </section>
 
+    <!-- Footer -->
     <footer id="contact">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-column">
-                    <h3>Kachoo Office</h3>
-                    <p style="color: rgba(255, 255, 255, 0.7); margin-top: 15px; max-width: 300px;">
-                        The coordination hub for all Kachoo publications, where creative journeys begin.
+                <div class="footer-section">
+                    <h3>KACHOO</h3>
+                    <p style="color: rgba(255,255,255,0.7); margin-top: 16px; max-width: 300px;">
+                        Digital media holding company turning ideas into attention through innovative publications.
                     </p>
                     <div class="social-links">
-                        <a href="mailto:ohkachoo@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
-                        <a href="https://twitter.com/thekachoo" target="_blank" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="mailto:ohkachoo@gmail.com" class="social-link">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="https://twitter.com/thekachoo" target="_blank" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
                     </div>
                 </div>
                 
-                <div class="footer-column">
+                <div class="footer-section">
                     <h3>Quick Links</h3>
                     <ul class="footer-links">
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#progress">Our Progress</a></li>
-                        <li><a href="#process">Our Process</a></li>
-                        <li><a href="#facilities">Facilities</a></li>
+                        <li><a href="#holding">Holding Company</a></li>
+                        <li><a href="https://thekachoo.github.io/Home/kafkapages.html">Kafkapages</a></li>
+                        <li><a href="https://thekachoo.github.io/Home/kazine.html">Kazine Collection</a></li>
+                        <li><a href="https://thekachoo.github.io/Home/kaboom.html">Kaboom</a></li>
                     </ul>
                 </div>
                 
-                <div class="footer-column">
+                <div class="footer-section">
+                    <h3>More</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://thekachoo.github.io/Home/kazinevol1.html">KAZINE VOLUME 1</a></li>
+                        <li><a href="#projects">Project Management</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="#editorial">Editorial Guidelines</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
                     <h3>Contact Info</h3>
                     <ul class="footer-links">
-                        <li><i class="fas fa-map-marker-alt" style="margin-right: 10px; color: var(--accent-color);"></i> Jenderal Sudirman Avenue, Jakarta</li>
-                        <li><i class="fas fa-envelope" style="margin-right: 10px; color: var(--accent-color);"></i> ohkachoo@gmail.com</li>
-                        <li><i class="fas fa-phone" style="margin-right: 10px; color: var(--accent-color);"></i> +62 21 1234 5678</li>
+                        <li style="color: rgba(255,255,255,0.7); margin-bottom: 20px;">
+                            <i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i>
+                            Jenderal Sudirman Avenue, South Jakarta
+                        </li>
+                        <li style="color: rgba(255,255,255,0.7);">
+                            <i class="fas fa-envelope" style="margin-right: 10px;"></i>
+                            ohkachoo@gmail.com
+                        </li>
                     </ul>
                 </div>
             </div>
             
             <div class="copyright">
-                &copy; 2026 Kachoo Creative Coordination Hub. All creative journeys begin here.
+                &copy; 2026 KACHOO Digital Media Hub. All rights reserved. Turning ideas into attention since 2023.
             </div>
         </div>
     </footer>
 
     <script>
-        // Progress bar animation
-        document.addEventListener('DOMContentLoaded', function() {
-            // Animate progress bars when they come into view
-            const progressItems = document.querySelectorAll('.progress-item');
-            const progressFills = document.querySelectorAll('.progress-fill');
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        
-                        // Animate progress fill
-                        const progressFill = entry.target.querySelector('.progress-fill');
-                        if (progressFill) {
-                            const width = progressFill.getAttribute('data-width');
-                            setTimeout(() => {
-                                progressFill.style.width = width + '%';
-                            }, 300);
-                        }
+        // FAQ Toggle Functionality
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.addEventListener('click', () => {
+                // Close all other FAQ items
+                document.querySelectorAll('.faq-item').forEach(otherItem => {
+                    if (otherItem !== item && otherItem.classList.contains('active')) {
+                        otherItem.classList.remove('active');
                     }
                 });
-            }, { threshold: 0.3 });
-            
-            progressItems.forEach(item => {
-                observer.observe(item);
+                
+                // Toggle current item
+                item.classList.toggle('active');
             });
-            
-            // Smooth scrolling for navigation links
-            document.querySelectorAll('nav a[href^="#"], .cta-button[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
+        });
+
+        // Navigation Button Active State
+        document.querySelectorAll('.nav-button').forEach(button => {
+            button.addEventListener('click', function(e) {
+                if (this.getAttribute('href').startsWith('#')) {
                     e.preventDefault();
                     
-                    const targetId = this.getAttribute('href');
-                    if (targetId === '#') return;
+                    // Remove active class from all buttons
+                    document.querySelectorAll('.nav-button').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
                     
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Smooth scroll to section
+                    const targetId = this.getAttribute('href');
                     const targetElement = document.querySelector(targetId);
+                    
                     if (targetElement) {
                         window.scrollTo({
                             top: targetElement.offsetTop - 100,
                             behavior: 'smooth'
                         });
                     }
-                });
+                }
             });
-            
-            // Add hover effect to design cards
-            document.querySelectorAll('.design-card').forEach(card => {
-                card.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-15px)';
-                });
-                
-                card.addEventListener('mouseleave', function() {
-                    this.style.transform = 'translateY(-10px)';
-                });
-            });
-            
-            // Animate elements on scroll
-            const animateOnScroll = () => {
-                const elements = document.querySelectorAll('.design-card, .process-step, .section-title, .section-subtitle');
-                
-                elements.forEach(element => {
-                    const elementTop = element.getBoundingClientRect().top;
-                    const elementVisible = 150;
-                    
-                    if (elementTop < window.innerHeight - elementVisible) {
-                        element.style.opacity = '1';
-                        element.style.transform = 'translateY(0)';
-                    }
-                });
-            };
-            
-            // Set initial state for animated elements
-            document.querySelectorAll('.design-card, .process-step').forEach(el => {
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(30px)';
-                el.style.transition = 'opacity 0.8s, transform 0.8s';
-            });
-            
-            // Listen for scroll events
-            window.addEventListener('scroll', animateOnScroll);
-            
-            // Trigger once on load
-            animateOnScroll();
         });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.boxShadow = '0 4px 24px rgba(0, 0, 0, 0.08)';
+                header.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                header.style.boxShadow = 'none';
+                header.style.backgroundColor = 'rgba(255, 255, 255, 0.92)';
+            }
+        });
+
+        // Animate stats on scroll
+        const observerOptions = {
+            threshold: 0.5
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const statValue = entry.target.querySelector('.stat-value');
+                    if (statValue) {
+                        // Add animation class
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // Observe all stat cards
+        document.querySelectorAll('.stat-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+
+        // Set initial header state
+        window.dispatchEvent(new Event('scroll'));
     </script>
 </body>
 </html>
